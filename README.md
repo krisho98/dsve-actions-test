@@ -20,6 +20,7 @@ Leverandør | På vegne av
 Ambita AS | Bank/Megler
 Websystemer AS | Megler
 Nordea Bank AB (publ), filial i Norge | Bank
+Evry | Bank
 
 #### AFPANT-løsningen muliggjør følgende:
 * Overføring av 1 e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
@@ -36,6 +37,6 @@ Følgebrevet fra bank inneholder normalt sett viktige detaljer om overførselen:
 * Retur av bekreftet grunnboksutskrift som bekrefter oppnådd prioritet
 
 #### Spesifikasjoner
-Spesifikasjon på AFPANT dekker hvordan sende pantedokument+følgebrev fra bank til megler/oppgjør samt implementasjonsregler for mottak/ruting av forsendelser fra bank: https://github.com/Websystemer-AS/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-1-0-0.md
+Spesifikasjon på AFPANT dekker hvordan sende pantedokument+følgebrev fra bank til megler/oppgjør samt implementasjonsregler for mottak/ruting av forsendelser fra bank: https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-1-0-0.md
 
-Spesifikasjon på AFPANT Følgebrev dekker hvordan bankens følgebrev til megler/oppgjør skal utformes som XML: https://github.com/Websystemer-AS/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-folgebrev/afpant-folgebrev-1-0-0.md
+Spesifikasjon på AFPANT Følgebrev dekker hvordan bankens følgebrev til megler/oppgjør skal utformes som XML: https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-folgebrev/afpant-folgebrev-1-0-0.md
