@@ -73,7 +73,7 @@ Wildcard "&ast;" kan erstattes med en vilkårlig streng (må være et gyldig fil
 - SignedMortgageDeedProcessedMessage.statusDescription må være angitt på norsk.
 
 ## Avlesningskvittering
-Etter fullført prosessering av en forsendelse, vil mottakende systemleverandør returnerer en avlesningskvittering via Altinn Formidlingstjeneste til avsender-bank. Denne vil innehollde en strukturert Ack/nack-melding som kan brukes av avsender-bank til å oppdatere state/workflow i eget (bank)fagsystem.
+Etter fullført prosessering av en forsendelse, vil mottakende systemleverandør returnerer en avlesningskvittering via Altinn Formidlingstjeneste til avsender-bank. Denne vil inneholde en strukturert Ack/nack-melding som kan brukes av avsender-bank til å oppdatere state/workflow i eget (bank)fagsystem.
 
 ## Altinn Formidlingstjeneste: Manifest
 Altinn ServiceEngine Broker støtter at avsender angir egendefinerte key/value pairs i Manifest.PropertyList (Manifest-objektet angis i ServiceEngine BrokerServiceInitiation.Manifest property). 
