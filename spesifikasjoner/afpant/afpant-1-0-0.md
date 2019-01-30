@@ -58,7 +58,7 @@ For å rute forsendelsen blir pantedokumentet pakket ut fra SDO, og matrikkelenh
 
 ### Krav til filnavn i ZIP-arkiv<a name="zip-filnavn-krav"></a>
 - Eventuelt følgebrev må følge konvensjonen: "coverletter_&ast;.[pdf|xml]". Filtype må samsvare med valgt verdi i 'coverLetter'.
-- Pantedokumentet må følge konvensjonen: "signedmortgagedeed_&ast;.sdo"
+- Pantedokumentet må følge konvensjonen: "signedmortgagedeed_&ast;.[sdo|xml]"
 Wildcard "&ast;" kan erstattes med en vilkårlig streng (må være et gyldig filnavn), f.eks lånesaksnummer eller annen relevant referanse for avsender.
 
 ### Implementasjonsbeskrivelse: ruting
