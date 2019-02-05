@@ -36,3 +36,7 @@ Vi bekrefter med dette at pantet (pantene)/lånene ikke vil opplånes uten samty
 
 
 Ved realkausjon og valutalån må banken svare manuelt. 
+
+
+## Implementasjonsdetaljer
+Se [her for tekniske detaljer](resgjeldsoppgave-0-1-0.md)
