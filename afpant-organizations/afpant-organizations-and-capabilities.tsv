@@ -1,6 +1,5 @@
 ﻿Provider	CompanyName	OrganizationNumber	SupportedMessageTypes
-Websystemer AS	Aktiv Eiendomsoppgjør AS	984484496	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Aure & Valskaar AS	980132455	SignedMortgageDeed,SignedMortgageDeedProcessed
+Websystemer AS	Aktiv Eiendomsoppgjør AS	984484496	SignedMortgageDeed,SignedMortgageDeedProcessed 
 Websystemer AS	Aure Valskaar & Odden AS	988320161	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Bankenes Boligmegler AS	981129792	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Boli Eiendom Namsos AS	994969315	SignedMortgageDeed,SignedMortgageDeedProcessed
@@ -10,12 +9,10 @@ Websystemer AS	Fjordane Advokatkontor AS	992225173	SignedMortgageDeed,SignedMort
 Websystemer AS	Frognerveien Eiendomsmegling AS	994397516	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Grünerløkka og Torshov Eiendomsmegling AS	884030862	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Hemne og Orkladal Eiendomsmegling AS	913118219	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Indre Sogn Sparebank Eigedomsmekling AS	984032404	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Kvelland & Partnere AS	994887580	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Meglerhuset Bodø AS	997230094	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Meglerhuset Leinæs AS	980407551	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Megleroppgjør AS	982577675	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Nordvik & Partners Eiendomsmegling  Ullevål AS	917427925	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Nordvik & Partners Kompetansesenter AS	814449912	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Nyeboliger AS	997812824	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	OBOS Eiendomsmeglere AS	977040949	SignedMortgageDeed,SignedMortgageDeedProcessed
@@ -38,7 +35,6 @@ Websystemer AS	Nordvest Eiendomsmegling AS	918152822	SignedMortgageDeed,SignedMo
 Websystemer AS	Møller & Partners AS	993828645	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Park Eiendomsmegling AS	987291052	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	REDE Eiendomsmegling AS	979158580	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Jan G. Lilledal AS	938566259	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Solli & Partnere AS	888622152	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Fremtiden Eiendomsmegling AS	982253896	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Allé Eiendomsmegling AS	914594863	SignedMortgageDeed,SignedMortgageDeedProcessed
@@ -68,8 +64,6 @@ Websystemer AS	Aktiv Oppgjør AS	987281758	SignedMortgageDeed,SignedMortgageDeed
 Websystemer AS	Megleroppgjøret AS	991076190	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Strømmen Eiendomsmegling AS	912307301	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Børke & Partners AS	987234539	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Wangensten & Partners AS	994303260	SignedMortgageDeed,SignedMortgageDeedProcessed
-Websystemer AS	Ullevål Eiendomsmegling AS	997583183	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Pacta Eiendom AS	983374654	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Privatmegleren Renommé AS	992274395	SignedMortgageDeed,SignedMortgageDeedProcessed
 Websystemer AS	Metro Eiendomsmegling AS	997616170	SignedMortgageDeed,SignedMortgageDeedProcessed
