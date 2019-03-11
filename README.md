@@ -1,42 +1,106 @@
-# e-tinglysing-afpant
-AFPANT - Altinn Formidlingstjenester for kjøpers e-signerte pantedokument
+# Digital samhandling ved eiendomshandel 
+Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomføring av elektronisk eiendomshandel.
 
-## Spesifikasjon for overføring av kjøpers e-signerte pantedokument
+
+(Tidligere kalt AFPANT - Altinn Formidlingstjenester for kjøpers e-signerte pantedokument)
+
+## Beskrivelse av prosjektet
+Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge, deres medlemmer og systemleverandører for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
+
+Prosjektleder: Klara Opdahl (klara.opdahl@bits.no).
 
 ### Overordnede mål
-Muliggjøre en sikker og effektiv maskinell overføring av kjøpers pantedokument-SDO fra bank-fagsystem til megler-fagsystem.
-Overføringen vil benytte Altinn Formidlingstjenester etter samme modell som Kartverket selv benytter for e-tinglysing (men kjøre som en separat tjeneste/serviceCode).
+Muliggjøre en sikker og effektiv utveklsing av standardiserte og strukturerte data mellom bank-fagsystem og megler-fagsystem som er nødvendige for å gjennomføre elektronisk tinglysing.
+
 Kartverket er tjenesteeier av denne formidlingstjenesten.
 
+Kommunikasjonen foregår via Altinn Formidlingstjenester etter samme modell som Kartverket selv benytter for e-tinglysing.
+
+
 #### Forutsetninger
-Det forutsettes en viss grad av erfaring med integrasjon mot Altinn Formidlingstjenester. AFPANT er forsøkt utformet slik at den blir mest mulig lik Kartverket's egen bruk av Altinn Formidlingstjenester.
+Det forutsettes en viss grad av erfaring med integrasjon mot Altinn Formidlingstjenester. Spesifikasjonene er utformet slik at de tilsvarer i stor grad Kartverket's egen bruk av Altinn Formidlingstjenester.
 Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelklient-etinglysing-altinn
 
+## Altinn Formidlingstjeneste - servicedetaljer
+<table>
+	<tbody>
+		<tr>
+			<td><p><strong>Navn</strong></p></td>
+			<td><p><strong>ServiceCode</strong></p></td>
+			<td><p><strong>ServiceEditionCode</strong></p></td>
+		</tr>
+		<tr>
+			<td><p>AFPANT (Altinn Test TT02)</p></td>
+			<td><p>4752</p></td>
+			<td><p>1</p></td>
+		</tr>
+		<tr>
+			<td><p>AFPANT (Altinn Prod)</p></td>
+			<td><p>4752</p></td>
+			<td><p>1</p></td>
+		</tr>
+	</tbody>
+</table>
+*NB:* ServiceCode for tjenesten er lik i Test og Prod.
+
+## Altinn-tilgang for systemleverandører/datasentraler
+Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle systemleverandører/datasentraler som skal koble seg direkte til denne tjenesten.
+Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (http://jira.statkart.no:8080/).
+
+## Altinn-tilgang for eiendomsmeglerforetak/banker
+Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle eiendomsmeglerforetak som skal motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
+Bestillinger av denne tilgangen må gjøres via tredjepartsleverandør eller direkte til Kartverket.
+
+## Delegering av roller fra egne kunder til systemleverandør/datasentral
+Systemleverandører/datasentraler som skal utføre sending/mottak på vegne av *andre organisasjoner* (eks meglerforetak/bank) må registrere seg selv hos Kartverket (ref ovenstående punkt).
+Ved henting av forsendelser på vegne av egne kunder skal systemleverandør/datasentral bruke organisasjonsnummeret tilhørende kunden som "reportee" mot Altinn.
+Systemleverandører/datasentraler må også hente meldinger for sitt *eget organisasjonsnummer* (for det er dit ACK/NACK meldinger fra mottakersystem sendes). 
+
+*Hver organisasjon/kunde* som en systemleverandør/datasentral opererer på vegne av (eks meglerforetak/bank) må logge på Altinn for å delegere rettigheter til sin gjeldende systemleverandør/datasentral sitt organisasjonsnummer for tjenesten *4752* (AFPANT).
+Oppskrift for å delegere rollen 'Utfyller/Innsender' eller enkeltrettighet til systemleverandør/datasentral sitt organisasjonsnummer finnes her: https://www.altinn.no/no/Portalhjelp/Administrere-rettigheter-og-prosessteg/Gi-roller-og-rettigheter/
+
+*NB:* Delegering av denne rettigheten må utføres _etter_ at Kartverket har gitt tilgang til både systemleverandør/datasentral og kunden (meglerforetak/bank).
+
 #### Hvem bruker løsningen?
-AFPANT kan benyttes av systemleverandører som skal sende og/eller motta e-signerte pantedokumenter som skal brukes i en e-tinglysingsmelding. 
+Bransjestandardene kan benyttes av alle aktører (bank / eiendomsmegler) som skal samhandle om e-tinglysing. 
 
 Leverandør | På vegne av
 ---------- | -----------
 Ambita AS | Bank/Megler
+Vitec Megler AS | Megler
 Websystemer AS | Megler
-Nordea Bank AB (publ), filial i Norge | Bank
+Nordea | Bank
 Evry | Bank
 
-#### AFPANT-løsningen muliggjør følgende:
-* Overføring av 1 e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
+#### Aktørregister (under utarbeidelse)
+Et aktørregister er under utarbeidelse. Aktørregisteret blir enten administrert av BITS AS eller Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for å sende/motta.
+ 
+#### Dokumentpakke 1 - Elektronisk tinglysing
+##### Kjøpers pantedokument og evt følgebrev
+* Overføring av e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
 * Overføring av følgebrev som PDF eller XML 
 * ACK/NACK-kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsen kunne rutes korrekt
+* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-kjøperspantedokument-1-0-0.md)
 
-For å kunne gjennomføre overføring av pantedokumentet er også bankens følgebrev inntatt i denne spesifikasjonen.
+#### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
+##### Kjøpekontrakt 
+* Overføring av / forespørsel om signert kjøpekontrakt (PDF/PadES/SDO) mellom megler/bank.
+* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8pekontrakt/afpant-kj%C3%B8pekontrakt.md)
+##### Pantefrafall
+* Forespørsel om pantefrafall fra megler til bank
+* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-pantefrafall/afpant-pantefrafall.md)
+##### Saldoforespørsel
+* Forespørsel om lånesituasjon på en registerenhet / tinglyste pant fra megler til bank eller bank til bank
+* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-saldoforesp%C3%B8rsel/afpant-saldoforesp%C3%B8rsel.md)
+##### Restgjeldsoppgave
+* Forespørsel om saldoer for innfrielse av tinglyst pant fra megler til bank eller bank til bank
+* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-restgjeldsoppgave/afpant-restgjeldsoppgave.md)
 
-Følgebrevet fra bank inneholder normalt sett viktige detaljer om overførselen:
-* Informasjon om innbetaler, beløp, betalt til kontonummer, KID 
-* Forutsetningene pantedokumentet overføres under 
-* Krav til oppnådd prioritet
-* Gyldig disposisjon av innbetalingen
-* Retur av bekreftet grunnboksutskrift som bekrefter oppnådd prioritet
+##### Intensjonsmelding
+* Forespørsel og statusoppdatering mellom bank <-> megler om det er planlagt bruk av  elektronisk tinglysing.
+* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/4)
 
-#### Spesifikasjoner
-Spesifikasjon på AFPANT dekker hvordan sende pantedokument+følgebrev fra bank til megler/oppgjør samt implementasjonsregler for mottak/ruting av forsendelser fra bank: https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-1-0-0.md
 
-Spesifikasjon på AFPANT Følgebrev dekker hvordan bankens følgebrev til megler/oppgjør skal utformes som XML: https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-folgebrev/afpant-folgebrev-1-0-0.md
+##### Statusoppdatering etter e-tinglysing
+* Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
+* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
