@@ -5,7 +5,7 @@ Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomf�
 (Tidligere kalt AFPANT - Altinn Formidlingstjenester for kjøpers e-signerte pantedokument)
 
 ## Beskrivelse av prosjektet
-Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge, deres medlemmer og systemleverandører for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
+Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge og Bits, samt deres medlemmer og systemleverandører for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
 
 Prosjektleder: Klara Opdahl (klara.opdahl@bits.no).
 
