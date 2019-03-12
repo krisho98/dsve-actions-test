@@ -14,8 +14,8 @@ Følgebrevet fra bank inneholder normalt sett viktige detaljer om overførselen:
 * Retur av bekreftet grunnboksutskrift som bekrefter oppnådd prioritet
 
 #### Spesifikasjoner
-##### Oveføring av kjøpers pantedokument til megler
-* [Spesifikasjon](ttps://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-kjøperspantedokument-1-0-0.md)
+##### Oveføring av kjøpers pantedokument til megler 
+* [Spesifikasjon overføring av kjøpers pantedokument](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-kjøperspantedokument-1-0-0.md)
 
 ##### Følgebrev (oversendelsesbrev) til megler tilhørende kjøpers pantedokument
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev-1-0-0.md)
+* [Spesifikasjon følgebrev/oversendelsesbrev](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev-1-0-0.md)

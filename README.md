@@ -80,7 +80,7 @@ Et aktørregister er under utarbeidelse. Aktørregisteret blir enten administrer
 * Overføring av e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
 * Overføring av følgebrev som PDF eller XML 
 * ACK/NACK-kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsen kunne rutes korrekt
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-kjøperspantedokument-1-0-0.md)
+* [Oversikt og spesifikasjoner](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
 
 #### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
 ##### Kjøpekontrakt 
