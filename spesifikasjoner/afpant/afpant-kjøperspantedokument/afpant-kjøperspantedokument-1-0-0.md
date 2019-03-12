@@ -1,43 +1,4 @@
-# e-tinglysing-afpant-1.0.0
-## Altinn Formidlingstjeneste - servicedetaljer
-<table>
-	<tbody>
-		<tr>
-			<td><p><strong>Navn</strong></p></td>
-			<td><p><strong>ServiceCode</strong></p></td>
-			<td><p><strong>ServiceEditionCode</strong></p></td>
-		</tr>
-		<tr>
-			<td><p>AFPANT (Altinn Test TT02)</p></td>
-			<td><p>4752</p></td>
-			<td><p>1</p></td>
-		</tr>
-		<tr>
-			<td><p>AFPANT (Altinn Prod)</p></td>
-			<td><p>4752</p></td>
-			<td><p>1</p></td>
-		</tr>
-	</tbody>
-</table>
-*NB:* ServiceCode for AFPANT er lik i Test og Prod.
-
-## AFPANT-tilgang for systemleverandører/datasentraler
-Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle systemleverandører/datasentraler som skal koble seg direkte til denne tjenesten.
-Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (http://jira.statkart.no:8080/).
-
-## AFPANT-tilgang for eiendomsmeglerforetak/banker
-Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle eiendomsmeglerforetak som skal motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
-Bestillinger av denne tilgangen må gjøres via tredjepartsleverandør eller direkte til Kartverket.
-
-## Delegering av roller fra egne kunder til systemleverandør/datasentral
-Systemleverandører/datasentraler som skal utføre sending/mottak på vegne av *andre organisasjoner* (eks meglerforetak/bank) må registrere seg selv hos Kartverket (ref ovenstående punkt).
-Ved henting av forsendelser på vegne av egne kunder skal systemleverandør/datasentral bruke organisasjonsnummeret tilhørende kunden som "reportee" mot Altinn.
-Systemleverandører/datasentraler må også hente meldinger for sitt *eget organisasjonsnummer* (for det er dit ACK/NACK meldinger fra mottakersystem sendes). 
-
-*Hver organisasjon/kunde* som en systemleverandør/datasentral opererer på vegne av (eks meglerforetak/bank) må logge på Altinn for å delegere rettigheter til sin gjeldende systemleverandør/datasentral sitt organisasjonsnummer for tjenesten *4752* (AFPANT).
-Oppskrift for å delegere rollen 'Utfyller/Innsender' eller enkeltrettighet til systemleverandør/datasentral sitt organisasjonsnummer finnes her: https://www.altinn.no/no/Portalhjelp/Administrere-rettigheter-og-prosessteg/Gi-roller-og-rettigheter/
-*NB:* Delegering av denne rettigheten må utføres _etter_ at Kartverket har gitt tilgang til både systemleverandør/datasentral og kunden (meglerforetak/bank).
-
+# Kjøpers pantedokument
  
 ## Sammendrag
 Bruker i avsender-bank må innhente hvilket organisasjonsnummer forsendelsen skal til (dette hentes normalt sett ut fra side nr 1 i signert kopi av kjøpekontrakt, og er enten organisasjonsnummeret til eiendomsmeglerforetaket eller oppgjørsforetaket).
@@ -45,7 +6,7 @@ Bruker i avsender-bank må innhente hvilket organisasjonsnummer forsendelsen ska
 Deretter produseres det et **ZIP**-arkiv som inneholder følgende filer:
 * Kjøpers pantedokument SDO (kun 1 pantedokument pr forsendelse)
 * Eventuelt følgebrev (PDF/XML) (med forutsetninger for oversendelse av pantedokument, evt innbetalingsinformasjon)
-* Dersom følgebrev produseres som XML må dokumentet validere i henhold til <a href="https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-folgebrev/afpant-folgebrev-1-0-0.md">afpant-folgebrev spesifikasjon</a>.
+* Dersom følgebrev produseres som XML må dokumentet validere i henhold til <a href="https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev-1-0-0.md">afpant-folgebrev spesifikasjon</a>.
 
 **NB**: Dersom mer enn 1 pantedokument fra samme lånesak skal tinglyses på samme matrikkelenhet må dette sendes som to separate forsendelser. For eksempel i tilfeller hvor det er to debitorer (låntakere) som ikke er ektefeller/samboere/registrerte partnere som skal ha likestilt prioritet, men separate pantedokumenter.
 
