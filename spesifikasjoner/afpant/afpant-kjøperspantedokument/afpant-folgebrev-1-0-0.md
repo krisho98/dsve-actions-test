@@ -1,9 +1,9 @@
 # e-tinglysing-afpant-folgebrev-1.0.0
 ## Følgebrev fra bank til megler - AFPANT
 
-[XSD](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev/afpant-folgebrev-xsd/afpant-folgebrev-1.0.0.xsd)
+[XSD](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev/afpant-folgebrev-xsd/afpant-folgebrev-1.0.0.xsd)
 
-[XSLT](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-1.0.0.xslt)
+[XSLT](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-1.0.0.xslt)
 
 [Eksempel XML](https://last-opp.pantedokumentet.no/AFPANT/afpant-folgebrev-example1.xml)
 
@@ -18,11 +18,11 @@ XSD og XSLT vil bli hostet på https://last-opp.pantedokumentet.no/AFPANT/
 - [XSLT (uten semver revision)](https://last-opp.pantedokumentet.no/AFPANT/afpant-folgebrev-1.0.xslt)
 
 ## Eksempel
-XSD.EXE kan brukes for å autogenerere en POCO fra XSD ([Se eksempel](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev/generate-poco-from-xsd.bat))
+XSD.EXE kan brukes for å autogenerere en POCO fra XSD ([Se eksempel](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev/generate-poco-from-xsd.bat))
 
-[Hvordan serialisere AFPANT.Folgebrev til XML med XSD+XSLT referanser](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev-example/Program.cs)
+[Hvordan serialisere AFPANT.Folgebrev til XML med XSD+XSLT referanser](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev-example/Program.cs)
 
-[Eksempel på rendret følgebrev som html](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-rendered-example.PNG)
+[Eksempel på rendret følgebrev som html](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-rendered-example.PNG)
 
 ## Følgebrev XSD diagram
-[Diagram av følgebrev XSD](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-1.0.0.jpg)
+[Diagram av følgebrev XSD](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-folgebrev/afpant-folgebrev-xslt/afpant-folgebrev-1.0.0.jpg)

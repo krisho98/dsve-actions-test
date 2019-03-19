@@ -45,7 +45,7 @@ Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelkl
 
 ## Altinn-tilgang for systemleverandører/datasentraler
 Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle systemleverandører/datasentraler som skal koble seg direkte til denne tjenesten.
-Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (http://jira.statkart.no:8080/).
+Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (https://jira.statkart.no/).
 
 ## Altinn-tilgang for eiendomsmeglerforetak/banker
 Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle eiendomsmeglerforetak som skal motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
