@@ -47,3 +47,8 @@ Organisasjonsnummer / Andelsnummer
 **Link til salgsoppgave:**
 
 **Link til nettannonse?** Denne blir betydelig mindre dersom det er finn annonsen man viser til. Verdi?
+
+
+
+## Implementasjonsdetaljer
+Se [her for tekniske detaljer](kjoepekontrakt-0-1-0.md)

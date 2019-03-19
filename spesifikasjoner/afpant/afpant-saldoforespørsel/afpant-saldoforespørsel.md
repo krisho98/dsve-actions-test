@@ -31,3 +31,6 @@
 Vi bekrefter med dette at pantet (pantene)/lånene ikke vil opplånes uten samtykke fra meglers oppgjørsavdeling. Megler må sørge for tinglysing av sperre på eiendommen for å sikre at banken ikke etablerer nye pant. Alle våre panteretter i eiendommen vil slettes ved innfrielse/mottak av vårt tilgodehavende
 
 Ved realkausjon og valutalån må banken svare manuelt. 
+
+## Implementasjonsdetaljer
+Se [her for tekniske detaljer](saldoforespørsel-0-1-0.md)
