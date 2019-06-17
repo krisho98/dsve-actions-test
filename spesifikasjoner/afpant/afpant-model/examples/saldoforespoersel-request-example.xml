@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xslt/dsbm-1.0.0.xslt"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xslt/dsve-1.0.0.xslt"?>
 <saldoforespoersel>
 
   <megler id="945811714">
@@ -58,7 +58,7 @@
   </parter>
 
   <saldoforespoerseldetaljer>
-    <prisantyding>11000000</prisantyding>
+    <prisantydning>11000000</prisantydning>
     <salgssum>12500000</salgssum>
     <tinglyst>
       <pant dokumentnummer="325651" dokumentaar="2016" embetenummer="200" rettsstiftelsesnummer="1"  tid="2016-04-22T18:30:28" beloep="2000000">

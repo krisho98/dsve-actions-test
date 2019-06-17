@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xslt/dsbm-1.0.0.xslt"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xslt/dsve-1.0.0.xslt"?>
 <restgjeldsforespoersel>
   <megler id="945811714">
     <foretaksnavn>DNB Eiendom</foretaksnavn>

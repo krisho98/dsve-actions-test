@@ -10,13 +10,111 @@
           <xsl:call-template name="overskrift"/>
         </title>
         <style type="text/css">
-          .rolleoverskrift,.seksjonsoverskrift{font-weight:500;color:#255473}#footer,.overskrift,.rolleoverskrift{color:#255473}.seksjonsoverskrift{padding-bottom:8px}.rolleoverskrift{padding-top:8px}
-          . listeelement{font-weight:400;padding-bottom:4px}.innhold{padding-left:8px}body{margin:0;padding:0;height:100%}.hovedseksjon{padding:5px;margin-bottom:4px}
-          #container{min-height:100%;position:relative;margin:10px;font-family:helvetica;max-width:210mm}#header{padding-left:5px;padding-top:1px;padding-bottom:1px}
-          #body{padding-top:10px;padding-bottom:50px;widht:100%}#footer{position:absolute;bottom:0;width:100%;height:50px;background:#BDCBBD!important;text-align:center}
-          .tabell{display:table;padding-bottom:4px;width:100%table-layout:fixed}.rad{display:table-row}.celle,.divTableHead{border:0;display:table-cell;padding:1px}
-          .kropp{display:table-row-group}.kol1{min-width:80px;width:350px}.kol2{width:120px}.headerrad{color:grey;font-size:11px}
-        </style>
+            .rolleoverskrift,
+            .seksjonsoverskrift {
+                font-weight: 500;
+                color: #255473
+            }
+
+            #footer,
+            .overskrift,
+            .rolleoverskrift {
+                color: #255473
+            }
+
+            .seksjonsoverskrift {
+                padding-bottom: 8px
+            }
+
+            .rolleoverskrift {
+                padding-top: 8px
+            }
+
+            .listeelement {
+                font-weight: 400;
+                padding-bottom: 4px
+            }
+
+            .innhold {
+                padding-left: 8px
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%
+            }
+
+            .hovedseksjon {
+                padding: 5px;
+                margin-bottom: 4px
+            }
+
+            #container {
+                min-height: 100%;
+                position: relative;
+                margin: 10px;
+                font-family: helvetica;
+                max-width: 210mm
+            }
+
+            #header {
+                padding-left: 5px;
+                padding-top: 1px;
+                padding-bottom: 1px
+            }
+
+            #body {
+                padding-top: 10px;
+                padding-bottom: 50px;
+                widht: 100%
+            }
+
+            #footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background: #BDCBBD!important;
+                text-align: center
+            }
+
+            .tabell {
+                display: table;
+                padding-bottom: 4px;
+                width: 100%table-layout: fixed
+            }
+
+            .rad {
+                display: table-row
+            }
+
+            .celle,
+            .divTableHead {
+                border: 0;
+                display: table-cell;
+                padding: 1px
+            }
+
+            .kropp {
+                display: table-row-group
+            }
+
+            .kol1 {
+                min-width: 80px;
+                width: 350px
+            }
+
+            .kol2 {
+                width: 120px
+            }
+
+            .headerrad {
+                color: grey;
+                font-size: 11px
+            }
+
+          </style>
       </head>
       <body>
         <div id="container">
@@ -24,7 +122,7 @@
             <h1 class="overskrift">
               <xsl:call-template name="overskrift"/>
             </h1>
-            <hr/>
+            <hr/>            
             <xsl:call-template name="footer"/>
           </div>
           <div id="body">
@@ -34,6 +132,8 @@
             <xsl:apply-templates select="saldosvar"/>
             <xsl:apply-templates select="restgjeldsforespoersel"/>
             <xsl:apply-templates select="restgjeldssvar"/>
+            <xsl:apply-templates select="intensjonsforespoersel"/>
+            <xsl:apply-templates select="intensjonssvar"/> 
           </div>
         </div>
       </body>
@@ -59,8 +159,13 @@
     <xsl:if test="restgjeldssvar">
       <xsl:text>Restgjeldssvar</xsl:text>
     </xsl:if>
+    <xsl:if test="intensjonsforespoersel">
+      <xsl:text>Forespørsel om tinglysingsmetode</xsl:text>
+    </xsl:if>
+    <xsl:if test="intensjonssvar">
+      <xsl:text>Intensjon om tinglysingsmetode</xsl:text>
+    </xsl:if>
   </xsl:template>
-
 
   <xsl:template name="kjoepekontrakt" match="/kjoepekontrakt">
     <xsl:call-template name="andelshavere"/>
@@ -129,6 +234,38 @@
     <hr/>
   </xsl:template>
 
+  <xsl:template match="/intensjonsforespoersel">
+    <xsl:call-template name="mottaker"/>
+    <xsl:call-template name="parter">
+    </xsl:call-template>
+    <xsl:call-template name="eiendom">
+      <xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
+    </xsl:call-template>
+    <xsl:call-template name="intensjonsforespoersel"/>
+    <xsl:call-template name="avsender"/>
+    <hr/>
+  </xsl:template>
+
+  <xsl:template name="intensjonsforespoersel">
+    <div class="hovedseksjon">
+      <xsl:call-template name="seksjon">
+        <xsl:with-param name="tittel" select="'Ønsket metode for tinglysing'"/>
+      </xsl:call-template>
+       <div class="tabell innhold">
+        <div class="kropp">
+            <div class="rad">
+              <div class="celle kol1">
+                <xsl:text>Ønsket metode:&#x20;</xsl:text>
+              </div>
+              <div class="celle kol2">
+                <b><xsl:value-of select="intensjonsdetaljer/metode"/></b>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+ 
+  </xsl:template>
 
   <xsl:template name="saldoforespoersel">
     <div class="hovedseksjon">
@@ -137,15 +274,15 @@
       </xsl:call-template>
       <div class="tabell innhold">
         <div class="kropp">
-          <xsl:if test="saldoforespoerseldetaljer/prisantyding">
+          <xsl:if test="saldoforespoerseldetaljer/prisantydning">
             <div class="rad">
               <div class="celle kol1">
-                <xsl:text>Prisantyding:&#x20;</xsl:text>
+                <xsl:text>Prisantydning:&#x20;</xsl:text>
               </div>
               <div class="celle kol2">
                 <xsl:call-template name="formatNumber">
                   <xsl:with-param name="prefix" select="'kr. '"/>
-                  <xsl:with-param name="numericValue" select="saldoforespoerseldetaljer/prisantyding"/>
+                  <xsl:with-param name="numericValue" select="saldoforespoerseldetaljer/prisantydning"/>
                 </xsl:call-template>
               </div>
             </div>
@@ -299,7 +436,6 @@
     </div>
 
   </xsl:template>
-
 
   <xsl:template name="tinglyst">
     <div class="hovedseksjon">
@@ -923,7 +1059,6 @@
     </xsl:if>
   </xsl:template>
 
-
   <xsl:template name="seksjon">
     <xsl:param name="tittel"/>
     <div class="seksjonsoverskrift">
@@ -999,6 +1134,13 @@
                 <xsl:with-param name="referanse" select="avsender/referanse"/>
               </xsl:call-template>
             </xsl:if>
+            <xsl:if test="not(avsender/kontaktperson)">
+                         <div style="padding-bottom:8px;">
+                <xsl:call-template name="organisasjon">
+                  <xsl:with-param name="organisasjon" select="avsender"/>
+                </xsl:call-template>
+              </div>
+            </xsl:if>
           </div>
           <div class="celle">
             <xsl:if test="avsender/returnerTil">
@@ -1060,22 +1202,28 @@
 
   <xsl:template name="type">
     <xsl:if test="kjoepekontrakt">
-      <xsl:text>DSBM Kjøpekontrakt</xsl:text>
+      <xsl:text>DSVE Kjøpekontrakt</xsl:text>
     </xsl:if>
     <xsl:if test="kjoepekontraktsforespoersel">
-      <xsl:text>DSBM Forespørsel om kjøpekontrakt</xsl:text>
+      <xsl:text>DSVE Forespørsel om kjøpekontrakt</xsl:text>
     </xsl:if>
     <xsl:if test="saldoforespoersel">
-      <xsl:text>DSBM Forespørsel om saldo</xsl:text>
+      <xsl:text>DSVE Forespørsel om saldo</xsl:text>
     </xsl:if>
     <xsl:if test="saldosvar">
-      <xsl:text>DSBM Saldosvar</xsl:text>
+      <xsl:text>DSVE Saldosvar</xsl:text>
     </xsl:if>
     <xsl:if test="restgjeldsforespoersel">
-      <xsl:text>DSBM Forespørsel om restgjeld</xsl:text>
+      <xsl:text>DSVE Forespørsel om restgjeld</xsl:text>
     </xsl:if>
     <xsl:if test="restgjeldssvar">
-      <xsl:text>DSBM Restgjeldssvar</xsl:text>
+      <xsl:text>DSVE Restgjeldssvar</xsl:text>
     </xsl:if>
+    <xsl:if test="intensjonsforespoersel">
+      <xsl:text>DSVE Forespørsel om tinglysingsmetode</xsl:text>
+    </xsl:if>
+    <xsl:if test="intensjonssvar">
+      <xsl:text>DSVE Svar om tinglysingsmetode</xsl:text>
+    </xsl:if>    
   </xsl:template>
-</xsl:stylesheet>
+</xsl:stylesheet> 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="kjoepekontrakt" type="Kjoepekontrakt"/>
   <xs:element name="kjoepekontraktsforespoersel" type="Kjoepekontraktforespoersel"/>
@@ -6,7 +6,8 @@
   <xs:element name="saldosvar" type="Saldosvar"/>
   <xs:element name="restgjeldsforespoersel" type="Restgjeldsforespoersel"/>
   <xs:element name="restgjeldssvar" type="Restgjeldssvar"/>
-
+  <xs:element name="intensjonsforespoersel" type="Intensjonsforespoersel"/>
+  <xs:element name="intensjonssvar" type="Intensjonssvar"/>
 
   <xs:complexType name="Kjoepekontraktforespoersel">
     <xs:annotation>
@@ -42,7 +43,7 @@
   <xs:complexType name="Saldoforespoersel">
     <xs:annotation>
       <xs:documentation>
-        Forespoersel om saldo på et objekt
+        Forespørsel om saldo på et objekt
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -74,7 +75,7 @@
   <xs:complexType name="Restgjeldsforespoersel">
     <xs:annotation>
       <xs:documentation>
-        Forespoersel om restgjeld på et objekt
+        Forespørsel om restgjeld på et objekt
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -95,6 +96,39 @@
       <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
       <xs:element minOccurs="1" maxOccurs="1" name="restgjelddetaljer" type="Restgjelddetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Intensjonsforespoersel">
+    <xs:annotation>
+      <xs:documentation>
+        Forespørsel om metode for tinglysing
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="intensjonsdetaljer" type="Intensjonsdetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Intensjonssvar">
+    <xs:annotation>
+      <xs:documentation>
+        Svar på forespørsel om metode for tinglysing
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="intensjonsdetaljer" type="Intensjonsdetaljer"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
@@ -428,7 +462,7 @@
 
   <xs:complexType name="Saldoforespoerseldetaljer">
     <xs:sequence>
-      <xs:element minOccurs="0" name="prisantyding" type="xs:double"/>
+      <xs:element minOccurs="0" name="prisantydning" type="xs:double"/>
       <xs:element minOccurs="0" name="salgssum" type="xs:double"/>
       <xs:element name="tinglyst" type="TinglystePant"/>
     </xs:sequence>
@@ -449,6 +483,13 @@
       <xs:element name="sperret" type="xs:boolean" minOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="Intensjonsdetaljer">
+    <xs:sequence> 
+      <xs:element name="metode" type="Tinglysingsmetode" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
 
   <xs:complexType name="Restgjeldsdatoer">
     <xs:sequence>
@@ -532,5 +573,11 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:simpleType name="Tinglysingsmetode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Elektronisk tinglysing"/>
+      <xs:enumeration value="Papirtinglysing"/> 
+    </xs:restriction>
+  </xs:simpleType>
 
 </xs:schema>
