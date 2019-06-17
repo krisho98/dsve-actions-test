@@ -261,6 +261,15 @@
                 <b><xsl:value-of select="intensjonsdetaljer/metode"/></b>
               </div>
             </div>
+            <div class="rad">
+              <div class="celle kol1">
+                <xsl:text>Låneavtale inngått:&#x20;</xsl:text>
+              </div>
+              <div class="celle kol2">
+                 <xsl:if test="intensjonsdetaljer/laaneavtaleinngaatt='true'">Ja</xsl:if>
+                 <xsl:if test="intensjonsdetaljer/laaneavtaleinngaatt='false'">Nei</xsl:if>           
+              </div>
+            </div>            
         </div>
       </div>
     </div>

@@ -487,6 +487,7 @@
   <xs:complexType name="Intensjonsdetaljer">
     <xs:sequence> 
       <xs:element name="metode" type="Tinglysingsmetode" minOccurs="1"/>
+      <xs:element name="laaneavtaleinngaatt" type="xs:boolean" minOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
   
