@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://localhost:8000/xslt/dsve-1.0.0.xslt"?>
-<kjoepekontraktsforespoersel>
-  <avsender id="945811714">
-    <foretaksnavn>DNB</foretaksnavn>
-    <kontaktperson>
-      <navn>Ole Olsen</navn>
-      <epost>ole@bank.no</epost>
-      <telefonDirekte>99223452</telefonDirekte>
-      <telefon>55300455</telefon>
-    </kontaktperson>
-    <referanse>REF-123</referanse>
-  </avsender>
+<?xml-stylesheet type="text/xsl" href="../xslt/dsve-1.0.0.xslt"?>
+<kjoepekontraktsforespoersel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+	<mottaker id="945811714">
+		<foretaksnavn>DNB Eiendom</foretaksnavn>
+		<referanse>OPGNR-123</referanse>
+	</mottaker>
+	<avsender id="945811714">
+		<foretaksnavn>DNB Bank ASA</foretaksnavn>
+		<kontaktperson>
+			<navn>Ole Olsen</navn>
+			<epost>ole@bank.no</epost>
+			<telefonDirekte>99223452</telefonDirekte>
+			<telefon>55300455</telefon>
+		</kontaktperson>
+		<referanse>REF-123</referanse>
+	</avsender>
 
-  <registerenheter>
-    <registerenhet>
-      <matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="21" bruksnummer="1614" festenummer="1" seksjonsnummer="2" eiendomsnivaa="F"/>
-      <adresse>
-        <gatenavn>Krinkelkroken 1</gatenavn>
-        <postnummer>5014</postnummer>
-        <poststed>Bergen</poststed>
-      </adresse>
-    </registerenhet>
-  </registerenheter>
+	<parter>
+		<kjoepere>
+			<rettssubjekt>
+				<person id="23456789909">
+					<fornavn>Kari</fornavn>
+					<etternavn>Normann</etternavn>
+				</person>
+			</rettssubjekt>
+			<rettssubjekt>
+				<person id="54634563456">
+					<fornavn>Truls</fornavn>
+					<etternavn>Normann</etternavn>
+				</person>
+			</rettssubjekt>
+		</kjoepere>
+	</parter>
 
-  <parter>
-    <kjoepere>
-      <rettssubjekt>
-        <person id="23456789909">
-          <fornavn>Kari</fornavn>
-          <etternavn>Normann</etternavn>
-        </person>
-      </rettssubjekt>
-      <rettssubjekt>
-        <person id="54634563456">
-          <fornavn>Truls</fornavn>
-          <etternavn>Normann</etternavn>
-        </person>
-      </rettssubjekt>
-    </kjoepere>
-  </parter>
+	<registerenheter>
+		<registerenhet>
+			<matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="21" bruksnummer="1614" festenummer="1" seksjonsnummer="2" eiendomsnivaa="F"/>
+			<adresse>
+				<gatenavn>Krinkelkroken 1</gatenavn>
+				<postnummer>5014</postnummer>
+				<poststed>Bergen</poststed>
+			</adresse>
+		</registerenhet>
+	</registerenheter>
 
-  <metadata>
-    <opprettet>2016-01-31T20:07:42</opprettet>
-  </metadata>
+
+	<metadata>
+		<opprettet>2016-01-31T20:07:42</opprettet>
+	</metadata>
 </kjoepekontraktsforespoersel>

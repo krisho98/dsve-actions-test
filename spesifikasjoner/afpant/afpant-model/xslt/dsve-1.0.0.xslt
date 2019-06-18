@@ -165,44 +165,46 @@
 	</xsl:template>
 
 	<xsl:template name="kjoepekontrakt" match="/kjoepekontrakt">
-		<xsl:call-template name="andelshavere"/>
+		<xsl:call-template name="mottaker"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="salgsobjekt/registerenheter/registerenhet"/>
 		</xsl:call-template>
-		<xsl:call-template name="oppgjoer"/>
 		<xsl:call-template name="megler"/>
+		<xsl:call-template name="andelshavere"/>
+		<xsl:call-template name="omsetningsdetaljer"/>
 		<xsl:call-template name="ressurser"/>
+		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
 	<xsl:template match="/kjoepekontraktsforespoersel">
-		<xsl:call-template name="parter"/>
+		<xsl:call-template name="mottaker"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
+		<xsl:call-template name="parter"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
 	<xsl:template match="/saldoforespoersel">
-
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="parter"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
-		<xsl:call-template name="saldoforespoersel"/>
 		<xsl:call-template name="megler"/>
+		<xsl:call-template name="parter"/>
+		<xsl:call-template name="saldoforespoersel"/>
+		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
 	<xsl:template match="/saldosvar">
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="parter">
-		</xsl:call-template>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
+		<xsl:call-template name="parter"/>
 		<xsl:call-template name="saldosvardetaljer"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
@@ -210,21 +212,22 @@
 
 	<xsl:template match="/restgjeldsforespoersel">
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="parter"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
-		<xsl:call-template name="restgjeldforespoersel"/>
 		<xsl:call-template name="megler"/>
+		<xsl:call-template name="parter"/>
+		<xsl:call-template name="restgjeldforespoersel"/>
+		<xsl:call-template name="avsender"/>		
 		<hr/>
 	</xsl:template>
 
 	<xsl:template match="/restgjeldssvar">
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="parter"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
+		<xsl:call-template name="parter"/>
 		<xsl:call-template name="restgjeldssvardetaljer"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
@@ -232,10 +235,10 @@
 
 	<xsl:template match="/intensjonsforespoersel">
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="parter"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
+		<xsl:call-template name="parter"/>
 		<xsl:call-template name="intensjonsforespoersel"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
@@ -243,11 +246,11 @@
 
 	<xsl:template match="/intensjonssvar">
 		<xsl:call-template name="mottaker"/>
-		<xsl:call-template name="megler"/>
-		<xsl:call-template name="parter"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
+		<xsl:call-template name="megler"/>
+		<xsl:call-template name="parter"/>
 		<xsl:call-template name="intensjonssvar"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
@@ -355,10 +358,10 @@
 					<xsl:for-each select="restgjeldforespoerseldetaljer/saldoperdato/saldo">
 						<div class="rad">
 							<div class="celle kol1">
-								<xsl:text>Saldo&#x20;per&#x20;</xsl:text>
+								<xsl:text>Saldo&#x20;per&#x20;</xsl:text><b>
 								<xsl:call-template name="dato">
 									<xsl:with-param name="dato" select="@dato"/>
-								</xsl:call-template>
+								</xsl:call-template></b>
 							</div>
 						</div>
 						<xsl:for-each select="laanenummer">
@@ -390,7 +393,7 @@
 						<div class="celle">Type lån</div>
 						<div class="celle">Låst ramme</div>
 					</div>
-					<xsl:for-each select="saldosvardetaljer/laan/laan">
+					<xsl:for-each select="saldosvardetaljer/saldoer/laan">
 						<xsl:call-template name="laan">
 							<xsl:with-param name="dokument" select="."/>
 						</xsl:call-template>
@@ -434,10 +437,10 @@
 					<xsl:for-each select="restgjelddetaljer/restgjeldsdatoer/saldoerperdato">
 						<div class="rad">
 							<div class="celle kol1">
-								<xsl:text>Saldo&#x20;per&#x20;</xsl:text>
+								<xsl:text>Saldo&#x20;per&#x20;</xsl:text><b>
 								<xsl:call-template name="dato">
 									<xsl:with-param name="dato" select="@dato"/>
-								</xsl:call-template>
+								</xsl:call-template></b>
 							</div>
 						</div>
 						<xsl:for-each select="laan">
@@ -624,10 +627,10 @@
 		</xsl:call-template>
 	</xsl:template>
 
-	<xsl:template name="oppgjoer">
+	<xsl:template name="omsetningsdetaljer">
 		<div class="hovedseksjon">
 			<xsl:call-template name="seksjon">
-				<xsl:with-param name="tittel" select="'Oppgjør'"/>
+				<xsl:with-param name="tittel" select="'Omsetningsdetaljer'"/>
 			</xsl:call-template>
 			<div class="innhold">
 				<div class="tabell">
@@ -871,15 +874,15 @@
 				<div class="kropp">
 					<xsl:call-template name="listRollerMedAndel">
 						<xsl:with-param name="rolle" select="parter/kjoepere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Kjøpere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Kjøpere'"/>
 					</xsl:call-template>
 					<xsl:call-template name="listRollerMedAndel">
 						<xsl:with-param name="rolle" select="parter/selgere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Selgere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Selgere'"/>
 					</xsl:call-template>
 					<xsl:call-template name="listRollerMedAndel">
 						<xsl:with-param name="rolle" select="parter/hjemmelshavere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Hjemmelshavere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Hjemmelshavere'"/>
 					</xsl:call-template>
 				</div>
 			</div>
@@ -895,15 +898,15 @@
 				<div class="kropp ">
 					<xsl:call-template name="listRoller">
 						<xsl:with-param name="rolle" select="parter/kjoepere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Kjøpere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Kjøpere'"/>
 					</xsl:call-template>
 					<xsl:call-template name="listRoller">
 						<xsl:with-param name="rolle" select="parter/selgere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Selgere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Selgere'"/>
 					</xsl:call-template>
 					<xsl:call-template name="listRoller">
 						<xsl:with-param name="rolle" select="parter/hjemmelshavere/rettssubjekt"/>
-						<xsl:with-param name="rolleNavn" select="'Hjemmelshavere:'"/>
+						<xsl:with-param name="rolleNavn" select="'Hjemmelshavere'"/>
 					</xsl:call-template>
 				</div>
 			</div>
@@ -1049,7 +1052,7 @@
 			<div>
 				<a href="tel:{$kontakt/telefon}">
 					<xsl:value-of select="format-number( number($kontakt/telefon), '## ## ## ##', 'nb-no-space')"/>
-				</a>(telefon)</div>
+				</a>&#x20;(telefon)</div>
 			<div>
 				<a href="tel:{$kontakt/telefonDirekte}">
 					<xsl:value-of select="format-number( number($kontakt/telefonDirekte), '## ## ## ##', 'nb-no-space')"/>
@@ -1259,4 +1262,4 @@
 			<xsl:text>Svar om tinglysingsmetode</xsl:text>
 		</xsl:if>
 	</xsl:template>
-</xsl:stylesheet> 
+</xsl:stylesheet>
