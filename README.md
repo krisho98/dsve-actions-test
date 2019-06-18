@@ -73,7 +73,7 @@ Nordea | Bank
 Evry | Bank
 
 #### Aktørregister (under utarbeidelse)
-Et aktørregister er under utarbeidelse. Aktørregisteret blir utviklet og administrert Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for.
+Et aktørregister er under utarbeidelse. Aktørregisteret blir utviklet og administrert av Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for.
  
 #### Dokumentpakke 1 - Elektronisk tinglysing
 ##### Kjøpers pantedokument og evt følgebrev
