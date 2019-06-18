@@ -27,7 +27,7 @@
   <xs:complexType name="Kjoepekontrakt">
     <xs:annotation>
       <xs:documentation>
-        Kjøpekontrakt er strukturert data fra en signert kjøpekontrakt.
+        Kjøpekontrakt er strukturerte data fra en signert kjøpekontrakt.
         Benyttes for å digitalisere prosessene mellom banker og meglere og kan sendes fra megler til bank på forespørsel.
       </xs:documentation>
     </xs:annotation>
@@ -137,10 +137,10 @@
     <xs:annotation>
       <xs:documentation>
         Avsender angir hvem som har sendt meldingen.
-        Avsender skal motta kjøpekontrakten dersom ikke returnerTil er angitt.
-        Dersom returnerTil er angitt, skal kjøpekontrakten sendes dit.
+        Avsender skal motta meldingssvar dersom ikke organisasjonsnummer i returnerTil er angitt.
+        Dersom returnerTil er angitt, skal meldingssvar sendes dit.
         Kontaktperson angir hvem som er relevant for denne saken dersom det er behov for direkte kontakt.
-        Referanse er avsenders referanse
+        Referanse er avsenders referanse    
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -177,7 +177,7 @@
         Avsender skal motta pantedokument dersom ikke oppgjørsavdeling er angitt.
         Dersom oppgjørsavdeling er angitt, skal pantedokumentet sendes dit.
         Ansvarlig megler angir hvilken kontaktperson som er relevant for denne saken dersom det er behov for direkte kontakt.
-        Referanse er meglers referanse (oppdragsnummereet)
+        Referanse er meglers referanse (oppdragsnummeret)
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -224,7 +224,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="unbounded" name="rettsubjekt" nillable="true" type="Aktoer"/>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="rettssubjekt" nillable="true" type="Aktoer"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -235,7 +235,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="unbounded" name="rettsubjekt" nillable="true" type="Andelshaver"/>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="rettssubjekt" nillable="true" type="Andelshaver"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -306,7 +306,7 @@
 
   <xs:complexType name="Organisasjon">
     <xs:annotation>
-      <xs:documentation>Rettsubjekt av type organisasjon</xs:documentation>
+      <xs:documentation>Rettssubjekt av type organisasjon</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Rettssubjekt">
@@ -319,7 +319,7 @@
 
   <xs:complexType name="Person">
     <xs:annotation>
-      <xs:documentation>Rettsubjekt av type person</xs:documentation>
+      <xs:documentation>Rettssubjekt av type person</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Rettssubjekt">
@@ -487,7 +487,7 @@
   <xs:complexType name="Intensjonsdetaljer">
     <xs:sequence> 
       <xs:element name="metode" type="Tinglysingsmetode" minOccurs="1"/>
-      <xs:element name="laaneavtaleinngaatt" type="xs:boolean" minOccurs="1"/>
+      <xs:element name="laaneavtaleinngaatt" minOccurs="0" maxOccurs="1" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
   
