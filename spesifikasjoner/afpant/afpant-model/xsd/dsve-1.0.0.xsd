@@ -586,6 +586,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Elektronisk tinglysing"/>
       <xs:enumeration value="Papirtinglysing"/> 
+      <xs:enumeration value="Uavklart"/> 
     </xs:restriction>
   </xs:simpleType>
 
