@@ -10,11 +10,11 @@ Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte
 Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen.
 
 ## Forspørsel om intensjon
-Forespørsel sendes fra bank til megler for å få vite gjeldende intensjon om tinglysingmetode.
-
-*NB!* Ved endringer av tinglysingmetode må det kringkastes en oppdatering fra meglersystem til alle banker som har tidligere forespurt intensjon.
-
+Forespørsel sendes mellom partene for å få vite mottakers gjeldende intensjon om tinglysingmetode, i tillegg til å opplyse om avsenders gjeldende intensjon.
 Det forventes at positivt svar er en melding som definert under.
+
+## Håndtering av endret intensjon
+Ved endringer i valgt tinglysingmetode må det kringkastes en oppdatering fra den som endrer sin intensjon. 
 
 ### Implementasjonsbeskrivelse: ruting (meglersystem)
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
