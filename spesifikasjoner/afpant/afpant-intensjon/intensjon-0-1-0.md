@@ -5,7 +5,7 @@ I et scenario hvor boligkjøper har innhentet tilbud fra flere banker vil megler
 
 Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data om eiendommen og partene, gjeldende intensjon om tinglysingmetode samt informasjon om hvorvidt signert skjøte/hjemmelsovergang på papir er registrert i meglers depot (papir er reserveløsning).
 
-*NB!* Bank må håndtere at gjeldende metode kan ha verdi  "**Uavklart**" (megler har ikke tatt stilling til metode).
+*NB!* Bank må håndtere NACK-response hvor status er "**UnknownJudicialRegistrationMethod**" (megler har ikke tatt stilling til metode for tinglysing).
 
 Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen.
  
