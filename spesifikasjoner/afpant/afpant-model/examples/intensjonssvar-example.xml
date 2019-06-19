@@ -28,14 +28,14 @@
 					<fornavn>Kari</fornavn>
 					<etternavn>Boligselger</etternavn>
 				</person>
-				<andel teller="1" nevner="2"/>
+				 
 			</rettssubjekt>
 			<rettssubjekt>
 				<person id="01010119001">
 					<fornavn>Arne Johnny</fornavn>
 					<etternavn>Boligselger</etternavn>
 				</person>
-				<andel teller="1" nevner="2"/>
+			 
 			</rettssubjekt>
 		</selgere>
 		<kjoepere>
@@ -44,14 +44,14 @@
 					<fornavn>Sylvia</fornavn>
 					<etternavn>Boligkjøper</etternavn>
 				</person>
-				<andel teller="1" nevner="3"/>
+			 
 			</rettssubjekt>
 			<rettssubjekt>
 				<person id="42345002244">
 					<fornavn>Hans Kåre</fornavn>
 					<etternavn>Hansen</etternavn>
 				</person>
-				<andel teller="2" nevner="3"/>
+			 
 			</rettssubjekt>
 		</kjoepere>
 	</parter>
@@ -67,6 +67,7 @@
 	</registerenheter>
 	<intensjonsdetaljer>
 		<metode>Elektronisk tinglysing</metode>
+		<signerthjemmelsovergangpaapapirtilgjengelig>true</signerthjemmelsovergangpaapapirtilgjengelig>
 	</intensjonsdetaljer>
 	<metadata>
 		<opprettet>2019-10-10T12:00:00-05:00</opprettet>

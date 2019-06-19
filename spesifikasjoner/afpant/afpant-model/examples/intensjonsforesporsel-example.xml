@@ -30,8 +30,7 @@
 		</registerenhet>
 	</registerenheter>
 	<intensjonsdetaljer>
-		<metode>Elektronisk tinglysing</metode>
-		<laaneavtaleinngaatt>true</laaneavtaleinngaatt>
+		<metode>Elektronisk tinglysing</metode> 
 	</intensjonsdetaljer>
 	<metadata>
 		<ressurser>

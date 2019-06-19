@@ -495,7 +495,7 @@
   <xs:complexType name="Intensjonsdetaljer">
     <xs:sequence> 
       <xs:element name="metode" type="Tinglysingsmetode" minOccurs="1"/>
-      <xs:element name="laaneavtaleinngaatt" minOccurs="0" maxOccurs="1" type="xs:boolean"/>
+	  <xs:element name="signerthjemmelsovergangpaapapirtilgjengelig" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
   
@@ -585,8 +585,7 @@
   <xs:simpleType name="Tinglysingsmetode">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Elektronisk tinglysing"/>
-      <xs:enumeration value="Papirtinglysing"/> 
-      <xs:enumeration value="Uavklart"/> 
+      <xs:enumeration value="Papirtinglysing"/>  
     </xs:restriction>
   </xs:simpleType>
 

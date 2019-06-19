@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
@@ -218,7 +218,7 @@
 		<xsl:call-template name="megler"/>
 		<xsl:call-template name="parter"/>
 		<xsl:call-template name="restgjeldforespoersel"/>
-		<xsl:call-template name="avsender"/>		
+		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
@@ -273,15 +273,6 @@
 							</b>
 						</div>
 					</div>
-					<div class="rad">
-						<div class="celle kol1">
-							<xsl:text>Låneavtale inngått:&#x20;</xsl:text>
-						</div>
-						<div class="celle">
-							<xsl:if test="intensjonsdetaljer/laaneavtaleinngaatt='true'">Ja</xsl:if>
-							<xsl:if test="intensjonsdetaljer/laaneavtaleinngaatt='false'">Nei</xsl:if>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -304,6 +295,17 @@
 							</b>
 						</div>
 					</div>
+					<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig">
+						<div class="rad">
+							<div class="celle kol1">
+								<xsl:text>Signert hjemmelsovergang/skjøte (papir) tilgjengelig:&#x20;</xsl:text>
+							</div>
+							<div class="celle">
+								<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig='true'">Ja</xsl:if>
+								<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig='false'">Nei</xsl:if>
+							</div>
+						</div>
+					</xsl:if>
 				</div>
 			</div>
 		</div>
@@ -358,10 +360,12 @@
 					<xsl:for-each select="restgjeldforespoerseldetaljer/saldoperdato/saldo">
 						<div class="rad">
 							<div class="celle kol1">
-								<xsl:text>Saldo&#x20;per&#x20;</xsl:text><b>
-								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="@dato"/>
-								</xsl:call-template></b>
+								<xsl:text>Saldo&#x20;per&#x20;</xsl:text>
+								<b>
+									<xsl:call-template name="dato">
+										<xsl:with-param name="dato" select="@dato"/>
+									</xsl:call-template>
+								</b>
 							</div>
 						</div>
 						<xsl:for-each select="laanenummer">
@@ -437,10 +441,12 @@
 					<xsl:for-each select="restgjelddetaljer/restgjeldsdatoer/saldoerperdato">
 						<div class="rad">
 							<div class="celle kol1">
-								<xsl:text>Saldo&#x20;per&#x20;</xsl:text><b>
-								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="@dato"/>
-								</xsl:call-template></b>
+								<xsl:text>Saldo&#x20;per&#x20;</xsl:text>
+								<b>
+									<xsl:call-template name="dato">
+										<xsl:with-param name="dato" select="@dato"/>
+									</xsl:call-template>
+								</b>
 							</div>
 						</div>
 						<xsl:for-each select="laan">
