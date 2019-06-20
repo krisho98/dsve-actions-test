@@ -90,7 +90,7 @@ Evry | Bank
 * Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
 * [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
 
-##### Aktørregister
+##### Aktørregister for elektronisk dokumentutveksling (AKELDO - Kartverket)
 Et aktørregister er under utarbeidelse av Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for. Testmiljø tilgjengeliggjøres ultimo juni 2019.
 <hr>
 
