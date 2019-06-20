@@ -8,7 +8,7 @@ Signering av skjøtet og signering av pantedokumentet skjer på ulike tidspunkt 
 
 ## Forutsetninger
 * Hver part sender sin intensjon
-* Megler tilgjengeliggjør sin intensjon i (megler)systemet for alle banker som måtte ønske å spørre på intensjon
+* Megler tar stilling til sin intensjon i eget fagsystem
 * Bank sender sin spesifikke intensjon og får meglers intensjon i retur.
 * Dette betyr at bank ikke vet meglers intensjon før bank sender forespørsel om intensjon
 
