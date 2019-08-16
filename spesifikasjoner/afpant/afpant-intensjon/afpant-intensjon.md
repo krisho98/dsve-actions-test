@@ -6,6 +6,9 @@ Denne meldingstypen skal brukes for å koordinere valgt metode mellom kjøpers b
 
 Signering av skjøtet og signering av pantedokumentet skjer på ulike tidspunkt i flyten, noe som kan skape utfordringer ved ulik intensjon mellom bank/megler.
 
+## Referat fra arbeidsgruppe (DSVE)
+[Les referat av arbeidsgruppens beslutning (PDF)](250619-Intensjonsmeldingen-spec-GODKJENT.pdf)
+
 ## Forutsetninger
 * Hver part sender sin intensjon
 * Megler tar stilling til sin intensjon i eget fagsystem
