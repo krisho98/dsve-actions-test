@@ -48,7 +48,7 @@ Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregiste
 Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (https://jira.statkart.no/).
 
 ## Altinn-tilgang for eiendomsmeglerforetak/banker
-Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle eiendomsmeglerforetak som skal motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
+Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle bank- og eiendomsmeglerforetak som skal sende- og motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
 Bestillinger av denne tilgangen må gjøres via tredjepartsleverandør eller direkte til Kartverket.
 
 ## Delegering av roller fra egne kunder til systemleverandør/datasentral
@@ -72,18 +72,18 @@ Websystemer AS | Megler
 Nordea | Bank
 Evry | Bank
 
-
+# Meldingstyper / dokumentpakker i standarden
  
 #### Dokumentpakke 1 - Elektronisk tinglysing
 ##### Kjøpers pantedokument og evt følgebrev
 * Overføring av e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
 * Overføring av følgebrev som PDF eller XML 
 * ACK/NACK-kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsen kunne rutes korrekt
-* [Oversikt og spesifikasjoner](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
+* [Oversikt og spesifikasjoner](spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
 
 ##### Intensjonsmelding
-* Forespørsel og statusoppdatering mellom bank <-> megler om det er planlagt bruk av  elektronisk tinglysing.
-* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/4)
+* Utveksling av intensjon om tinglysingmetode mellom bank og megler (elektronisk eller papir).
+* [Oversikt og spesifikasjoner](spesifikasjoner/afpant/afpant-intensjon/afpant-intensjon.md)
 
 
 ##### Statusoppdatering etter e-tinglysing
