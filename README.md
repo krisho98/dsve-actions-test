@@ -72,6 +72,11 @@ Websystemer AS | Megler
 Nordea | Bank
 Evry | Bank
 
+
+# Aktørregister for elektronisk dokumentutveksling (AKELDO - Kartverket)
+Et aktørregister er utarbeidet av Kartverket ([REST API er tilgjengelig her](https://www.grunnbok.no/akeldo/aktoer)). Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for å motta. 
+Innmelding av organisasjoner og støttede meldingstyper gjøres via Kartverket Applikasjonsdrift.
+
 # Meldingstyper / dokumentpakker i standarden
  
 #### Dokumentpakke 1 - Elektronisk tinglysing
@@ -90,8 +95,6 @@ Evry | Bank
 * Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
 * [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
 
-##### Aktørregister for elektronisk dokumentutveksling (AKELDO - Kartverket)
-Et aktørregister er under utarbeidelse av Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for. Testmiljø tilgjengeliggjøres ultimo juni 2019.
 <hr>
 
 #### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
