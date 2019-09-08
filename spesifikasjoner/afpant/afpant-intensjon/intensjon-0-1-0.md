@@ -32,6 +32,7 @@ Mottakere av meldingstypen "_IntensjonFraBank_" må benytte avsenders saksnummer
 
 ## Meldingstype: IntensjonfraBank
 Benyttes av bank for å informere megler om bankens planlagte tinglysingmetode og for å motta svar fra megler om gjeldende tinglysingmetode.
+Bank *må* alltid oppgi sitt saksnummer i _IntensjonFraBank.Avsender.Referanse_-feltet.
 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
@@ -84,6 +85,7 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 Benyttes for å kringkaste en endring i tinglysingsmetode for et gitt oppdrag/oppgjør. Denne meldingstypen har ingen tilsvarende "Svar"-melding (og som en følge av dette ingen ACK/NACK fra mottaker).
 - Bank som har sendt "_IntensjonFraBank_" til megler må sende "_Intensjonsendring_" til samme megler ved endringer
 - Megler må sende "_Intensjonsendring_" til _alle_ banker som har mottatt "_IntensjonssvarFraMegler_" ved endringer 
+- Bank har i utgangspunktet ingen muligheter for å rute meldingen basert kun på registerenhet og partene (kjøperne). Bankens saksnummer (hentes fra _IntensjonFraBank.Avsender.Referanse_) *må* angis i _Intensjonsendring.Mottaker.Referanse_-feltet.
 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
