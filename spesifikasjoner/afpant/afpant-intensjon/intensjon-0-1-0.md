@@ -45,7 +45,7 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 
 #### Om payload *(request)*
 - En xml-fil av modell **IntensjonFraBank** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
-- [Se eksempel på presentasjon](examples/intensjonfrabank-example.png)
+- [Se eksempel på presentasjon](examples/intensjonfrabank-example.PNG)
 
 ##### Modell
 ![model intensjonfrabank](examples/intensjonfrabank-model.png "Modell intensjonfrabank")
@@ -97,8 +97,8 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 
 #### Om payload *(request)*
 - En xml-fil av modell **Intensjonsendring** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
-- [Se eksempel på presentasjon - megler er avsender](examples/intensjonsendring-fra-megler-example.png)
-- [Se eksempel på presentasjon - bank er avsender](examples/intensjonsendring-fra-bank-example.png)
+- [Se eksempel på presentasjon - megler er avsender](examples/intensjonsendring-fra-megler-example.PNG)
+- [Se eksempel på presentasjon - bank er avsender](examples/intensjonsendring-fra-bank-example.PNG)
  
 ##### Modell
 ![model intensjonsendring](examples/intensjonsendring-model.png "Modell intensjonsendring")
