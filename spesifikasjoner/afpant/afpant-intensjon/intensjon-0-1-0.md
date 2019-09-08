@@ -5,7 +5,7 @@ Megler vil besvare med en melding (_IntensjonssvarFraMegler_) som inneholder str
 
 Dersom meldingen ikke kan besvares, vil banken få en NACK-response i retur hvor status beskriver hvorfor megler ikke kan besvare forespørselen.
 
-*NB!* Bank må håndtere NACK-response på melding (_IntensjonFraBank_) hvor status er "**UnknownJudicialRegistrationMethod**" (megler har ikke tatt stilling til metode for tinglysing).
+*NB!* Bank må håndtere NACK-response på melding (_IntensjonFraBank_) hvor status er "**UavklartTinglysingsmetode**" (megler har ikke tatt stilling til metode for tinglysing).
 Mottaker må implementere tilstrekkelig varsling/håndtering av denne situasjonen. 
 
 I et scenario hvor boligkjøper har innhentet tilbud fra flere banker vil megler måtte forvente å motta melding om intensjon fra flere banker. 
@@ -36,9 +36,9 @@ Benyttes av bank for å informere megler om bankens planlagte tinglysingmetode o
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
-|Manifest key|Type|Required|Beskrivelse|
+|Manifest key|Type|Obligatorisk|Beskrivelse|
 |--- |--- |--- |--- |
-|messageType|String|Yes|JudicialRegistrationMethodIntentFromCreditor|
+|messageType|String|Ja|IntensjonFraBank|
 
 ### Payload
 En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
@@ -59,11 +59,11 @@ Avsenders referanse (_IntensjonFraBank.Avsender.Referanse_) skal inkluderes som 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
-|Manifest key|Type|Required|Beskrivelse|
+|Manifest key|Type|Obligatorisk|Beskrivelse|
 |--- |--- |--- |--- |
-|messageType|String|Yes|JudicialRegistrationMethodIntentResponseFromBroker|
-|status|String (enum)|Yes|Denne kan være en av følgende statuser: <br>- RoutedSuccessfully <br>- UnknownJudicialRegistrationMethod (Megler har ikke tatt stilling til tinglysingsmetode) <br>- UnknownCadastre (ukjent matrikkelenhet) <br>- BuyerMismatch (fant matrikkelenhet, men kjøper eller navn/id på kjøper matcher ikke registrerte data hos mottaker) <br>- Rejected (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse).<br><br>Kun status '**RoutedSuccessfully**' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).|
-|statusDescription|String|Yes|Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et.|
+|messageType|String|Ja|IntensjonssvarFraMegler|
+|status|String (enum)|Ja|Denne kan være en av følgende statuser: <br>- RutetSuksessfullt <br>- UavklartTinglysingsmetode (Megler har ikke tatt stilling til tinglysingsmetode) <br>- UkjentRegisterenhet (ukjent register/matrikkelenhet) <br>- UgyldigKjøper (fant matrikkelenhet, men kjøper eller navn/id på kjøper matcher ikke registrerte data hos mottaker) <br>- Avvist (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse).<br><br>Kun status '**RutetSuksessfullt**' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).|
+|statusDescription|String|Ja|Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et.|
 
 ### Payload
 En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
@@ -88,9 +88,9 @@ Benyttes for å kringkaste en endring i tinglysingsmetode for et gitt oppdrag/op
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
-|Manifest key|Type|Required|Beskrivelse|
+|Manifest key|Type|Obligatorisk|Beskrivelse|
 |--- |--- |--- |--- |
-|messageType|String|Yes|JudicialRegistrationMethodChange|
+|messageType|String|Ja|Intensjonsendring|
 
 ### Payload
 En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
