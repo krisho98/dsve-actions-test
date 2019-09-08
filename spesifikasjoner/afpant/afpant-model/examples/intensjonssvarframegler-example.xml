@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="../xslt/dsve-1.0.0.xslt" type="text/xsl" ?>
-<intensjonssvar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+<intensjonssvarframegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
 	<avsender id="991111123">
 		<foretaksnavn>DSVE Megling AS</foretaksnavn>
 		<referanse>17-19-9999</referanse>
@@ -67,9 +67,9 @@
 	</registerenheter>
 	<intensjonsdetaljer>
 		<metode>Elektronisk tinglysing</metode>
-		<signerthjemmelsovergangpaapapirtilgjengelig>true</signerthjemmelsovergangpaapapirtilgjengelig>
+		<harsignerthjemmelsovergangpaapapir>true</harsignerthjemmelsovergangpaapapir>
 	</intensjonsdetaljer>
 	<metadata>
 		<opprettet>2019-10-10T12:00:00-05:00</opprettet>
 	</metadata>
-</intensjonssvar>
+</intensjonssvarframegler>

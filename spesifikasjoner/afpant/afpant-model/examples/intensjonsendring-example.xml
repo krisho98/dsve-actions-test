@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="../xslt/dsve-1.0.0.xslt" type="text/xsl" ?>
+<intensjonsendring xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+	<avsender id="991111123">
+		<foretaksnavn>DSVE Megling AS</foretaksnavn>
+		<referanse>17-19-9999</referanse>
+	</avsender>
+	<megler id="991111123">
+		<foretaksnavn>DSVE Megling AS</foretaksnavn>
+		<anvarligMegler>
+			<navn>Megler Ansvarlig</navn>
+			<epost>meglernavn@dsve-megling.no</epost>
+			<telefonDirekte>99999999</telefonDirekte>
+		</anvarligMegler>
+		<referanse>17-19-9999</referanse>
+		<oppgjorsavdeling id="983570658">
+			<foretaksnavn>Weboppgjør AS</foretaksnavn>
+		</oppgjorsavdeling>
+	</megler>
+	<mottaker id="920058817">
+		<foretaksnavn>Nordea Bank Abp, filial i Norge</foretaksnavn>
+		<referanse>CASPER001-01-01</referanse>
+	</mottaker>
+	<parter>
+		<selgere>
+			<rettssubjekt>
+				<person id="01010119000">
+					<fornavn>Kari</fornavn>
+					<etternavn>Boligselger</etternavn>
+				</person>
+				 
+			</rettssubjekt>
+			<rettssubjekt>
+				<person id="01010119001">
+					<fornavn>Arne Johnny</fornavn>
+					<etternavn>Boligselger</etternavn>
+				</person>
+			 
+			</rettssubjekt>
+		</selgere>
+		<kjoepere>
+			<rettssubjekt>
+				<person id="12345002211">
+					<fornavn>Sylvia</fornavn>
+					<etternavn>Boligkjøper</etternavn>
+				</person>
+			 
+			</rettssubjekt>
+			<rettssubjekt>
+				<person id="42345002244">
+					<fornavn>Hans Kåre</fornavn>
+					<etternavn>Hansen</etternavn>
+				</person>
+			 
+			</rettssubjekt>
+		</kjoepere>
+	</parter>
+	<registerenheter>
+		<registerenhet>
+			<matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="10" bruksnummer="936" festenummer="0" seksjonsnummer="0" eiendomsnivaa="E"></matrikkel>
+			<adresse>
+				<gatenavn>Sædalsvegen 79</gatenavn>
+				<postnummer>5099</postnummer>
+				<poststed>Bergen</poststed>
+			</adresse>
+		</registerenhet>
+	</registerenheter>
+	<intensjonsdetaljer>
+		<metode>Elektronisk tinglysing</metode> 
+	</intensjonsdetaljer>
+	<metadata>
+		<opprettet>2019-10-10T12:00:00-05:00</opprettet>
+	</metadata>
+</intensjonsendring>

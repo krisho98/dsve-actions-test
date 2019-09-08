@@ -17,6 +17,10 @@ Signering av skjøtet og signering av pantedokumentet skjer på ulike tidspunkt 
 
 *NB!* I startfasen skal megler alltid ha (signerte) papirdokumenter tilgjengelig selv om intensjon er elektronisk tinglysing.
 
+## Krav til bank og megler
+
+* Endring av intensjon skal alltid sendes til motpart (via meldingstype "Intensjonsendring").
+
 ## Flytskisse: Elektronisk tinglysing
 ![Flytdiagram](examples/intensjon-flytdiagram-eksempel1.PNG)
 

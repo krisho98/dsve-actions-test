@@ -1,61 +1,68 @@
-# Intensjon om ønsket tinglysingsmetode 
-En bank kan sende forespørsel om tinglysingsmetode til en megler basert på kjøpers fødsels- og personnummer og eiendomsobjektet som skal finansieres. Banken inkluderer sin egen intensjon om tinglysingsmetode i forespørselen. 
+# Ønsket tinglysingsmetode 
+En bank kan sende melding om ønsket tinglysingsmetode til en megler (_IntensjonFraBank_) for å avdekke meglers ønskede tinglysingsmetode. Meldingen må inneholde kjøpers fødsels- og personnummer og eiendomsobjektet som skal finansieres. Banken inkluderer sin egen intensjon om tinglysingsmetode i meldingen. 
 
-I et scenario hvor boligkjøper har innhentet tilbud fra flere banker vil megler måtte forvente å motta forespørsel om intensjon fra flere banker. 
+Megler vil besvare med en melding (_IntensjonssvarFraMegler_) som inneholder strukturerte data om eiendommen og partene, gjeldende intensjon om tinglysingmetode samt informasjon om hvorvidt signert skjøte/hjemmelsovergang på papir er registrert i meglers depot (papir er reserveløsning).
 
-Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data om eiendommen og partene, gjeldende intensjon om tinglysingmetode samt informasjon om hvorvidt signert skjøte/hjemmelsovergang på papir er registrert i meglers depot (papir er reserveløsning).
+Dersom meldingen ikke kan besvares, vil banken få en NACK-response i retur hvor status beskriver hvorfor megler ikke kan besvare forespørselen.
 
-*NB!* Bank må håndtere NACK-response hvor status er "**UnknownJudicialRegistrationMethod**" (megler har ikke tatt stilling til metode for tinglysing).
+*NB!* Bank må håndtere NACK-response på melding (_IntensjonFraBank_) hvor status er "**UnknownJudicialRegistrationMethod**" (megler har ikke tatt stilling til metode for tinglysing).
+Mottaker må implementere tilstrekkelig varsling/håndtering av denne situasjonen. 
 
-Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen.
- 
-## Håndtering av endret intensjon
-Ved endringer i valgt tinglysingmetode må det kringkastes en oppdatering fra den som endrer sin intensjon. 
+I et scenario hvor boligkjøper har innhentet tilbud fra flere banker vil megler måtte forvente å motta melding om intensjon fra flere banker. 
+
+## Endring av tinglysingsmetode
+Dersom en endring av tinglysingmetode oppstår må det kringkastes en oppdatering fra den som endrer sin intensjon (_Intensjonsendring_). Intensjonsendring-meldingen er en push-melding og har ingen tilhørende "svar"-melding. 
+Eksempel: 
+- det blir realkausjon, tinglysingmetode papir (bank pusher til megler) 
+- noen av partene blir forhindret fra å benytte BankId-signering, tinglysingsmetode papir (megler pusher til bank(er))
+
+## Implementasjonskrav
+Alle som implementerer støtte for mottak av "_IntensjonFraBank_" eller mottak av "_IntensjonssvarFraMegler_" må også støtte mottak og sending av "_Intensjonsendring_".
+
+Mottakere av meldingstypen "_IntensjonFraBank_" må benytte avsenders saksnummer (_IntensjonFraBank.Avsender.Referanse_) i all videre kommunikasjon til avsenderbank.
 
 ## Validering og ruting
 ### Ruting (meglersystem)
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
-- utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee")
+- utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret meldingen er sendt til ("reportee")
 - utvalget avgrenses til meglersaker hvor **minst 1 kjøper i forespørselen er registrert som kjøper på meglersaken** 
  
 ### Ruting (banksystem)
-- mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er) 
-- utvalget avgrenses til lånesaker hvor **minst 1 kjøper i forespørselen er registrert som debitor i lånesaken** 
+- mottakende systemleverandør søker blant lånesaker hvor saksnummer matcher _IntensjonssvarFraMegler.Mottaker.Referanse_/_Intensjonsendring.Mottaker.Referanse_ og **minst 1 kjøper i forespørselen er registrert som debitor i lånesaken** 
 
-## Forespørsel om intensjon
-Forespørsel sendes mellom partene for å få vite mottakers gjeldende intensjon om tinglysingmetode, i tillegg til å opplyse om avsenders gjeldende intensjon.
-
+## Meldingstype: IntensjonfraBank
+Benyttes av bank for å informere megler om bankens planlagte tinglysingmetode og for å motta svar fra megler om gjeldende tinglysingmetode.
 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
 |Manifest key|Type|Required|Beskrivelse|
 |--- |--- |--- |--- |
-|messageType|String|Yes|JudicialRegistrationMethodIntentRequest|
+|messageType|String|Yes|JudicialRegistrationMethodIntentFromCreditor|
 
 ### Payload
 En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
 
 #### Om payload *(request)*
-- En xml-fil av modell **Intensjonsforespoersel** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
-- [Se eksempel på presentasjon](examples/intensjonsforespoersel-example.png)
+- En xml-fil av modell **IntensjonFraBank** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+- [Se eksempel på presentasjon](examples/intensjonfrabank-example.png)
 
 ##### Modell
-![model intensjonsforespørsel](examples/intensjonsforespoersel-model.png "Model for forespørsel om kjøpekontrakt")
+![model intensjonfrabank](examples/intensjonfrabank-model.png "Modell intensjonfrabank")
 <hr/>
 
-## Svar på intensjon
-Svar fra meglersystem til banksystem eller banksystem til meglersystem (ved oppdatering av intensjon fra megler).
+## Meldingstype: IntensjonssvarFraMegler
+Benyttes som svar fra meglersystem til banksystem etter mottatt "_IntensjonFraBank_".
 
-Dersom avsender oppgir referanse skal denne inkluderes som mottakers referanse i svaret (noden "avsender/referanse" fra request kopieres til noden "mottaker/referanse" i response).
+Avsenders referanse (_IntensjonFraBank.Avsender.Referanse_) skal inkluderes som mottakers referanse i svaret (verdien i _IntensjonFraBank.Avsender.Referanse_ kopieres til _IntensjonssvarFraMegler.Mottaker.Referanse_).
 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
 |Manifest key|Type|Required|Beskrivelse|
 |--- |--- |--- |--- |
-|messageType|String|Yes|JudicialRegistrationMethodIntentResponse|
-|status|String (enum)|Yes|Denne kan være en av følgende statuser: <br>- RoutedSuccessfully <br>- UnknownJudicialRegistrationMethod (Kun relevant ved svar fra megler til bank: megler har ikke tatt stilling til tinglysingsmetode) <br>- UnknownCadastre (ukjent matrikkelenhet) <br>- BuyerMismatch (fant matrikkelenhet, men kjøper eller navn/id på kjøper matcher ikke registrerte data hos mottaker) <br>- Rejected (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse).<br><br>Kun status '**RoutedSuccessfully**' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).|
+|messageType|String|Yes|JudicialRegistrationMethodIntentResponseFromBroker|
+|status|String (enum)|Yes|Denne kan være en av følgende statuser: <br>- RoutedSuccessfully <br>- UnknownJudicialRegistrationMethod (Megler har ikke tatt stilling til tinglysingsmetode) <br>- UnknownCadastre (ukjent matrikkelenhet) <br>- BuyerMismatch (fant matrikkelenhet, men kjøper eller navn/id på kjøper matcher ikke registrerte data hos mottaker) <br>- Rejected (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse).<br><br>Kun status '**RoutedSuccessfully**' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).|
 |statusDescription|String|Yes|Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et.|
 
 ### Payload
@@ -64,19 +71,35 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 #### Om payload *(response)*
 
 ##### Positiv resultat (ACK)
-- Må være en xml-fil av modell **Intensjonssvar** som er ihht. [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
-- Se eksempel på presentasjon: [Eksempel](examples/intensjonssvar-example.png)
+- En xml-fil av modell **IntensjonssvarFraMegler** som er i henhold til [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+- Se eksempel på presentasjon: [Eksempel](examples/intensjonssvarframegler-example.png)
 
 ##### Modell
-![model intensjon](examples/intensjonssvar-model.png "Model for intensjonssvar")
+![modell](examples/intensjonssvarframegler-model.png "Modell intensjonssvarframegler")
 
 ##### Negativt resultat (NACK)
 - Tom payload returneres (ZIP arkiv med dummy innhold). Manifest key "status" og "statusDescription" må avleses for årsak. 
 
-## Eksempel
+## Meldingstype: Intensjonsendring
+Benyttes for å kringkaste en endring i tinglysingsmetode for et gitt oppdrag/oppgjør. Denne meldingstypen har ingen tilsvarende "Svar"-melding (og som en følge av dette ingen ACK/NACK fra mottaker).
+- Bank som har sendt "_IntensjonFraBank_" til megler må sende "_Intensjonsendring_" til samme megler ved endringer
+- Megler må sende "_Intensjonsendring_" til _alle_ banker som har mottatt "_IntensjonssvarFraMegler_" ved endringer 
 
-### Forespørsel
-![Eksempel](examples/intensjonsforespoersel-example.png)
+### Manifest
+(BrokerServiceInitiation.Manifest.PropertyList)
 
-### Svar
-![Eksempel](examples/intensjonssvar-example.png)
+|Manifest key|Type|Required|Beskrivelse|
+|--- |--- |--- |--- |
+|messageType|String|Yes|JudicialRegistrationMethodChange|
+
+### Payload
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+
+#### Om payload *(request)*
+- En xml-fil av modell **Intensjonsendring** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+- [Se eksempel på presentasjon - megler er avsender](examples/intensjonsendring-fra-megler-example.png)
+- [Se eksempel på presentasjon - bank er avsender](examples/intensjonsendring-fra-bank-example.png)
+ 
+##### Modell
+![model intensjonsendring](examples/intensjonsendring-model.png "Modell intensjonsendring")
+<hr/>

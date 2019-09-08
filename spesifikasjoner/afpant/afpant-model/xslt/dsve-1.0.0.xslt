@@ -129,8 +129,9 @@
 						<xsl:apply-templates select="saldosvar"/>
 						<xsl:apply-templates select="restgjeldsforespoersel"/>
 						<xsl:apply-templates select="restgjeldssvar"/>
-						<xsl:apply-templates select="intensjonsforespoersel"/>
-						<xsl:apply-templates select="intensjonssvar"/>
+						<xsl:apply-templates select="intensjonfrabank"/>
+						<xsl:apply-templates select="intensjonssvarframegler"/>
+						<xsl:apply-templates select="intensjonsendring"/>
 					</div>
 				</div>
 			</body>
@@ -156,15 +157,18 @@
 		<xsl:if test="restgjeldssvar">
 			<xsl:text>Restgjeldssvar</xsl:text>
 		</xsl:if>
-		<xsl:if test="intensjonsforespoersel">
+		<xsl:if test="intensjonfrabank">
 			<xsl:text>Forespørsel om tinglysingsmetode</xsl:text>
 		</xsl:if>
-		<xsl:if test="intensjonssvar">
+		<xsl:if test="intensjonssvarframegler">
 			<xsl:text>Tinglysingsmetode</xsl:text>
+		</xsl:if>
+		<xsl:if test="intensjonsendring">
+			<xsl:text>Endring av tinglysingsmetode</xsl:text>
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template name="kjoepekontrakt" match="/kjoepekontrakt">
+	<xsl:template match="/kjoepekontrakt">
 		<xsl:call-template name="mottaker"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="salgsobjekt/registerenheter/registerenhet"/>
@@ -233,30 +237,49 @@
 		<hr/>
 	</xsl:template>
 
-	<xsl:template match="/intensjonsforespoersel">
+	<xsl:template match="/intensjonfrabank">
 		<xsl:call-template name="mottaker"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
-		<xsl:call-template name="parter"/>
-		<xsl:call-template name="intensjonsforespoersel"/>
+		<div class="hovedseksjon">
+			<xsl:call-template name="listRoller">
+				<xsl:with-param name="rolle" select="kjoepere/rettssubjekt"/>
+				<xsl:with-param name="rolleNavn" select="'Kjøpere'"/>
+			</xsl:call-template>
+		</div>
+		<xsl:call-template name="intensjonfrabank"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
-	<xsl:template match="/intensjonssvar">
+	<xsl:template match="/intensjonssvarframegler">
 		<xsl:call-template name="mottaker"/>
 		<xsl:call-template name="eiendom">
 			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
 		</xsl:call-template>
 		<xsl:call-template name="megler"/>
 		<xsl:call-template name="parter"/>
-		<xsl:call-template name="intensjonssvar"/>
+		<xsl:call-template name="intensjonssvarframegler"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
 
-	<xsl:template name="intensjonsforespoersel">
+	<xsl:template match="/intensjonsendring">
+		<xsl:call-template name="mottaker"/>
+		<xsl:call-template name="eiendom">
+			<xsl:with-param name="registerenhetsliste" select="registerenheter/registerenhet"/>
+		</xsl:call-template>
+		<xsl:if test="megler">
+			<xsl:call-template name="megler"/>
+		</xsl:if>
+		<xsl:call-template name="parter"/>
+		<xsl:call-template name="intensjonsendring"/>
+		<xsl:call-template name="avsender"/>
+		<hr/>
+	</xsl:template>
+
+	<xsl:template name="intensjonfrabank">
 		<div class="hovedseksjon">
 			<xsl:call-template name="seksjon">
 				<xsl:with-param name="tittel" select="'Ønsket metode for tinglysing'"/>
@@ -278,7 +301,7 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template name="intensjonssvar">
+	<xsl:template name="intensjonssvarframegler">
 		<div class="hovedseksjon">
 			<xsl:call-template name="seksjon">
 				<xsl:with-param name="tittel" select="'Ønsket metode for tinglysing'"/>
@@ -295,17 +318,39 @@
 							</b>
 						</div>
 					</div>
-					<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig">
+					<xsl:if test="intensjonsdetaljer/harsignerthjemmelsovergangpaapapir">
 						<div class="rad">
 							<div class="celle kol1">
 								<xsl:text>Signert hjemmelsovergang/skjøte (papir) tilgjengelig:&#x20;</xsl:text>
 							</div>
 							<div class="celle">
-								<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig='true'">Ja</xsl:if>
-								<xsl:if test="intensjonsdetaljer/signerthjemmelsovergangpaapapirtilgjengelig='false'">Nei</xsl:if>
+								<xsl:if test="intensjonsdetaljer/harsignerthjemmelsovergangpaapapir='true'">Ja</xsl:if>
+								<xsl:if test="intensjonsdetaljer/harsignerthjemmelsovergangpaapapir='false'">Nei</xsl:if>
 							</div>
 						</div>
 					</xsl:if>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+
+	<xsl:template name="intensjonsendring">
+		<div class="hovedseksjon">
+			<xsl:call-template name="seksjon">
+				<xsl:with-param name="tittel" select="'Ønsket metode for tinglysing'"/>
+			</xsl:call-template>
+			<div class="tabell innhold">
+				<div class="kropp">
+					<div class="rad">
+						<div class="celle kol1">
+							<xsl:text>Ønsket metode:&#x20;</xsl:text>
+						</div>
+						<div class="celle">
+							<b>
+								<xsl:value-of select="intensjonsdetaljer/metode"/>
+							</b>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -966,31 +1011,6 @@
 		</xsl:for-each>
 	</xsl:template>
 
-	<xsl:template name="kjoepere">
-		<div class="hovedseksjon">
-			<xsl:call-template name="seksjon">
-				<xsl:with-param name="tittel" select="'Kjøpere'"/>
-			</xsl:call-template>
-			<div class="tabell">
-				<div class="kropp">
-					<div class="rad" style="font-style: italic; ">
-						<div class="celle">
-							<div class="innhold">Navn</div>
-						</div>
-						<div class="celle">Id</div>
-					</div>
-					<xsl:for-each select="parter/part">
-						<xsl:if test="contains(./@rolle,'kjoeper')">
-							<xsl:call-template name="person_row">
-								<xsl:with-param name="rettssubjekt" select="."/>
-							</xsl:call-template>
-						</xsl:if>
-					</xsl:for-each>
-				</div>
-			</div>
-		</div>
-	</xsl:template>
-
 	<xsl:template name="person_oneliner">
 		<xsl:param name="rettssubjekt"/>
 		<div>
@@ -1261,11 +1281,14 @@
 		<xsl:if test="restgjeldssvar">
 			<xsl:text>Restgjeldssvar</xsl:text>
 		</xsl:if>
-		<xsl:if test="intensjonsforespoersel">
+		<xsl:if test="intensjonfrabank">
 			<xsl:text>Forespørsel om tinglysingsmetode</xsl:text>
 		</xsl:if>
-		<xsl:if test="intensjonssvar">
+		<xsl:if test="intensjonssvarframegler">
 			<xsl:text>Svar om tinglysingsmetode</xsl:text>
+		</xsl:if>
+		<xsl:if test="intensjonsendring">
+			<xsl:text>Endring av tinglysingsmetode</xsl:text>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
