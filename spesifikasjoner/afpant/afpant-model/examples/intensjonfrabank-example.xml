@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="../xslt/dsve-1.0.0.xslt" type="text/xsl" ?>
+<intensjonfrabank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+	<mottaker id="991111123">
+		<foretaksnavn>DSVE Megling AS</foretaksnavn>
+		<referanse>17-19-9999</referanse>
+	</mottaker>
+	<avsender id="920058817">
+		<foretaksnavn>Nordea Bank Abp, filial i Norge</foretaksnavn>
+		<referanse>CASPER001-01-01</referanse>
+	</avsender>
+	<kjoepere>
+		<rettssubjekt>
+			<person id="12345002211">
+				<fornavn>Sylvia Yvonne</fornavn>
+				<etternavn>Boligkjøper</etternavn>
+			</person>
+		</rettssubjekt>
+	</kjoepere>
+	<registerenheter>
+		<registerenhet>
+			<matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="10" bruksnummer="936" festenummer="0" seksjonsnummer="0" eiendomsnivaa="E"></matrikkel>
+			<adresse>
+				<gatenavn>Sædalsvegen 79B</gatenavn>
+				<postnummer>5099</postnummer>
+				<poststed>Bergen</poststed>
+			</adresse>
+		</registerenhet>
+	</registerenheter>
+	<intensjonsdetaljer>
+		<metode>Elektronisk tinglysing</metode>
+	</intensjonsdetaljer>
+	<metadata>
+		<ressurser>
+		</ressurser>
+		<opprettet>2019-10-10T12:00:00-05:00</opprettet>
+	</metadata>
+</intensjonfrabank>

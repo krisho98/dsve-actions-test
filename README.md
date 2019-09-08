@@ -72,8 +72,7 @@ Websystemer AS | Megler
 Nordea | Bank
 Evry | Bank
 
-#### Aktørregister (under utarbeidelse)
-Et aktørregister er under utarbeidelse. Aktørregisteret blir enten administrert av BITS AS eller Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for å sende/motta.
+
  
 #### Dokumentpakke 1 - Elektronisk tinglysing
 ##### Kjøpers pantedokument og evt følgebrev
@@ -81,6 +80,19 @@ Et aktørregister er under utarbeidelse. Aktørregisteret blir enten administrer
 * Overføring av følgebrev som PDF eller XML 
 * ACK/NACK-kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsen kunne rutes korrekt
 * [Oversikt og spesifikasjoner](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
+
+##### Intensjonsmelding
+* Forespørsel og statusoppdatering mellom bank <-> megler om det er planlagt bruk av  elektronisk tinglysing.
+* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/4)
+
+
+##### Statusoppdatering etter e-tinglysing
+* Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
+* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
+
+##### Aktørregister for elektronisk dokumentutveksling (AKELDO - Kartverket)
+Et aktørregister er under utarbeidelse av Kartverket.  Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for. Testmiljø tilgjengeliggjøres ultimo juni 2019.
+<hr>
 
 #### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
 ##### Kjøpekontrakt 
@@ -96,11 +108,3 @@ Et aktørregister er under utarbeidelse. Aktørregisteret blir enten administrer
 * Forespørsel om saldoer for innfrielse av tinglyst pant fra megler til bank eller bank til bank
 * [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-restgjeldsoppgave/afpant-restgjeldsoppgave.md)
 
-##### Intensjonsmelding
-* Forespørsel og statusoppdatering mellom bank <-> megler om det er planlagt bruk av  elektronisk tinglysing.
-* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/4)
-
-
-##### Statusoppdatering etter e-tinglysing
-* Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
-* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
