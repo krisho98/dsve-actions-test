@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
@@ -693,7 +693,7 @@
 							<div class="celle kol2">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/salgssum"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/salgssum"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -704,7 +704,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/omkostningerKjoeper"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/omkostningerKjoeper"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -715,7 +715,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/andelFellesgjeld"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelFellesgjeld"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -726,7 +726,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/andelFellesformue"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelFellesformue"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -736,7 +736,7 @@
 							</div>
 							<div class="celle">
 								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="oppgjorsinformasjon/akseptdato"/>
+									<xsl:with-param name="dato" select="oppgjoersinformasjon/akseptdato"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -746,7 +746,7 @@
 							</div>
 							<div class="celle">
 								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="oppgjorsinformasjon/overtagelsesdato"/>
+									<xsl:with-param name="dato" select="oppgjoersinformasjon/overtagelsesdato"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -755,8 +755,8 @@
 								<xsl:text>Spesielle forhold:&#x20;</xsl:text>
 							</div>
 							<div class="celle">
-								<xsl:if test="oppgjorsinformasjon/spesielleForhold='true'">Ja</xsl:if>
-								<xsl:if test="oppgjorsinformasjon/spesielleForhold='false'">Nei</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/spesielleForhold='true'">Ja</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/spesielleForhold='false'">Nei</xsl:if>
 							</div>
 						</div>
 						<div class="rad">
@@ -764,8 +764,8 @@
 								<xsl:text>Elektronisk tinglysing:&#x20;</xsl:text>
 							</div>
 							<div class="celle">
-								<xsl:if test="oppgjorsinformasjon/onskerElektroniskTinglysing">Ja</xsl:if>
-								<xsl:if test="not(oppgjorsinformasjon/onskerElektroniskTinglysing)">Nei</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/oenskerElektroniskTinglysing">Ja</xsl:if>
+								<xsl:if test="not(oppgjoersinformasjon/oenskerElektroniskTinglysing)">Nei</xsl:if>
 							</div>
 						</div>
 					</div>
@@ -1239,11 +1239,11 @@
 						</xsl:if>
 					</div>
 					<div class="celle">
-						<xsl:if test="megler/oppgjorsavdeling">
+						<xsl:if test="megler/oppgjoersavdeling">
 							<xsl:text>Oppgjørsavdeling:&#x20;</xsl:text>
 							<div style="padding-bottom:8px;">
 								<xsl:call-template name="organisasjon">
-									<xsl:with-param name="organisasjon" select="megler/oppgjorsavdeling"/>
+									<xsl:with-param name="organisasjon" select="megler/oppgjoersavdeling"/>
 								</xsl:call-template>
 							</div>
 						</xsl:if>

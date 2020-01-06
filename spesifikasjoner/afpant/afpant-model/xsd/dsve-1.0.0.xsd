@@ -35,7 +35,7 @@
 			<xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="parter" type="Rettssubjekter"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="salgsobjekt" type="Salgsobjekt"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="oppgjorsinformasjon" type="Oppgjorsinformasjon"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="oppgjoersinformasjon" type="Oppgjoersinformasjon"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -184,7 +184,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="anvarligMegler" type="Kontaktperson"/>
 					<xs:element minOccurs="1" name="referanse" type="xs:string"/>
-					<xs:element minOccurs="0" name="oppgjorsavdeling" type="Organisasjon"/>
+					<xs:element minOccurs="0" name="oppgjoersavdeling" type="Organisasjon"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -238,7 +238,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="Oppgjorsinformasjon">
+	<xs:complexType name="Oppgjoersinformasjon">
 		<xs:annotation>
 			<xs:documentation>Oppgjørsinformasjon inneholder detaljer relatert til oppgjøret</xs:documentation>
 		</xs:annotation>
@@ -250,7 +250,7 @@
 			<xs:element minOccurs="1" maxOccurs="1" name="andelFellesgjeld" type="xs:double"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="andelFellesformue" type="xs:double"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="spesielleForhold" type="xs:boolean"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="onskerElektroniskTinglysing" type="xs:boolean"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="oenskerElektroniskTinglysing" type="xs:boolean"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -319,22 +319,6 @@
 	<xs:complexType name="Broek">
 		<xs:attribute name="teller" type="xs:long"/>
 		<xs:attribute name="nevner" type="xs:long"/>
-	</xs:complexType>
-
-	<xs:complexType name="Rettighetshaver">
-		<xs:annotation>
-			<xs:documentation>Kan brukes for å beskrive en rettighetshaver som enten er en privatperson med fødselsnummer, eller en organisasjon med organisasjonsnummer.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" maxOccurs="1" name="Nummer" type="xs:string"/>
-			<xs:element minOccurs="0" maxOccurs="1" name="Navn" type="xs:string"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="Rettighetshavere">
-		<xs:sequence>
-			<xs:element minOccurs="1" maxOccurs="unbounded" name="RettighetsHaver" nillable="true" type="Rettighetshaver"/>
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="Registerenheter">
