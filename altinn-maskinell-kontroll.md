@@ -22,7 +22,7 @@ For å unngå mangelfulle oppsett er det mulig å gjøre en maskinell kontroll a
 `POST https://www.altinn.no/api/authentication/authenticatewithpassword?ForceEIAuthentication=true`<br/>
 <br/>Request body payload:<br/>
     ```
-    { `
+    { 
         "UserName": "din-virksomhetsbruker",
         "UserPassword": "din-virksomhetsbruker-passord"
     }
@@ -34,6 +34,7 @@ For å unngå mangelfulle oppsett er det mulig å gjøre en maskinell kontroll a
 - Kallet må utføres med følgened credentials:
     - apikey
     - client certificate
+    - `.ASPXAUTH` cookie fra steg 1
 - Eksempel request:<br/>
     `GET https://www.altinn.no/api/reportees?ForceEIAuthentication=true&serviceCode=4752` 
 
@@ -43,6 +44,7 @@ For å unngå mangelfulle oppsett er det mulig å gjøre en maskinell kontroll a
 - Kallet må utføres med følgende credentials:
     - apikey
     - client certificate
+    - `.ASPXAUTH` cookie fra steg 1
 - Eksempel request:<br/>
 `GET https://www.altinn.no/api/{ReporteeId}/authorization/rights?ForceEIAuthentication=true&$filter=ServiceCode eq '4752'` <br/><br/>(NB! Erstatt `{ReporteeId}` med faktisk `ReporteeId` fra steg 2)
 
