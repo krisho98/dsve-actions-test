@@ -22,6 +22,11 @@ For å rute forsendelsen blir pantedokumentet pakket ut fra SDO, og matrikkelenh
 - Pantedokumentet må følge konvensjonen: "signedmortgagedeed_&ast;.[sdo|xml]"
 Wildcard "&ast;" kan erstattes med en vilkårlig streng (må være et gyldig filnavn), f.eks lånesaksnummer eller annen relevant referanse for avsender.
 
+## Krav til dokumentreferanse
+- Benyttet dokumentreferanse må være unik i "signedmortgagedeed_&ast;.[sdo|xml]"
+Referansen må lages på en slik måte at den også er unik på tvers av banker. Dette ettersom megler skal lage en skjøtepakke som kan inneholde flere dokumenter fra flere kilder og dokumentreferansene i en pakke må være unike. 
+Referansen settes ved opprettelse av dokumentet i "no.kartverket.grunnbok.wsapi.v2.domain.innsending.Dokument.dokumentreferanse"
+
 ### Implementasjonsbeskrivelse: ruting
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
 - utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee")
