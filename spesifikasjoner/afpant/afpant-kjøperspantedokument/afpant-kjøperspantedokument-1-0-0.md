@@ -24,10 +24,10 @@ Wildcard "&ast;" kan erstattes med en vilkårlig streng (må være et gyldig fil
 
 ## Krav til dokumentreferanse
 - Benyttet dokumentreferanse må være unik i "signedmortgagedeed_&ast;.[sdo|xml]"
-Referansen må lages på en slik måte at den også er unik på tvers av banker. Dette ettersom megler skal lage en skjøtepakke som kan inneholde flere dokumenter fra flere kilder og dokumentreferansene i en pakke må være unike. Id må være unikt på tvers av saker i den enkelte bank og på tvers av alle banker. Bruk av bankId er derfor ønskelig.
+Referansen må lages på en slik måte at den også er unik på tvers av banker. Dette ettersom megler skal lage en skjøtepakke som kan inneholde flere dokumenter fra flere kilder og dokumentreferansene i en pakke må være unike. Id må være unikt på tvers av saker i den enkelte bank og på tvers av alle banker. Bruk av bankregisternummer er derfor ønskelig.
 Referansen settes ved opprettelse av dokumentet i "no.kartverket.grunnbok.wsapi.v2.domain.innsending.Dokument.dokumentreferanse"
-- Eksempler på ugyldige referanser: "0", "0_pantedokumnet", "1_[bankid]" 
-- Eksempler på gyldige referanser: [caseId]-[dokumentId]-[bankId] "12345-1234567899057", [UUID] "a39e6076-b775-11ea-b3de-0242ac130004"
+- Eksempler på ugyldige referanser: "0", "0_pantedokumnet", "1_[bankregisternummer]" 
+- Eksempler på gyldige referanser: [caseId]-[dokumentId]-[bankregisternummer] "12345-123456789-9057", [UUID] "a39e6076-b775-11ea-b3de-0242ac130004"
 	
 
 ### Implementasjonsbeskrivelse: ruting
