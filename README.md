@@ -43,6 +43,10 @@ Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelkl
 </table>
 *NB:* ServiceCode for tjenesten er lik i Test og Prod.
 
+## Maskinell kontroll av Altinn-tilganger (for systemleverandører)
+Det er mulig å foreta en maskinell kontroll av hvilke organisasjoner som har delegert rettigheter til systemleverandør for en gitt ServiceCode. 
+[Les mer om maskinell kontroll her](altinn-maskinell-kontroll.md)
+
 ## Altinn-tilgang for systemleverandører/datasentraler
 Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle systemleverandører/datasentraler som skal koble seg direkte til denne tjenesten.
 Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (https://jira.statkart.no/).
