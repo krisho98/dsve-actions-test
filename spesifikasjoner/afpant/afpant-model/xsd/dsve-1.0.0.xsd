@@ -347,7 +347,11 @@
 	<xs:complexType name="Matrikkel">
 		<xs:sequence/>
 		<xs:attribute name="kommunenavn" type="xs:string" use="required"/>
-		<xs:attribute name="kommunenummer" type="xs:string" use="required"/>
+		<xs:attribute name="kommunenummer" type="xs:string" use="required">
+			<xs:annotation>
+			<xs:documentation>Kommunenummer må være formatert med 4 siffer (0000, tilsvarende som hos Kartverket)</xs:documentation>
+			</xs:annotation>		
+		</xs:attribute>
 		<xs:attribute name="gaardsnummer" type="xs:string" use="required"/>
 		<xs:attribute name="bruksnummer" type="xs:string" use="required"/>
 		<xs:attribute name="festenummer" type="xs:string"/>
