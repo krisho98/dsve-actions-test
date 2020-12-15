@@ -1,0 +1,23 @@
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: "0 10 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/stale@v3
+      with:
+        days-before-stale: 14
+        days-before-close: 365
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'Hei, det er ikke oppdaget noe aktivitet i denne issuen på 14 dager, vi har derfor markert den som stale'
+        stale-pr-message: 'Hei, det er ikke oppdaget noe aktivitet i denne pull-requesten på 14 dager, vi har derfor markert den som stale'
+        stale-issue-label: 'Stale'
+        stale-pr-label: 'Stale'
+        exempt-issue-labels: stale-ignorert
+        exempt-pr-labels: stale-ignorert
