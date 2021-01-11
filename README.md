@@ -115,3 +115,9 @@ Innmelding av organisasjoner og støttede meldingstyper gjøres via Kartverket A
 * Forespørsel om saldoer for innfrielse av tinglyst pant fra megler til bank eller bank til bank
 * [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-restgjeldsoppgave/afpant-restgjeldsoppgave.md)
 
+# Ønskede endring og forbedringer.
+For å kunne huske ønsker og forbedringer som kommer opp og holde oversikt over populariteten til ønskene lages det er en tabell her. Kort navn/beskrivelse, ønsket av, og støttet av.
+
+Forbedring/Ønske | Ønsket av | Støttes av
+---------- | ----------- | -----------
+Tilbakekall/Kanseller dokument send til megler | Ambita AS | TietoEVRY
