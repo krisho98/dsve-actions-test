@@ -15,8 +15,8 @@ jobs:
         days-before-stale: 35
         days-before-close: 1095
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'Hei, det er ikke oppdaget noe aktivitet i denne issuen på 14 dager, vi har derfor markert den som stale'
-        stale-pr-message: 'Hei, det er ikke oppdaget noe aktivitet i denne pull-requesten på 14 dager, vi har derfor markert den som stale'
+        stale-issue-message: 'Hei, det er ikke oppdaget noe aktivitet i denne issuen på 5 uker, vi har derfor markert den som stale'
+        stale-pr-message: 'Hei, det er ikke oppdaget noe aktivitet i denne pull-requesten på 5 uker, vi har derfor markert den som stale'
         stale-issue-label: 'Stale'
         stale-pr-label: 'Stale'
         exempt-issue-labels: in progress
