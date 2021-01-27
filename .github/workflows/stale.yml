@@ -12,12 +12,12 @@ jobs:
     steps:
     - uses: actions/stale@v3
       with:
-        days-before-stale: 14
-        days-before-close: 365
+        days-before-stale: 35
+        days-before-close: 1095
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'Hei, det er ikke oppdaget noe aktivitet i denne issuen på 14 dager, vi har derfor markert den som stale'
         stale-pr-message: 'Hei, det er ikke oppdaget noe aktivitet i denne pull-requesten på 14 dager, vi har derfor markert den som stale'
         stale-issue-label: 'Stale'
         stale-pr-label: 'Stale'
-        exempt-issue-labels: stale-ignorert
-        exempt-pr-labels: stale-ignorert
+        exempt-issue-labels: in progress
+        exempt-pr-labels: in progress
