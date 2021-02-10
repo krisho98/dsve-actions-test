@@ -9,6 +9,7 @@
 	<xs:element name="intensjonfrabank" type="IntensjonFraBank"/>
 	<xs:element name="intensjonssvarframegler" type="IntensjonssvarFraMegler"/>
 	<xs:element name="intensjonsendring" type="Intensjonsendring"/>
+	<xs:element name="gjennomfoertetinglysing" type="GjennomfoertEtinglysing"/>
 
 	<xs:complexType name="Kjoepekontraktforespoersel">
 		<xs:annotation>
@@ -138,6 +139,32 @@
 			<xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="intensjonsdetaljer" type="IntensjonsdetaljerFraMegler"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GjennomfoertEtinglysing">
+		<xs:annotation>
+			<xs:documentation>Melding fra megler til bank om at e-tinglysing av elektronisk pantedokument er fullført. 
+			Xml fra Kartverket som ble tilsendt megler etter vellykket tinglysing er inkludert som et base64 encodet vedlegg i metadata.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="gjennomfoertetinglysingdetaljer" type="GjennomfoertEtinglysingDetaljer"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GjennomfoertEtinglysingDetaljer">
+		<xs:annotation>
+			<xs:documentation>Detaljer om gjennomført etinglysing fra megler til bank. Inneholder pantedokumentets 
+			dokumentreferanse og Altinn sendersreference for SignedMortgageDeed meldingen som ble sendt fra bank til 
+			megler.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="dokumentreferanse" type="xs:string"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="altinnsendersreference" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 
