@@ -24,7 +24,7 @@ Mottakere av meldingstypen "_IntensjonFraBank_" må benytte avsenders saksnummer
 ## Validering og ruting
 ### Ruting (meglersystem)
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
-- utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret meldingen er sendt til ("reportee")
+- utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til meglerforetaket på meglersaken er lik organisasjonsnummeret til **mottaker i forespørselen**, _IntensjonFraBank.Mottaker.Id_.
 - utvalget avgrenses til meglersaker hvor **minst 1 kjøper i forespørselen er registrert som kjøper på meglersaken** 
 - matrikkelenhetens eiendomsnivå må være korrekt angitt (viktig i tilfelle festet eiendom). Eksempel: En forsendelse med angitt eiendomsnivå "Eiendomsrett" må avvises (NACK) av mottaker dersom det i meglersystemet er snakk om omsetning av (frem)festerett.
  
