@@ -11,7 +11,7 @@ Når bank sender kjøpers pantedokument elektronisk til megler i form av en Sign
 ### Ruting (meglersystem)
 Når meglers systemleverandør mottar forsendelsesstatus fra Kartverket som tilsier at en forsendelse er vellykket e-tingyst, må systemleverandøren sjekke om forsendelsen inneholder ett eller flere kjøpers pantedokument fra bank.
 
-For hver av disse pantedokumentene må meglers systemleverandør utførende:
+For hver av disse pantedokumentene må meglers systemleverandør utføre følgende:
 1. Finn organisasjonsnummer for Altinn reportee som sendte SignedMortgageDeed melding til megler med det aktuelle pantedokumentet. Dette organisasjonsnummeret regnes for å være avsender bank som skal motta GjennomfoertEtinglysing melding.
 2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
 
