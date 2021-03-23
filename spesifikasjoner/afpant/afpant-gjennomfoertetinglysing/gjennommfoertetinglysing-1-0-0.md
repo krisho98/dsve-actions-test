@@ -8,12 +8,18 @@ Når bank sender kjøpers pantedokument elektronisk til megler i form av en Sign
 
 ## Validering og ruting
 
+### Krav til filnavn i ZIP-arkiv
+- Payload filen med GjennomfoertEtinglysing melding må følge konvensjonen "gjennomfoertetinglysing_*.zip".
+- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen "forsendelsesstatus_*.xml".
+
 ### Ruting (meglersystem)
 Når meglers systemleverandør mottar forsendelsesstatus fra Kartverket som tilsier at en forsendelse er vellykket e-tingyst, må systemleverandøren sjekke om forsendelsen inneholder ett eller flere kjøpers pantedokument fra bank.
 
 For hver av disse pantedokumentene må meglers systemleverandør utføre følgende:
 1. Finn organisasjonsnummer for Altinn reportee som sendte SignedMortgageDeed melding til megler med det aktuelle pantedokumentet. Dette organisasjonsnummeret regnes for å være avsender bank som skal motta GjennomfoertEtinglysing melding.
 2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
+
+Merknad: flere pantedokumenter i samme e-tinglysing forsendelse fra samme bank, gitt at banken støtter meldingstypen i Akeldo, medfører GjennomfoertEtinglysing meldinger til banken for hvert enkelt av disse pantedokumentene.
 
 ### Ruting (bank)
 Så lenge banken har registrert seg på Akeldo med støtte for meldingstypen GjennomfoertEtinglysing skal de kunne motta og prossessere disse meldingene. Det er også lagt opp til enveis kommunikasjon fra megler til bank, slik at bank ikke trenger å sende tilbake bekreftelse på mottak.
@@ -46,6 +52,5 @@ I tillegg blir forsendelsesstatus for selve forsendelsen fra Kartverket til megl
 som et vedlegg. Denne inkluderer enten signert grunboksutskrift eller link til signert grunnboksutskrift, avhengig av hva Kartverket har inkludert her.
 
 #### Krav/begrensninger
-I zip-filen som sendes via Altinn, må payload filen med GjennomfoertEtinglysing melding inkludere "GjennomfoertEtinglysing" (ikke case sensitivt) i filnavnet og vedlegget med forsendelsesstatus fra Kartverket må inkludere "forsendelsesstatus" (heller ikke case sensitivt) i filnavnet.
-
-I GjennomfoertEtinglysing meldingen må metadata.ressurser elementet registeres med "application/xml" i feltet "mimetype", og teksten "forsendelsesstatus" (ikke case sensitivt) må inkluderes i feltet "navn".
+I GjennomfoertEtinglysing meldingen må metadata.ressurser elementet registeres med "application/xml" i feltet "mimetype".
+Feltet "navn" må tilsvare navnet på vedlegget (som følger konvensjonen "forsendelsesstatus_*.xml").
