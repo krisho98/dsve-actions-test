@@ -132,6 +132,7 @@
 						<xsl:apply-templates select="intensjonfrabank"/>
 						<xsl:apply-templates select="intensjonssvarframegler"/>
 						<xsl:apply-templates select="intensjonsendring"/>
+						<xsl:apply-templates select="gjennomfoertetinglysing"/>
 					</div>
 				</div>
 			</body>
@@ -165,6 +166,9 @@
 		</xsl:if>
 		<xsl:if test="intensjonsendring">
 			<xsl:text>Endring av tinglysingsmetode</xsl:text>
+		</xsl:if>
+		<xsl:if test="gjennomfoertetinglysing">
+			<xsl:text>Gjennomført e-tinglysing</xsl:text>
 		</xsl:if>
 	</xsl:template>
 
@@ -279,6 +283,14 @@
 		<hr/>
 	</xsl:template>
 
+	<xsl:template match="/gjennomfoertetinglysing">
+		<xsl:call-template name="mottaker"/>
+		<xsl:call-template name="gjennomfoertetinglysing"/>
+		<xsl:call-template name="ressurser"/>
+		<xsl:call-template name="avsender"/>
+		<hr/>
+	</xsl:template>
+
 	<xsl:template name="intensjonfrabank">
 		<div class="hovedseksjon">
 			<xsl:call-template name="seksjon">
@@ -348,6 +360,38 @@
 						<div class="celle">
 							<b>
 								<xsl:value-of select="intensjonsdetaljer/metode"/>
+							</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
+
+	<xsl:template name="gjennomfoertetinglysing">
+		<div class="hovedseksjon">
+			<xsl:call-template name="seksjon">
+				<xsl:with-param name="tittel" select="'Gjennomført e-tingysing detaljer'"/>
+			</xsl:call-template>
+			<div class="tabell innhold">
+				<div class="kropp">
+					<div class="rad">
+						<div class="celle kol1">
+							<xsl:text>Dokumentreferanse:&#x20;</xsl:text>
+						</div>
+						<div class="celle">
+							<b>
+								<xsl:value-of select="gjennomfoertetinglysingdetaljer/dokumentreferanse"/>
+							</b>
+						</div>
+					</div>
+					<div class="rad">
+						<div class="celle kol1">
+							<xsl:text>Altinn SendersReference:&#x20;</xsl:text>
+						</div>
+						<div class="celle">
+							<b>
+								<xsl:value-of select="gjennomfoertetinglysingdetaljer/altinnsendersreference"/>
 							</b>
 						</div>
 					</div>
@@ -1289,6 +1333,9 @@
 		</xsl:if>
 		<xsl:if test="intensjonsendring">
 			<xsl:text>Endring av tinglysingsmetode</xsl:text>
+		</xsl:if>
+		<xsl:if test="gjennomfoertetinglysing">
+			<xsl:text>Gjennomført e-tinglysing</xsl:text>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
