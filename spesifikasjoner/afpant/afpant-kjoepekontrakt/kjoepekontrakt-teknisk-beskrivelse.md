@@ -110,7 +110,7 @@ Megler sender uoppfordret til bank eller ved ved signifikante endringer.
   Denne meldingen kan kun sendes uoppfordret fra megler til bank dersom kjøpekontrakten er signert. 
 Den signert kjøpekontrakten skal da finnes i ZIP-arkivet som _signert_kjoepekontrakt*.(pdf|sdo)_ 
 OG metdata skal inneholde en ressurs/vedlegg med korrekt navn.
-* **Ved endring** (bank har tidligere forespurt kjøpekontrakt eller mottatt kjøpekontrakt uoppfordret)  
+* **Ved endring** (bank har tidligere forespurt kjøpekontrakt eller mottatt signert kjøpekontrakt uoppfordret)  
   Sendes ved endring, dvs. at megler har tidligere sendt uoppfordret eller har mottatt en forespørsel.
 Felter som krever at det sendes en `KjoepekontraktFraMegler` melding til bank er marker med _hake_ i tabell i _hake_ i tabellen i [løsningsbeskrivelsen](kjoepekontrakt-loesningsbeskrivelse.md#svar-fra-megler)
 
