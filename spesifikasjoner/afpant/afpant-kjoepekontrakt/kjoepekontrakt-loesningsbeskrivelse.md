@@ -28,7 +28,7 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Avsender:** Meglerforetak / Org.nr. / Ansvarlig megler / Mobilnummer / Mailadresse                |      |
 |**Oppgjørsavdeling:** Inkludert oppgjørsmeglers fulle adresse                                       |      |
 |**Oppdragsnummer:**                                                                                 |      |
-|**Oppgjørsinformasjon:** Kontonummer / KID nummer / Øvrig merking                                   | :white_check_mark: |
+|**Oppgjørsinformasjon:** Kontonummer / KID nummer / betalingsmelding                                | :white_check_mark: |
 |**Eiendomsinformasjon:** Kommunenummer / Gårdsnummer / Bruksnummer / Festenummer / Seksjonsnummer / Adresse / Postnummer (det må være mulig med flere gårds- og bruksnummer) Ved andel/aksje: Organisasjonsnummer / Andelsnummer /Aksjenummer(Informasjon om personlige sameier og hvorvidt de skal pantsettes må inkluderes) | :white_check_mark: |
 |**Salgssum:**                                                                                       | :white_check_mark: |
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
@@ -41,7 +41,7 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Hjemmelshaver:** Navn og fødselsnummer på alle hjemmelshavere                                      |      |
 |**Kjøper:** Navn og fødselsnummer på alle kjøpere                                                    | :white_check_mark: |
 |**Kjøpers eierandel:** Oppgitt i brøk pr kjøper                                                     | :white_check_mark: |
-|**Objektsdata:** Type eiendom- kartverksinformasjon.                                                |      |
+|**Objektstype:** Type eiendom/bygning                                                |      |
 |**Link til salgsoppgave:** (Valgfritt felt)                                                         |      |
 |**Signert kjøpekontrakt:** (Valgfritt felt)                                                         | :white_check_mark: |
 

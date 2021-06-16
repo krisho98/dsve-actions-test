@@ -180,7 +180,8 @@
     <xs:annotation>
       <xs:documentation>Detaljer om gjennomført etinglysing fra megler til bank. Inneholder pantedokumentets
         dokumentreferanse og Altinn sendersreference for SignedMortgageDeed meldingen som ble sendt fra bank til
-        megler.</xs:documentation>
+        megler.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="dokumentreferanse" type="xs:string"/>
@@ -302,6 +303,7 @@
         Realsameie er definert som et salgsobjekt, men skal ikke inngå i hverken pantedokument eller skjøte.
         Et realsameie eies en eiendom og ikke person og når hovedeiendommen overskjøte følger realsameiet med og skal således
         ikke inngå i skjøte.
+        Mulige verdier til objektstype er ikke bestemt, men kan være enebolig, leilighet ....
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -312,6 +314,7 @@
       </xs:choice>
       <xs:element name="parter" type="Rettssubjekter" minOccurs="1" maxOccurs="1"/>
       <xs:element minOccurs="0" maxOccurs="1" name="adresse" type="Adresse"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="objektstype" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -393,6 +396,9 @@
       <xs:element minOccurs="0" maxOccurs="1" name="overtagelsesdato" type="xs:date"/>
       <xs:element minOccurs="0" maxOccurs="1" name="andelfellesgjeld" type="xs:double"/>
       <xs:element minOccurs="0" maxOccurs="1" name="andelfellesformue" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="kontonummer" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="kidnummer" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="betalingsMelding" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
