@@ -30,7 +30,7 @@ Referansen settes ved opprettelse av dokumentet i "no.kartverket.grunnbok.wsapi.
 - Eksempler på gyldige referanser: [caseId]-[dokumentId]-[bankregisternummer] "12345-123456789-9057", [UUID] "a39e6076-b775-11ea-b3de-0242ac130004"
 	
 
-### Implementasjonsbeskrivelse: ruting
+### teknisk-beskrivelse: ruting
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
 - utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee")
 - utvalget avgrenses til meglersaker hvor **alle debitorene i pantedokumentet også er registrert som kjøpere på meglersaken** (hvis det mangler fødselsnummer/orgnummer på kjøper(e) kan leverandør selv velge graden av fuzzy matching som skal tillates) 

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kjoepekontraktsvarFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../afpant/afpant-model/xsd/dsve-1.0.0.xsd">
+  <kjoepekontrakter>
+    <kjoepekontrakt>
+      <bank id="945811714">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <referanse>OPGNR-123</referanse>
+      </bank>
+      <megler id="910968955">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <ansvarligmegler>
+          <navn>Ole Olsen</navn>
+          <epost>ole@megler.no</epost>
+          <telefondirekte>99223452</telefondirekte>
+          <telefon>55300455</telefon>
+        </ansvarligmegler>
+        <referanse>OPGNR-123</referanse>
+        <oppgjoersavdeling id="912345678">
+          <foretaksnavn>Megleroppjør AS</foretaksnavn>
+        </oppgjoersavdeling>
+      </megler>
+      <oppgjoersinformasjon>
+        <salgssum>20000000</salgssum>
+        <omkostningerkjoeper>300000</omkostningerkjoeper>
+        <akseptdato>2019-01-26</akseptdato>
+        <overtagelsesdato>2019-04-15</overtagelsesdato>
+        <andelfellesgjeld>2000000</andelfellesgjeld>
+        <andelfellesformue>300</andelfellesformue>
+        <kontonummer>111.22.33333</kontonummer>
+      </oppgjoersinformasjon>
+      <salgsobjekter>
+        <salgsobjekt> <!-- Leilighet -->
+          <matrikkelSalgsobjekt>
+            <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="1" eiendomsnivaa="E"/>
+          </matrikkelSalgsobjekt>
+          <parter>
+            <selgere>
+              <rettssubjekt>
+                <person id="23456789909">
+                  <fornavn>selger</fornavn>
+                  <etternavn>selgersen</etternavn>
+                </person>
+                <andel teller="1" nevner="1"/>
+              </rettssubjekt>
+            </selgere>
+            <kjoepere>
+              <rettssubjekt>
+                <person id="1">
+                  <fornavn>kjøper1</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="3"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <person id="2">
+                  <fornavn>kjøper2</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="3"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <person id="3">
+                  <fornavn>kjøper3</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="3"/>
+              </rettssubjekt>
+            </kjoepere>
+          </parter>
+          <adresse>
+            <gatenavn>Krinkelkroken 1</gatenavn>
+            <postnummer>5014</postnummer>
+            <poststed>Bergen</poststed>
+          </adresse>
+        </salgsobjekt>
+        <salgsobjekt> <!-- Garasje -->
+          <matrikkelSalgsobjekt>
+            <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="167" eiendomsnivaa="E"/>
+          </matrikkelSalgsobjekt>
+          <parter>
+            <selgere>
+              <rettssubjekt>
+                <person id="23456789909">
+                  <fornavn>selger</fornavn>
+                  <etternavn>selgersen</etternavn>
+                </person>
+                <andel teller="4" nevner="94"/>
+              </rettssubjekt>
+            </selgere>
+            <kjoepere>
+              <rettssubjekt>
+                <person id="1">
+                  <fornavn>kjøper1</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="94"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <person id="2">
+                  <fornavn>kjøper2</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="94"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <person id="3">
+                  <fornavn>kjøper3</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="47"/>
+              </rettssubjekt>
+            </kjoepere>
+          </parter>
+          <adresse>
+            <gatenavn>Krinkelkroken 1</gatenavn>
+            <postnummer>5014</postnummer>
+            <poststed>Bergen</poststed>
+          </adresse>
+        </salgsobjekt>
+      </salgsobjekter>
+      <lenkeTilSalgsoppgave>lenke</lenkeTilSalgsoppgave>
+      <metadata>
+        <ressurser>
+          <vedlegg>
+            <navn>signert_kjoepekontrakt_meglerreferanse.pdf</navn>
+            <mimetype>PDF</mimetype>
+          </vedlegg>
+        </ressurser>
+        <opprettet>2016-01-31T20:07:42</opprettet>
+      </metadata>
+    </kjoepekontrakt>
+  </kjoepekontrakter>
+</kjoepekontraktsvarFraMegler>
+
