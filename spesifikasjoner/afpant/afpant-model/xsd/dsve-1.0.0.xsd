@@ -49,7 +49,8 @@
       <xs:documentation>Kjøpekontrakt er strukturerte data fra en signert kjøpekontrakt.
         Benyttes for å digitalisere prosessene mellom banker og meglere og kan sendes fra megler til bank på
         forespørsel. Dersom kjøpekontrakten er signert skal den sendes med i elementet signertKjoepekontrakt
-        Mulige verdier til objektstype derfinert i enum Objektstype. kjoepekontrak.objektstype kan et element enum Objektstype, være null eller være fritekst.
+        Mulige verdier til objektstype er definert i enum Objektstype. Dersom denne er spesifisert som UKJENT kan 
+        det valgfrie feltet objektstypeFritekst benyttes til å angi beskrivelse.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -57,7 +58,8 @@
       <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
       <xs:element minOccurs="1" maxOccurs="1" name="oppgjoersinformasjon" type="Oppgjoersinformasjon"/>
       <xs:element minOccurs="1" maxOccurs="1" name="salgsobjekter" type="Salgsobjekter"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="objektstype" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="objektstypeFritekst" type="xs:string"/>
       <xs:element minOccurs="0" maxOccurs="1" name="lenkeTilSalgsoppgave" type="xs:anyURI"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
@@ -74,6 +76,7 @@
       <xs:enumeration value="NAERINGSBYGG"/>
       <xs:enumeration value="NYBYGG"/>
       <xs:enumeration value="LANDBRUK"/>
+      <xs:enumeration value="UKJENT"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -381,7 +384,7 @@
   <xs:complexType name="Aksjeinformasjon">
     <xs:annotation>
       <xs:documentation>
-        Usikker på om pålydende skal være heltall eller desimaltall. paalydende er beløp per aksje
+        paalydende er beløp per aksje angitt som heltall.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -399,7 +402,15 @@
   </xs:complexType>
 
   <xs:complexType name="Areal">
-    <xs:annotation></xs:annotation>
+    <xs:annotation>
+      <xs:documentation>
+        Mulige verdier for arealtype:
+        PROM (Primær rom)
+        BRA (Bruksareal)
+        TOMT (Tomteareal)
+        BTA (Bruttoareal, kun aktuelt for næringsbygg)
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="kvadratmeter" type="xs:integer" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
@@ -410,7 +421,8 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="PROM"/>
       <xs:enumeration value="BRA"/>
-      <xs:enumeration value="TOMTEAREAL"/>
+      <xs:enumeration value="TOMT"/>
+      <xs:enumeration value="BTA"/> 
     </xs:restriction>
   </xs:simpleType>
 
