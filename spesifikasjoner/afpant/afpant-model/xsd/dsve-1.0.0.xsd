@@ -58,7 +58,7 @@
       <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
       <xs:element minOccurs="1" maxOccurs="1" name="oppgjoersinformasjon" type="Oppgjoersinformasjon"/>
       <xs:element minOccurs="1" maxOccurs="1" name="salgsobjekter" type="Salgsobjekter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="Objektstype"/>
       <xs:element minOccurs="0" maxOccurs="1" name="objektstypeFritekst" type="xs:string"/>
       <xs:element minOccurs="0" maxOccurs="1" name="lenkeTilSalgsoppgave" type="xs:anyURI"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
