@@ -80,7 +80,8 @@ Den signert kjøpekontrakten er enten en PDF eller en SDO.
 
 **Krav til filnavn i ZIP-arkiv:** 
 * Filnavnet til meldingen KjoepekontraktSvarFraMegler må følge konvensjonen: _kjoepekontraktsvarframegler*.xml_ . (navnet til meldingen i lowercase)
-* Filnavnet til en evt. signert kjøpekontrakt skal følge konvensjonen: _signert_kjoepekontrakt*.(pdf|sdo)_.
+* Filnavnet til en evt. signert kjøpekontrakt skal følge konvensjonen: _signert_kjoepekontrakt_<unik identifikator>.(pdf|sdo)_.
+* Filnavn kjøpekontrakt i zip må være unikt i forsendelsen og være likt `vedlegg.navn` for tilhørende kjøpekontraktsdata. (_<unik identifikator>_) 
 
 
 ## Manifest
@@ -138,6 +139,7 @@ Den signert kjøpekontrakten er enten en PDF eller en SDO.
 **Krav til filnavn i ZIP-arkiv:**
 * Filnavnet til meldingen kjoepekontraktFraMegler må følge konvensjonen: _kjoepekontraktframegler*.xml_ . (navnet til meldingen i lowercase)
 * Filnavnet til en evt. signert kjøpekontrakt skal følge konvensjonen: _signert_kjoepekontrakt*.(pdf|sdo)_.
+* Dersom filformat er sdo må innholdet være en pdf.
 
 ## Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)

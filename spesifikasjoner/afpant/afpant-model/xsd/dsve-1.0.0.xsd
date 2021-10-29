@@ -3,7 +3,8 @@
 
   <xs:element name="kjoepekontraktforespoerselFraBank" type="KjoepekontraktforespoerselFraBank"/>
   <xs:element name="kjoepekontraktsvarFraMegler" type="KjoepekontraktSvarFraMegler"/>
-  <xs:element name="kjoepekontraktFraMegler" type="KjoepekontraktFraMegler"/>
+  <xs:element name="kjoepekontraktEndringFraMegler" type="KjoepekontraktFraMegler"/>
+  <xs:element name="kjoepekontraktUoppfordretFraMegler" type="KjoepekontraktFraMegler"/>
   <xs:element name="saldoforespoersel" type="Saldoforespoersel"/>
   <xs:element name="saldosvar" type="Saldosvar"/>
   <xs:element name="restgjeldsforespoersel" type="Restgjeldsforespoersel"/>
@@ -48,6 +49,8 @@
       <xs:documentation>Kjøpekontrakt er strukturerte data fra en signert kjøpekontrakt.
         Benyttes for å digitalisere prosessene mellom banker og meglere og kan sendes fra megler til bank på
         forespørsel. Dersom kjøpekontrakten er signert skal den sendes med i elementet signertKjoepekontrakt
+        Mulige verdier til objektstype er definert i enum Objektstype. Dersom denne er spesifisert som UKJENT kan 
+        det valgfrie feltet objektstypeFritekst benyttes til å angi beskrivelse.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -55,10 +58,27 @@
       <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
       <xs:element minOccurs="1" maxOccurs="1" name="oppgjoersinformasjon" type="Oppgjoersinformasjon"/>
       <xs:element minOccurs="1" maxOccurs="1" name="salgsobjekter" type="Salgsobjekter"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="Objektstype"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="objektstypeFritekst" type="xs:string"/>
       <xs:element minOccurs="0" maxOccurs="1" name="lenkeTilSalgsoppgave" type="xs:anyURI"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name="Objektstype">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ENEBOLIG"/>
+      <xs:enumeration value="DELT_BOLIG"/>
+      <xs:enumeration value="REKKEHUS"/>
+      <xs:enumeration value="LEILIGHET"/>
+      <xs:enumeration value="FRITIDSEIENDOM"/>
+      <xs:enumeration value="TOMT"/>
+      <xs:enumeration value="NAERINGSBYGG"/>
+      <xs:enumeration value="NYBYGG"/>
+      <xs:enumeration value="LANDBRUK"/>
+      <xs:enumeration value="UKJENT"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="Saldoforespoersel">
     <xs:annotation>
@@ -303,7 +323,6 @@
         Realsameie er definert som et salgsobjekt, men skal ikke inngå i hverken pantedokument eller skjøte.
         Et realsameie eies en eiendom og ikke person og når hovedeiendommen overskjøte følger realsameiet med og skal således
         ikke inngå i skjøte.
-        Mulige verdier til objektstype er ikke bestemt, men kan være enebolig, leilighet ....
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -314,7 +333,6 @@
       </xs:choice>
       <xs:element name="parter" type="Rettssubjekter" minOccurs="1" maxOccurs="1"/>
       <xs:element minOccurs="0" maxOccurs="1" name="adresse" type="Adresse"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="objektstype" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -336,6 +354,7 @@
     <xs:sequence>
       <xs:element name="matrikkel" type="Matrikkel" minOccurs="1" maxOccurs="1"/>
       <xs:element name="realsameier" minOccurs="0" maxOccurs="1" type="Realsameier"/>
+      <xs:element name="arealer" type="Arealer" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -345,7 +364,7 @@
       <xs:element name="borettsandel" type="Borettsandel" minOccurs="1" maxOccurs="1"/>
       <xs:element name="forretningsfoerer" type="Organisasjon" minOccurs="0" maxOccurs="1"/>
       <xs:element name="etasje" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="areal" type="Areal" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="arealer" type="Arealer" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -357,31 +376,55 @@
       <xs:element name="aksjeleilighet" type="Aksjeleilighet" minOccurs="1" maxOccurs="1"/>
       <xs:element name="forretningsfoerer" type="Organisasjon" minOccurs="0" maxOccurs="1"/>
       <xs:element name="etasje" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="areal" type="Areal" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="arealer" type="Arealer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="aksjer" type="Aksjeinformasjon" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Aksjeinformasjon">
     <xs:annotation>
-      <xs:documentation>Usikker på om pålydende skal være heltall eller desimaltall. Kan vi bergne antall askjer basert
-        på fra- og til-nummer eller må det være eget felt?
+      <xs:documentation>
+        paalydende er beløp per aksje angitt som heltall.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="akjsenummerFra" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="akjsenummerTil" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="paalydende" type="xs:long" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="antall" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Arealer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="areal" type="Areal"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Areal">
-    <xs:annotation></xs:annotation>
+    <xs:annotation>
+      <xs:documentation>
+        Mulige verdier for arealtype:
+        PROM (Primær rom)
+        BRA (Bruksareal)
+        TOMT (Tomteareal)
+        BTA (Bruttoareal, kun aktuelt for næringsbygg)
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="kvadratmeter" type="xs:integer" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
-    <xs:attribute name="arealtype" type="xs:string" use="required"/>
+    <xs:attribute name="arealtype" type="Arealtype" use="required"/>
   </xs:complexType>
+
+  <xs:simpleType name="Arealtype">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PROM"/>
+      <xs:enumeration value="BRA"/>
+      <xs:enumeration value="TOMT"/>
+      <xs:enumeration value="BTA"/> 
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="Oppgjoersinformasjon">
     <xs:annotation>
@@ -390,7 +433,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="salgssum" type="xs:double"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="kjoepesum" type="xs:double"/>
       <xs:element minOccurs="0" maxOccurs="1" name="omkostningerkjoeper" type="xs:double"/>
       <xs:element minOccurs="1" maxOccurs="1" name="akseptdato" type="xs:date"/>
       <xs:element minOccurs="0" maxOccurs="1" name="overtagelsesdato" type="xs:date"/>
