@@ -7,10 +7,10 @@ Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomf�
 ## Beskrivelse av prosjektet
 Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge og Bits, samt deres medlemmer for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
 
-Prosjektleder: Monique Lier Nes (monique.nes@bits.no).
+Prosjektleder: Tonje Falch Lund (tonje.falch.lund@bits.no).
 
 ### Overordnede mål
-Muliggjøre en sikker og effektiv utveklsing av standardiserte og strukturerte data mellom bank-fagsystem og megler-fagsystem som er nødvendige for å gjennomføre elektronisk tinglysing.
+Muliggjøre en sikker og effektiv utveksling av standardiserte og strukturerte data mellom bank-fagsystem og megler-fagsystem som er nødvendige for å gjennomføre elektronisk tinglysing.
 
 Kartverket er tjenesteeier av denne formidlingstjenesten.
 
@@ -21,103 +21,21 @@ Kommunikasjonen foregår via Altinn Formidlingstjenester etter samme modell som 
 Det forutsettes en viss grad av erfaring med integrasjon mot Altinn Formidlingstjenester. Spesifikasjonene er utformet slik at de tilsvarer i stor grad Kartverket's egen bruk av Altinn Formidlingstjenester.
 Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelklient-etinglysing-altinn
 
-## Altinn Formidlingstjeneste - servicedetaljer
-<table>
-	<tbody>
-		<tr>
-			<td><p><strong>Navn</strong></p></td>
-			<td><p><strong>ServiceCode</strong></p></td>
-			<td><p><strong>ServiceEditionCode</strong></p></td>
-		</tr>
-		<tr>
-			<td><p>AFPANT (Altinn Test TT02)</p></td>
-			<td><p>4752</p></td>
-			<td><p>1</p></td>
-		</tr>
-		<tr>
-			<td><p>AFPANT (Altinn Prod)</p></td>
-			<td><p>4752</p></td>
-			<td><p>1</p></td>
-		</tr>
-	</tbody>
-</table>
-*NB:* ServiceCode for tjenesten er lik i Test og Prod.
 
-## Maskinell kontroll av Altinn-tilganger (for systemleverandører)
-Det er mulig å foreta en maskinell kontroll av hvilke organisasjoner som har delegert rettigheter til systemleverandør for en gitt ServiceCode. 
-[Les mer om maskinell kontroll her](altinn-maskinell-kontroll.md)
+## Kom i gang med det tekniske
 
-## Altinn-tilgang for systemleverandører/datasentraler
-Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle systemleverandører/datasentraler som skal koble seg direkte til denne tjenesten.
-Bestillinger av denne tilgangen må gjøres via Kartverket JIRA (https://jira.statkart.no/).
-
-## Altinn-tilgang for eiendomsmeglerforetak/banker
-Kartverket må gi rettigheter (READ+WRITE) i tjenesteeierstyrt rettighetsregister for alle bank- og eiendomsmeglerforetak som skal sende- og motta forsendelser fra denne tjenesten, selv om forsendelsene skal hentes/administreres av tredjepart (systemleverandør/datasentral).
-Bestillinger av denne tilgangen må gjøres via tredjepartsleverandør eller direkte til Kartverket.
-
-## Delegering av roller fra egne kunder til systemleverandør/datasentral
-Systemleverandører/datasentraler som skal utføre sending/mottak på vegne av *andre organisasjoner* (eks meglerforetak/bank) må registrere seg selv hos Kartverket (ref ovenstående punkt).
-Ved henting av forsendelser på vegne av egne kunder skal systemleverandør/datasentral bruke organisasjonsnummeret tilhørende kunden som "reportee" mot Altinn.
-Systemleverandører/datasentraler må også hente meldinger for sitt *eget organisasjonsnummer* (for det er dit ACK/NACK meldinger fra mottakersystem sendes). 
-
-*Hver organisasjon/kunde* som en systemleverandør/datasentral opererer på vegne av (eks meglerforetak/bank) må logge på Altinn for å delegere rettigheter til sin gjeldende systemleverandør/datasentral sitt organisasjonsnummer for tjenesten *4752* (AFPANT).
-Oppskrift for å delegere rollen 'Utfyller/Innsender' eller enkeltrettighet til systemleverandør/datasentral sitt organisasjonsnummer finnes her: https://www.altinn.no/no/Portalhjelp/Administrere-rettigheter-og-prosessteg/Gi-roller-og-rettigheter/
-
-*NB:* Delegering av denne rettigheten må utføres _etter_ at Kartverket har gitt tilgang til både systemleverandør/datasentral og kunden (meglerforetak/bank).
-
-#### Hvem bruker løsningen?
-Bransjestandardene kan benyttes av alle aktører (bank / eiendomsmegler) som skal samhandle om e-tinglysing. 
-
-Leverandør | På vegne av
----------- | -----------
-Ambita AS | Bank/Megler
-Vitec Megler AS | Megler
-Websystemer AS | Megler
-Nordea | Bank
-Evry | Bank
+- [Bestill tilganger](tilganger.md)
+- [AKELDO](akeldo.md)
 
 
-# Aktørregister for elektronisk dokumentutveksling (AKELDO - Kartverket)
-Et aktørregister er utarbeidet av Kartverket ([REST API er tilgjengelig her](https://www.grunnbok.no/akeldo/aktoer)). Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendomsmeglere) som er mulig å samhandle med, samt hvilke meldingstyper hver organisasjon har implementert støtte for å motta. 
-Innmelding av organisasjoner og støttede meldingstyper gjøres via Kartverket Applikasjonsdrift.
+## Funksjonalitet
 
-# Meldingstyper / dokumentpakker i standarden
- 
-#### Dokumentpakke 1 - Elektronisk tinglysing
-##### Kjøpers pantedokument og evt følgebrev
-* Overføring av e-signert pantedokument (SDO) fra kjøpers bank til eiendomsmegler/oppgjørsforetak 
-* Overføring av følgebrev som PDF eller XML 
-* ACK/NACK-kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsen kunne rutes korrekt
-* [Oversikt og spesifikasjoner](spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
+Prosjektet skal levere en rekke funksjonaliteter ifm. elektronisk eiendomshandel.
 
-##### Intensjonsmelding
-* Utveksling av intensjon om tinglysingmetode mellom bank og megler (elektronisk eller papir).
-* [Oversikt og spesifikasjoner](spesifikasjoner/afpant/afpant-intensjon/afpant-intensjon.md)
+Se oversikt over:
+- [Funksjonalitetene](funksjonalitet.md)
+- [Hvem som bruker løsningen](hvem-bruker-loesningen.md)
 
 
-##### Statusoppdatering etter e-tinglysing
-* Statusoppdatering fra megler til kjøpers bank etter gjennomført e-tinglysing for overføring av tinglysingsdetaljer (dokumentnummer)
-* [Spesifikasjon er under utarbeidelse](https://github.com/bitsnorge/e-tinglysing-afpant/issues/3)
 
-<hr>
 
-#### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
-##### Kjøpekontrakt 
-* Overføring av / forespørsel om signert kjøpekontrakt (PDF/PadES/SDO) mellom megler/bank.
-* [Spesifikasjon](spesifikasjoner/afpant/afpant-kjoepekontrakt/README.md)
-##### Pantefrafall
-* Forespørsel om pantefrafall fra megler til bank
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-pantefrafall/afpant-pantefrafall.md)
-##### Saldoforespørsel
-* Forespørsel om lånesituasjon på en registerenhet / tinglyste pant fra megler til bank eller bank til bank
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-saldoforesp%C3%B8rsel/afpant-saldoforesp%C3%B8rsel.md)
-##### Restgjeldsoppgave
-* Forespørsel om saldoer for innfrielse av tinglyst pant fra megler til bank eller bank til bank
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-restgjeldsoppgave/afpant-restgjeldsoppgave.md)
-
-# Ønskede endring og forbedringer.
-For å kunne huske ønsker og forbedringer som kommer opp og holde oversikt over populariteten til ønskene lages det er en tabell her. Kort navn/beskrivelse, ønsket av, og støttet av.
-
-Forbedring/Ønske | Ønsket av | Støttes av
----------- | ----------- | -----------
-Tilbakekall/Kanseller dokument send til megler | Ambita AS | TietoEVRY
