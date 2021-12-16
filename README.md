@@ -23,7 +23,7 @@ Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelkl
 
 ## Kom i gang med det tekniske
 
-- [Bestill tilganger](./tilganger.md)
+- [Bestill tilganger](./tilgang.md)
 - [AKELDO](./akeldo.md)
 
 
