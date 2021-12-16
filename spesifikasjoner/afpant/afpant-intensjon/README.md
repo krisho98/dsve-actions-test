@@ -7,6 +7,6 @@ Meldingstypene for intensjon skal brukes mellom bank og megler for å koordinere
 Det skal i tillegg sendes melding om intensjonsendring hvis en av partene har behov for å endre intensjonsmetode.
 
 ## Dokumentasjon
-- [Intensjonsmelding - løsningsbeskrivelse](afpant-intensjon.md), evt. endringer gjøres her.
-    - Se opprinnelig godkjent beskrivelse [her](250619-Intensjonsmeldingen-spec-GODKJENT.pdf)
-- [Intensjonsmelding - teknisk beskrivelse](intensjon-0-1-0.md)
+- [Intensjonsmelding - løsningsbeskrivelse](./afpant-intensjon.md), evt. endringer gjøres her.
+    - Se opprinnelig godkjent beskrivelse [her](./250619-Intensjonsmeldingen-spec-GODKJENT.pdf)
+- [Intensjonsmelding - teknisk beskrivelse](./intensjon-0-1-0.md)

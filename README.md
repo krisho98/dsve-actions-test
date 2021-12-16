@@ -5,16 +5,15 @@ Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomf�
 (Tidligere kalt AFPANT - Altinn Formidlingstjenester for kjøpers e-signerte pantedokument)
 
 ## Beskrivelse av prosjektet
-Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge og Bits, samt deres medlemmer for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
+Prosjektet er et samarbeid mellom Kartverket, Eiendom Norge, Finans Norge og Bits samt deres medlemmer, for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
 
 Prosjektleder: Tonje Falch Lund (tonje.falch.lund@bits.no).
 
 ### Overordnede mål
-Muliggjøre en sikker og effektiv utveksling av standardiserte og strukturerte data mellom bank-fagsystem og megler-fagsystem som er nødvendige for å gjennomføre elektronisk tinglysing.
+Å etablere en heldigital samhandling mellom bank og meglerforetak. Dette inkluderer kommunikasjon og utveksling av informasjon,  oversendelse av ulike dokumenter, og elektronisk tinglysing av skjøtepakker.
 
-Kartverket er tjenesteeier av denne formidlingstjenesten.
+Kommunikasjonen foregår via Altinn Formidlingstjenester etter samme modell som Kartverket selv benytter for e-tinglysing. Kartverket er tjenesteeier av denne formidlingstjenesten.
 
-Kommunikasjonen foregår via Altinn Formidlingstjenester etter samme modell som Kartverket selv benytter for e-tinglysing.
 
 
 #### Forutsetninger
@@ -24,8 +23,8 @@ Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelkl
 
 ## Kom i gang med det tekniske
 
-- [Bestill tilganger](tilganger.md)
-- [AKELDO](akeldo.md)
+- [Bestill tilganger](./tilganger.md)
+- [AKELDO](./akeldo.md)
 
 
 ## Funksjonalitet
@@ -33,8 +32,8 @@ Kartverket har også en eksempelklient: https://github.com/kartverket/eksempelkl
 Prosjektet skal levere en rekke funksjonaliteter ifm. elektronisk eiendomshandel.
 
 Se oversikt over:
-- [Funksjonalitetene](funksjonalitet.md)
-- [Hvem som bruker løsningen](hvem-bruker-loesningen.md)
+- [Funksjonalitetene](./funksjonalitet.md)
+- [Hvem som bruker løsningen](./hvem-bruker-loesningen.md)
 
 
 

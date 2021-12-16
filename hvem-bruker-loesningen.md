@@ -5,6 +5,6 @@ Leverandør | På vegne av
 ---------- | -----------
 Ambita AS | Bank/Megler
 Vitec Megler AS | Megler
-Websystemer AS | Megler
+Visma Real Estate AS | Megler
 Nordea | Bank
 TietoEVRY | Bank

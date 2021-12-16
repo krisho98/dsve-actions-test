@@ -7,9 +7,9 @@ Det sendes kvittering fra mottakersystem til avsendersystem med informasjon om f
 Når kjøpers pantedokument er tinglyst hos Kartverket, sendes det en melding fra megler til bank for å informere om at pantedokument er tinglyst.
 
 ## Dokumentasjon
-- [Oversendelse av pantedokument - teknisk beskrivelse](afpant-kj%C3%B8perspantedokument-1-0-0.md)
+- [Oversendelse av pantedokument - teknisk beskrivelse](./afpant-kj%C3%B8perspantedokument-1-0-0.md)
 
 ### Dokumentasjon for tilhørende funksjonaliteter
-- [Intensjonsmelding](..\afpant-intensjon\README.md)
-- [Statusoppdatering fra megler til bank](..\afpant-gjennomfoertetinglysing\README.md)
-- [Forutsetningsbrev](afpant-folgebrev\README.md)
+- [Intensjonsmelding](./../afpant-intensjon/README.md)
+- [Statusoppdatering fra megler til bank](./../afpant-gjennomfoertetinglysing/README.md)
+- [Forutsetningsbrev](./afpant-folgebrev/README.md)
