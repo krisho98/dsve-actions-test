@@ -7,12 +7,12 @@ Dette dokumentet beskriver løsning for oversendelse av kjøpekontrakt fra megle
 ## Overordnet beskrivelse
 Kjøpekontrakt eller informasjon fra kjøpekontrakten skal kunne oversendes fra megler til bank, via allerede etablert løsning mot AFPANT.
 
-En bank kan sende forespørsel om kjøpekontrakt til en megler basert på kjøpers fødselsnummer (11 siffer). Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data, samt en signert versjon av den fulle kontrakten. Dersom den faktiske kjøpekontrakten ikke er signert, skal kun den strukturerte delen returneres. Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen.
+En bank kan sende forespørsel om kjøpekontrakt til en megler basert på kjøpers fødselsnummer (11 siffer). Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data, samt en signert versjon av den fulle kjøpekontrakten. Dersom den faktiske kjøpekontrakten ikke er signert, skal kun den strukturerte delen returneres. Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen. I noen tilfeller kan kjøpers fødselsnummer treffe på flere oppdrag for den aktuelle megleren, og en liste med 1 eller flere kjøpekontrakter sendes da til banken.
 
 Løsningen kjøpekontrakt er delt i to deler:
 |Del|Beskrivelse|
 |----|------|
-|[1](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-loesningsbeskrivelse.md#informasjonsflyt-(del-1))|Bank forespør kjøpekontrakt og megler sender. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
+|[1](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-loesningsbeskrivelse.md#informasjonsflyt-(del-1))|Bank forespør kjøpekontrakt på kjøpers fødselsnr., og megler sender informasjon om kjøpekontrakter tilbake. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
 |[2](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-loesningsbeskrivelse.md#oversendelse-uten-forespørsel-fra-bank-(del-2))|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe.
 
 # Informasjonsflyt (del 1)
