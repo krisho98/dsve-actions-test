@@ -12,7 +12,7 @@ Det forventes at positivt svar levers som definert under.
 |messageType|String|Yes|FutureRemainingDebtRequest|
 
 ### Payload
-En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](./../../../afpant-model\xsd\dsve-1.0.0.xsd)
 
 #### Om payload *(request)*
 - En xml-fil som er i henhold til xsd-filen.
@@ -38,7 +38,7 @@ Tilknytting av ZIP-fil til forsendelsen kan gjøres ved bruk av BrokerServiceExt
 #### Om payload *(response)*
 
 ##### Positiv resultat
-- Må være en xml-fil som er ihht. [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+- Må være en xml-fil som er ihht. [definert skjema](./../../../afpant-model\xsd\dsve-1.0.0.xsd).
 - Se eksempel på presentasjon [Eksempel](examples/restgjeldssvar-example-xml.png)
 
 ##### Model

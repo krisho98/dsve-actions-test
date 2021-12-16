@@ -1,6 +1,6 @@
 # Løsning for elektroniske skjøtepakker
 
-Prosessen ved elektronisk tinglysing av skjøtepakker, innebærer at kjøpers bank oversender elektronisk signert pantedokument samt forutsetningsbrev til eiendomsmegler/oppgjørsforetak. Megler tinglyser deretter elektronisk skjøtepakke (e-signert skjøte og pantedokument) hos Kartverket.
+Prosessen ved elektronisk tinglysing av skjøtepakker, innebærer at kjøpers bank oversender elektronisk signert pantedokument samt forutsetningsbrev til eiendomsmegler/oppgjørsforetak, som deretter tinglyser elektronisk skjøtepakke (e-signert skjøte og pantedokument) hos Kartverket.
 
 Det sendes kvittering fra mottakersystem til avsendersystem med informasjon om forsendelsene kunne rutes korrekt.
 
