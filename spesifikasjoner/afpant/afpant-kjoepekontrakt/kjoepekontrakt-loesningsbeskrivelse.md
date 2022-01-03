@@ -64,11 +64,11 @@ Meldingstype: [KjoepekontraktSvarFraMegler](./kjoepekontrakt-teknisk-beskrivelse
 ## Oversendt informasjon er endret
 Det er viktig at banken har oppdatert informasjon i systemene og at denne er lik det som ligger i det signerte dokumentet. 
 Dersom megler endrer eller legger til informasjon i meglersystemene, må banken få beskjed om dette. Det gjøres ved at 
-meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler) til banken. 
+meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) til banken. 
 
 Hvilke felter som skal trigge en melding til banken om at det har skjedd en endring, er merket i tabellen under [Svar fra megler](#svar-fra-megler).
 
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
+Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 
 # Alternative flyter
 
@@ -76,7 +76,7 @@ Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#
 Dersom kjøpekontrakten ikke er signert på det tidspunktet bank ber om data, skal det som finnes av strukturert informasjon sendes til banken. Resterende informasjon vil kunne ettersendes sammen med det signerte dokumentet.
 
 Det skal gå en pushvarsling fra meglersystemet til banken eller bankene som har bedt om kjøpekontrakt så snart kjøpekontrakten er 
-signert eller det er endringer i datafeltene. Dette skal sendes som en egen [meldingstype](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler). 
+signert eller det er endringer i datafeltene. Dette skal sendes som en egen [meldingstype](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring). 
 For at banken skal kunne koble kjøpekontrakten til sin egen sak, er det viktig at bankens referanse fra kjøpekontraktforespørselen er med.
 
 Det er viktig at meglersystemene sørger for at det signerte dokumentet alltid inneholder lik informasjon 
@@ -103,7 +103,7 @@ Signifikante endringer er:
   
 Banken skal da få oversendt den nye, signerte kjøpekontrakten sammen med strukturerte data.
 
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
+Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 
 # Oversendelse uten forespørsel fra bank (del 2)
 I tilfeller hvor megler har informasjon om banken som har verifisert finansiering, vil det være mulig for megler å sende kjøpekontrakt 
@@ -111,7 +111,7 @@ til bank når denne er signert, uten å først ha mottatt en forespørsel fra ba
 Dette innebærer at megler kan sende kjøpekontrakt og strukturerte data ved hjelp av en pushmelding til banken.
 I slike tilfeller vil megler da ikke kunne fylle ut bankens referanse i meldingen!
 
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
+Meldingstype: [kjoepekontraktUoppfordretFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktuoppfordretframegler-sendes-uoppfordret) 
 
 
 
