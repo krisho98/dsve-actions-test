@@ -40,7 +40,6 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Kjøpesum:**                                                                                       | :white_check_mark: |
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
 |**Oppgjørsbeløp:** Kjøpesum + kjøpsomkostninger (det skal angis om beløpet er tentativt eller satt) | :white_check_mark: |
-|**Signeringsdato:** (dersom det finnes i meglersystemene)                                           |      |
 |**Overtagelsesdato:** Denne skal ikke fylles ut dersom nybygg                                       | :white_check_mark: |
 |**Andel fellesgjeld:**                                                                              |      |
 |**Andel fellesformue:**                                                                             |      |
@@ -58,15 +57,24 @@ Bank vil så få push-varsel om oppdatert informasjon så snart dette er lagt ti
 
 
 Signert kjøpekontrakt skal alltid sendes elektronisk, uavhengig av om det er elektronisk signert, eller om det sendes en PDF av et fysisk signert dokument.
+Når bank mottar en PDF av kjøpekontrakt betyr det at kjøpekontrakten er signert. Signeringsdato inkluderes ikke i kjøpekontrakt-meldingene som sendes fra megler til bank. 
 
 Meldingstype: [KjoepekontraktSvarFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktsvarframegler)
 
 ## Oversendt informasjon er endret
 Det er viktig at banken har oppdatert informasjon i systemene og at denne er lik det som ligger i det signerte dokumentet. 
-Dersom megler endrer eller legger til informasjon i meglersystemene, må banken få beskjed om dette. Det gjøres ved at 
-meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) til banken. 
+Dersom bank allerede har fått KjoepekontraktSvarFraMegler og megler deretter endrer eller legger til informasjon i meglersystemene,  må banken få beskjed om dette. Det gjøres ved at 
+meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) til banken. Meglers systemleverandør er ansvarlig for å sende oppdateringen til bank med KjoepekontraktFraMegler melding. 
+
+Vi skiller her på endringer som skjer før og etter kjøpekontrakt er signert:
+- Oppdateringer som skjer etter at kjøpekontrakt er signert haster mest og her må meglersystemet minimum polle for endringer på sin side hvert 5 minutt og sende melding til banken ved endringer. 
+- For endringer og ny informasjon knyttet til kjøpekontrakten som skjer før den er signert skal tilsvarende polling intervall og oppdatering til bank settes til minimum 1 gang pr døgn, dette for å unngå flere oppdateringer til bank enn nødvendig.
+
+Når løsningen er tatt i bruk og det er opparbeidet erfaring, kan det vurderes om det er behov for å justere intervall-lengdene.
+
 
 Hvilke felter som skal trigge en melding til banken om at det har skjedd en endring, er merket i tabellen under [Svar fra megler](#svar-fra-megler).
+
 
 Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 
@@ -102,6 +110,10 @@ Signifikante endringer er:
 * Eiendom/andel lagt til eller fjernet. 
   
 Banken skal da få oversendt den nye, signerte kjøpekontrakten sammen med strukturerte data.
+Endringer i signert kjøpekontrakt indikeres ved at meldingen sendes med et nytt unikt vedleggsnavn ift. hva som er sendt tidligere for den aktuelle kjøpekontrakten. 
+
+Merk: Bank har selv ansvar for å holde orden på hvilke endringer som er gjort siden siste kjøpekontrakt fra megler. Det gjelder også tilsendt PDF. Den opprinnelige kontrakten vil ikke automatisk trekkes tilbake. Dette må p.t. håndteres manuelt mellom bank og megler.
+
 
 Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 

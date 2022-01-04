@@ -121,9 +121,13 @@ OG metdata skal inneholde en ressurs/vedlegg med korrekt navn.
 *Bank har tidligere forespurt kjøpekontrakt eller mottatt signert kjøpekontrakt uoppfordret.* 
 
   Sendes ved endring, dvs. at megler har tidligere sendt uoppfordret eller har mottatt en forespørsel.
-Felter som krever at det sendes en `KjoepekontraktFraMegler` melding til bank er marker med _hake_ i tabell i _hake_ i tabellen i [løsningsbeskrivelsen](kjoepekontrakt-loesningsbeskrivelse.md#svar-fra-megler)
+Felter som krever at det sendes en `KjoepekontraktFraMegler` melding til bank er markert med _hake_ i tabellen i [løsningsbeskrivelsen](kjoepekontrakt-loesningsbeskrivelse.md#svar-fra-megler).
+
+Meglers systemleverandør er ansvarlig for å sende oppdateringer til bank med KjoepekontraktFraMegler melding. Hvor ofte meglersystemene må polle for endringer og sende oppdatering til bank er definert i [løsningsbeskrivelsen](kjoepekontrakt-loesningsbeskrivelse.md#oversendt-informasjon-er-endret).
 
 Dersom kjøpekontrakten er signert skal vedlegget med korrekt filnavn være definert som en ressurs/vedlegg i meldingens metadata OG eksistere i ZIP-arkivet.
+For endringer i signert kjøpekontrakt er det et krav at KjoepekontraktFraMegler-meldingen sendes med et nytt unikt vedleggsnavn ift hva som er sendt tidligere for den aktuelle kjøpekontrakten - nytt filnavn skal inneholde tidsstempel. 
+
 
 _Denne meldingen skal ikke besvares._ 
 
