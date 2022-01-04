@@ -12,8 +12,8 @@ En bank kan sende forespørsel om kjøpekontrakt til en megler basert på kjøpe
 Løsningen kjøpekontrakt er delt i to deler:
 |Del|Beskrivelse|
 |----|------|
-|[1](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-loesningsbeskrivelse.md#informasjonsflyt-(del-1))|Bank forespør kjøpekontrakt, og megler sender informasjon om kjøpekontrakter tilbake. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
-|[2](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-loesningsbeskrivelse.md#oversendelse-uten-forespørsel-fra-bank-(del-2))|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe.
+|[1](#informasjonsflyt-del-1)|Bank forespør kjøpekontrakt, og megler sender informasjon om kjøpekontrakter tilbake. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
+|[2](#oversendelse-uten-forespørsel-fra-bank-del-2)|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe.
 
 # Informasjonsflyt (del 1)
 
