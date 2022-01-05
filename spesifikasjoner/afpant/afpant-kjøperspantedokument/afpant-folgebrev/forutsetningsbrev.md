@@ -1,7 +1,7 @@
 # Forutsetningsbrev
 
 
-<table>
+<table bgcolor="ffffff">
   <tr>
   </tr>
     <tr>
@@ -71,7 +71,7 @@
 
 
 
-## Forutsetninger
+### Forutsetninger
 
 I Det påfølgende henviser uthevet tekst til ovenstående tabell.
 
@@ -88,7 +88,7 @@ Dersom vi ikke har mottatt overnevnte bekreftelse innen 4 måneder, ber vi om at
 vi kan forvente at rett prioritet vil foreligge.
 
 
-## Avsender
+### Avsender
 
 Nordea Bank AB (publ), filial i Norge (Org.nr 983258344)  
 Bjarne Bankrådgiver  
