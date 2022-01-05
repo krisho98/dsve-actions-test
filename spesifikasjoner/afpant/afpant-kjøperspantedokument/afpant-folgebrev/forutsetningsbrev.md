@@ -3,14 +3,9 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
     <tr>
-    <td> <strong>Overført ti<strong>l</td>
+    <td><strong>Overført til<strong></td>
     <td colspan=4>Oppgjørsforetaket AS, org.nr 800000000</td>
   </tr>
     <tr>
@@ -23,7 +18,7 @@
   </tr>
     <tr>
     <td><strong>Pantedokument<strong></td>
-    <td>Kr. 2 500 000,00</td>
+    <td colspan=4>Kr. 2 500 000,00</td>
   </tr>
   <tr>
     <td rowspan=3><strong>Prioritet<strong></td>
@@ -71,9 +66,6 @@
   <tr>
     <td><strong>Beløpet som overføres gjelder<strong></td>
     <td colspan=4>Dekning av kjøpesum og omkostninger for ovennevnte eiendom</td>
-  </tr>
-  <tr>
-    <td colspan=5></td>
   </tr>
 </table>
 
