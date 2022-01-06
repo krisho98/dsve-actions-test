@@ -1,3 +1,5 @@
+*Denne siden viser en ca. kopi av godkjent forutsetningsbrev. Utseende på tabellen under er ikke helt nøyaktig slik det blir seende ut. [Se godkjent forutsetningsbrev i PDF](./Forutsetningsbrev-godkjent-211202.pdf). Denne siden vil vise funksjonell beskrivelse, og vil heller vise til korrekte eksempler som blir generert fra det endelige stylesheet. Dette er under arbeid.*
+
 # Forutsetningsbrev
 
 
