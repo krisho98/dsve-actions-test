@@ -7,9 +7,16 @@ Dette dokumentet beskriver løsning for oversendelse av kjøpekontrakt fra megle
 ## Overordnet beskrivelse
 Kjøpekontrakt eller informasjon fra kjøpekontrakten skal kunne oversendes fra megler til bank, via allerede etablert løsning mot AFPANT.
 
-En bank kan sende forespørsel om kjøpekontrakt til en megler basert på kjøpers fødselsnummer (11 siffer). Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data, samt en signert versjon av den fulle kontrakten. Dersom den faktiske kjøpekontrakten ikke er signert, skal kun den strukturerte delen returneres. Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen.
+En bank kan sende forespørsel om kjøpekontrakt til en megler basert på kjøpers fødselsnummer (11 siffer). Megler vil besvare forespørselen med en forsendelse som inneholder strukturerte data, samt en signert versjon av den fulle kjøpekontrakten. Dersom den faktiske kjøpekontrakten ikke er signert, skal kun den strukturerte delen returneres. Dersom forespørselen ikke kan besvares, vil banken få en feilmelding i retur som beskriver hvorfor megler ikke kan besvare forespørselen. I noen tilfeller kan kjøpers fødselsnummer treffe på flere oppdrag for den aktuelle megleren, og en liste med 1 eller flere kjøpekontrakter sendes da til banken.
 
-# Informasjonsflyt
+Løsningen kjøpekontrakt er delt i to deler:
+|Del|Beskrivelse|
+|----|------|
+|[1](#informasjonsflyt-del-1)|Bank forespør kjøpekontrakt, og megler sender informasjon om kjøpekontrakter tilbake. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
+|[2](#oversendelse-uten-forespørsel-fra-bank-del-2)|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe.
+
+# Informasjonsflyt (del 1)
+
 ## Henvendelse fra bank
 Ved henvendelse fra bank til megler, med ønske om å få oversendt kjøpekontrakt, skal banken sende følgende informasjon til meglers organisasjonsnummer;
 
@@ -33,7 +40,6 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Kjøpesum:**                                                                                       | :white_check_mark: |
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
 |**Oppgjørsbeløp:** Kjøpesum + kjøpsomkostninger (det skal angis om beløpet er tentativt eller satt) | :white_check_mark: |
-|**Signeringsdato:** (dersom det finnes i meglersystemene)                                           |      |
 |**Overtagelsesdato:** Denne skal ikke fylles ut dersom nybygg                                       | :white_check_mark: |
 |**Andel fellesgjeld:**                                                                              |      |
 |**Andel fellesformue:**                                                                             |      |
@@ -51,8 +57,26 @@ Bank vil så få push-varsel om oppdatert informasjon så snart dette er lagt ti
 
 
 Signert kjøpekontrakt skal alltid sendes elektronisk, uavhengig av om det er elektronisk signert, eller om det sendes en PDF av et fysisk signert dokument.
+Når bank mottar en PDF av kjøpekontrakt betyr det at kjøpekontrakten er signert. Signeringsdato inkluderes ikke i kjøpekontrakt-meldingene som sendes fra megler til bank. 
 
 Meldingstype: [KjoepekontraktSvarFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktsvarframegler)
+
+## Oversendt informasjon er endret
+Det er viktig at banken har oppdatert informasjon i systemene og at denne er lik det som ligger i det signerte dokumentet. 
+Dersom bank allerede har fått KjoepekontraktSvarFraMegler og megler deretter endrer eller legger til informasjon i meglersystemene,  må banken få beskjed om dette. Det gjøres ved at 
+meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) til banken. Meglers systemleverandør er ansvarlig for å sende oppdateringen til bank med KjoepekontraktFraMegler melding. 
+
+Vi skiller her på endringer som skjer før og etter kjøpekontrakt er signert:
+- Oppdateringer som skjer etter at kjøpekontrakt er signert haster mest og her må meglersystemet minimum polle for endringer på sin side hvert 5 minutt og sende melding til banken ved endringer. 
+- For endringer og ny informasjon knyttet til kjøpekontrakten som skjer før den er signert skal tilsvarende polling intervall og oppdatering til bank settes til minimum 1 gang pr døgn, dette for å unngå flere oppdateringer til bank enn nødvendig.
+
+Når løsningen er tatt i bruk og det er opparbeidet erfaring, kan det vurderes om det er behov for å justere intervall-lengdene.
+
+
+Hvilke felter som skal trigge en melding til banken om at det har skjedd en endring, er merket i tabellen under [Svar fra megler](#svar-fra-megler).
+
+
+Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 
 # Alternative flyter
 
@@ -60,7 +84,7 @@ Meldingstype: [KjoepekontraktSvarFraMegler](./kjoepekontrakt-teknisk-beskrivelse
 Dersom kjøpekontrakten ikke er signert på det tidspunktet bank ber om data, skal det som finnes av strukturert informasjon sendes til banken. Resterende informasjon vil kunne ettersendes sammen med det signerte dokumentet.
 
 Det skal gå en pushvarsling fra meglersystemet til banken eller bankene som har bedt om kjøpekontrakt så snart kjøpekontrakten er 
-signert eller det er endringer i datafeltene. Dette skal sendes som en egen [meldingstype](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler). 
+signert eller det er endringer i datafeltene. Dette skal sendes som en egen [meldingstype](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring). 
 For at banken skal kunne koble kjøpekontrakten til sin egen sak, er det viktig at bankens referanse fra kjøpekontraktforespørselen er med.
 
 Det er viktig at meglersystemene sørger for at det signerte dokumentet alltid inneholder lik informasjon 
@@ -73,25 +97,8 @@ Dersom kunden har kjøpt flere boliger via samme megler og en henvendelse fra ba
 skal informasjon om alle oppdragene sendes til banken. Banken må selv håndtere dette i sine systemer, og lage en løsning 
 som støtter at rådgiver kan måtte velge mellom de ulike kjøpekontraktene.
 
-## Oversendt informasjon er endret
-Det er viktig at banken har oppdatert informasjon i systemene og at denne er lik det som ligger i det signerte dokumentet. 
-Dersom megler endrer eller legger til informasjon i meglersystemene, må banken få beskjed om dette. Det gjøres ved at 
-meglersystemet sender en [melding](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler) til banken. 
-
-Hvilke felter som skal trigge en melding til banken om at det har skjedd en endring, er merket i tabellen under [Svar fra megler](#svar-fra-megler).
-
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
-
 ## Det finnes ingen oppdrag på kunden
 Dersom det ikke finnes noen megleroppdrag på angitt fødselsnummer, må megler kunne svare med en beskjed om dette.
-
-## Oversendelse uten forespørsel fra bank
-I tilfeller hvor megler har informasjon om banken som har verifisert finansiering, vil det være mulig for megler å sende kjøpekontrakt 
-til bank når denne er signert, uten å først ha mottatt en forespørsel fra banken. 
-Dette innebærer at megler kan sende kjøpekontrakt og strukturerte data ved hjelp av en pushmelding til banken.
-I slike tilfeller vil megler da ikke kunne fylle ut bankens referanse i meldingen!
-
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
 
 ## Boligen blir kjøpt på forkjøpsrett
 Megler bør avvente signering av kjøpekontrakt til etter forkjøpsretten er avklart. I de tilfellene banken får oversendt en signert kjøpekontrakt, kan de derfor alltid regne med at eventuell forkjøpsrett allerede er avklart.
@@ -103,6 +110,22 @@ Signifikante endringer er:
 * Eiendom/andel lagt til eller fjernet. 
   
 Banken skal da få oversendt den nye, signerte kjøpekontrakten sammen med strukturerte data.
+Endringer i signert kjøpekontrakt indikeres ved at meldingen sendes med et nytt unikt vedleggsnavn ift. hva som er sendt tidligere for den aktuelle kjøpekontrakten. 
 
-Meldingstype: [KjoepekontraktFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktframegler)
+Merk: Bank har selv ansvar for å holde orden på hvilke endringer som er gjort siden siste kjøpekontrakt fra megler. Det gjelder også tilsendt PDF. Den opprinnelige kontrakten vil ikke automatisk trekkes tilbake. Dette må p.t. håndteres manuelt mellom bank og megler.
+
+
+Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
+
+# Oversendelse uten forespørsel fra bank (del 2)
+I tilfeller hvor megler har informasjon om banken som har verifisert finansiering, vil det være mulig for megler å sende kjøpekontrakt 
+til bank når denne er signert, uten å først ha mottatt en forespørsel fra banken. 
+Dette innebærer at megler kan sende kjøpekontrakt og strukturerte data ved hjelp av en pushmelding til banken.
+I slike tilfeller vil megler da ikke kunne fylle ut bankens referanse i meldingen!
+
+Meldingstype: [kjoepekontraktUoppfordretFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktuoppfordretframegler-sendes-uoppfordret) 
+
+
+
+
 
