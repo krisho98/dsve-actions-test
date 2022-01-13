@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="../../afpant-model/xslt/kjopekontrakt.xslt" type="text/xsl"?>
 <kjoepekontraktsvarFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../afpant/afpant-model/xsd/dsve-1.0.0.xsd">
   <kjoepekontrakter>
     <kjoepekontrakt>
       <bank id="945811714">
         <foretaksnavn>DNB Eiendom</foretaksnavn>
-        <referanse>OPGNR-123</referanse>
+        <referanse>BANKREFERANSE321</referanse>
       </bank>
       <megler id="910968955">
         <foretaksnavn>DNB Eiendom</foretaksnavn>
@@ -14,13 +15,13 @@
           <telefondirekte>99223452</telefondirekte>
           <telefon>55300455</telefon>
         </ansvarligmegler>
-        <referanse>OPGNR-123</referanse>
+        <referanse>MEGLERREFERANSE123</referanse>
         <oppgjoersavdeling id="912345678">
           <foretaksnavn>Megleroppjør AS</foretaksnavn>
         </oppgjoersavdeling>
       </megler>
       <oppgjoersinformasjon>
-        <salgssum>20000000</salgssum>
+        <kjoepesum>20000000</kjoepesum>
         <omkostningerkjoeper>300000</omkostningerkjoeper>
         <akseptdato>2019-01-26</akseptdato>
         <overtagelsesdato>2019-04-15</overtagelsesdato>
@@ -32,6 +33,20 @@
         <salgsobjekt> <!-- Leilighet -->
           <matrikkelSalgsobjekt>
             <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="1" eiendomsnivaa="E"/>
+            <realsameier>
+              <realsameie>
+                <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="21" bruksnummer="276" eiendomsnivaa="E"/>
+                <eierbroek teller="1" nevner="123"/>
+              </realsameie>
+            </realsameier>
+            <arealer>
+              <areal arealtype="TOMT">
+                <kvadratmeter>1024</kvadratmeter>
+              </areal>
+              <areal arealtype="PROM">
+                <kvadratmeter>100</kvadratmeter>
+              </areal>
+            </arealer>
           </matrikkelSalgsobjekt>
           <parter>
             <selgere>
@@ -89,25 +104,112 @@
             </selgere>
             <kjoepere>
               <rettssubjekt>
+                <person id="19191919191">
+                  <fornavn>kjøper1</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="42"/>
+              </rettssubjekt>
+            </kjoepere>
+            <hjemmelshavere>
+              <rettssubjekt>
+                <person id="19191919191">
+                  <fornavn>kjøper1</fornavn>
+                  <etternavn>kjøpersen</etternavn>
+                </person>
+                <andel teller="1" nevner="42"/>
+              </rettssubjekt>
+            </hjemmelshavere>
+          </parter>
+          <adresse>
+            <gatenavn>Krinkelkroken 1</gatenavn>
+            <postnummer>5014</postnummer>
+            <poststed>Bergen</poststed>
+          </adresse>
+        </salgsobjekt>
+      </salgsobjekter>
+      <objektstype>UKJENT</objektstype>
+      <objektstypeFritekst>Byggeplass</objektstypeFritekst>
+      <lenkeTilSalgsoppgave>https://vg.no</lenkeTilSalgsoppgave>
+      <metadata>
+        <ressurser>
+          <vedlegg>
+            <navn>signert_kjoepekontrakt_meglerreferanse.pdf</navn>
+            <mimetype>PDF</mimetype>
+          </vedlegg>
+        </ressurser>
+        <opprettet>2016-01-31T20:07:42</opprettet>
+      </metadata>
+    </kjoepekontrakt>
+    <kjoepekontrakt>
+      <bank id="945811714">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <referanse>BANKREFERANSE124</referanse>
+      </bank>
+      <megler id="910968955">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <ansvarligmegler>
+          <navn>Ole Olsen</navn>
+          <epost>ole@megler.no</epost>
+          <telefondirekte>99223452</telefondirekte>
+          <telefon>55300455</telefon>
+        </ansvarligmegler>
+        <referanse>MEGLERREFERANSE124</referanse>
+        <oppgjoersavdeling id="912345678">
+          <foretaksnavn>Megleroppjør AS</foretaksnavn>
+        </oppgjoersavdeling>
+      </megler>
+      <oppgjoersinformasjon>
+        <kjoepesum>20000000</kjoepesum>
+        <omkostningerkjoeper>300000</omkostningerkjoeper>
+        <akseptdato>2019-01-26</akseptdato>
+        <overtagelsesdato>2019-04-15</overtagelsesdato>
+        <andelfellesgjeld>2000000</andelfellesgjeld>
+        <andelfellesformue>300</andelfellesformue>
+        <kontonummer>111.22.33333</kontonummer>
+      </oppgjoersinformasjon>
+      <salgsobjekter>
+        <salgsobjekt> <!-- Leilighet -->
+          <borettsandelSalgsobjekt>
+            <borettsandel borettslagnavn="Borettslag AS" organisasjonsnummer="123456789" andelsnummer="123"/>
+            <arealer>
+              <areal arealtype="PROM">
+                <kvadratmeter>90</kvadratmeter>
+              </areal>
+            </arealer>
+
+          </borettsandelSalgsobjekt>
+          <parter>
+            <selgere>
+              <rettssubjekt>
+                <person id="23456789909">
+                  <fornavn>selger</fornavn>
+                  <etternavn>selgersen</etternavn>
+                </person>
+                <andel teller="1" nevner="1"/>
+              </rettssubjekt>
+            </selgere>
+            <kjoepere>
+              <rettssubjekt>
                 <person id="1">
                   <fornavn>kjøper1</fornavn>
                   <etternavn>kjøpersen</etternavn>
                 </person>
-                <andel teller="1" nevner="94"/>
+                <andel teller="1" nevner="3"/>
               </rettssubjekt>
               <rettssubjekt>
                 <person id="2">
                   <fornavn>kjøper2</fornavn>
                   <etternavn>kjøpersen</etternavn>
                 </person>
-                <andel teller="1" nevner="94"/>
+                <andel teller="1" nevner="3"/>
               </rettssubjekt>
               <rettssubjekt>
                 <person id="3">
                   <fornavn>kjøper3</fornavn>
                   <etternavn>kjøpersen</etternavn>
                 </person>
-                <andel teller="1" nevner="47"/>
+                <andel teller="1" nevner="3"/>
               </rettssubjekt>
             </kjoepere>
           </parter>
@@ -118,7 +220,8 @@
           </adresse>
         </salgsobjekt>
       </salgsobjekter>
-      <lenkeTilSalgsoppgave>lenke</lenkeTilSalgsoppgave>
+      <objektstype>LEILIGHET</objektstype>
+      <lenkeTilSalgsoppgave>https://vg.no</lenkeTilSalgsoppgave>
       <metadata>
         <ressurser>
           <vedlegg>
@@ -126,7 +229,7 @@
             <mimetype>PDF</mimetype>
           </vedlegg>
         </ressurser>
-        <opprettet>2016-01-31T20:07:42</opprettet>
+        <opprettet>2022-01-31T20:07:42</opprettet>
       </metadata>
     </kjoepekontrakt>
   </kjoepekontrakter>
