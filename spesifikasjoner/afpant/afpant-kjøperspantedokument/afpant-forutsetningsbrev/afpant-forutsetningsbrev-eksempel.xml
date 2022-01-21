@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="https://last-opp.pantedokumentet.no/AFPANT/afpant-folgebrev-1.0.xslt"?>
+<Forutsetningsbrev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Kreditor>
+    <Nummer>123456789</Nummer>
+    <Navn>TietoEVRY Banken, filial Fornebu</Navn>
+  </Kreditor>
+  <Debitorer>
+    <RettighetsHaver>
+      <Nummer>01234567890</Nummer>
+      <Navn>Donald Duck</Navn>
+    </RettighetsHaver>
+    <RettighetsHaver>
+      <Nummer>01234567890</Nummer>
+      <Navn>Dolly Duck</Navn>
+    </RettighetsHaver>
+  </Debitorer>
+  <Registerenheter>
+    <Registerenhet>
+      <KommuneNavn>Bergen</KommuneNavn>
+      <Kommunenummer>1201</Kommunenummer>
+      <Gardsnummer>10</Gardsnummer>
+      <Bruksnummer>818</Bruksnummer>
+      <Seksjonsnummer>41</Seksjonsnummer>
+    </Registerenhet>
+  </Registerenheter>
+  <PantedokumentDetaljer>
+    <Beloep>251230</Beloep>
+    <ForstePrioritet>false</ForstePrioritet>
+    <Prioritet>
+            <PrioritetsAngivelse>
+            <Rekkefolge>PrioritetEtter</Rekkefolge>
+            <Panthaver>
+                <Nummer>987412548</Nummer>
+                <Navn>Husbanken</Navn>
+            </Panthaver>
+            <Beloep>1250000</Beloep>
+            <PrioritetsBeskrivelse>Tekst av noe slag</PrioritetsBeskrivelse>
+            </PrioritetsAngivelse>
+    </Prioritet>
+    <Prioritet>
+            <PrioritetsAngivelse>
+            <Rekkefolge>PrioritetLikestiltMed</Rekkefolge>
+            <Panthaver>
+                <Nummer>921345687</Nummer>
+                <Navn>Sparebanken Vest</Navn>
+            </Panthaver>
+            <Beloep>2000000</Beloep>
+            <PrioritetsBeskrivelse>Bank til annet familie medlem</PrioritetsBeskrivelse>
+            </PrioritetsAngivelse>
+    </Prioritet>
+  </PantedokumentDetaljer>
+  <OverfoerselDetaljer>
+    <Beloep>2100000</Beloep>
+    <BeloepOverforesDato>2019-01-23</BeloepOverforesDato>
+    <TotalBeloep>2500000</TotalBeloep>
+    <TilKontonummer>65501100000</TilKontonummer>
+    <KID>10001000222111</KID>
+    <KreditorSaksnummer>Lånesak 124-221/22</KreditorSaksnummer>
+    <MeglerSaksnummer>117-00-1002 Lånegaten 15 B</MeglerSaksnummer>
+    <BeloepGjelder>dekning av kjøpesum for ovennevnte eiendom</BeloepGjelder>
+    <ProdusertDato>2019-01-25T10:15:23.2962746+01:00</ProdusertDato>
+  </OverfoerselDetaljer>
+  <Avsender>
+    <Navn>Bjarne Bankrådgiver</Navn>
+    <Email>bjarne.bank@nordea-afpant.com</Email>
+    <TelefonDirekte>80000000</TelefonDirekte>
+    <Telefon>23206001</Telefon>
+  </Avsender>
+  <Mottaker>
+    <Navn>Oppgjørsforetaket AS</Navn>
+    <Organisasjonsnummer>800000000</Organisasjonsnummer>
+  </Mottaker>
+</Forutsetningsbrev>
