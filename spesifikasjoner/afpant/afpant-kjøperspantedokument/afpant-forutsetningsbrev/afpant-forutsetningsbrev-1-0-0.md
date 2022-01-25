@@ -2,10 +2,10 @@
 ## Forutsetningsbrev fra bank til megler - AFPANT
 
 TODO: bytt til hosted versjon 
-[XSD](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-1.0.0.xsd)
+[XSD](./afpant-forutsetningsbrev-1.0.0.xsd)
 
 TODO: bytt til hosted versjon 
-[XSLT](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-1.0.0.xslt)
+[XSLT](./afpant-forutsetningsbrev-1.0.0.xslt)
 
 ## Sammendrag
 Forutsetningsbrev fra bank kan produseres som XML. Dokumentet må da validere i henhold til XSD, og vil bli rendret av mottakers system ved hjelp av XSLT.
@@ -21,4 +21,4 @@ TODO: endre de 2 linkene under når det er besluttet ny cdn/domain for hosting a
 
 ## Eksempel
 TODO: bytt til hosted versjon 
-[Eksempel på visning av forutsetningsbrev](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-eksempel.html)
+[Eksempel på visning av forutsetningsbrev](./afpant-forutsetningsbrev-eksempel.html)
