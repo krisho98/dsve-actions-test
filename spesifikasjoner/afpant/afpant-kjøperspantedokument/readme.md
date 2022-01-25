@@ -14,5 +14,5 @@ Når kjøpers pantedokument er tinglyst hos Kartverket, sendes det en melding fr
 - [Statusoppdatering fra megler til bank](./../afpant-gjennomfoertetinglysing/README.md)
 
 ##### Forutsetningsbrev (oversendelsesbrev) til megler tilhørende kjøpers pantedokument
-- [Forutsetningsbrev - teknisk beskrivelse/spesifikasjon](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-1-0-0.md)
 - [Forutsetningsbrev - løsningsbeskrivelse](./afpant-forutsetningsbrev/forutsetningsbrev.md)
+- [Forutsetningsbrev - teknisk beskrivelse](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-1-0-0.md)
