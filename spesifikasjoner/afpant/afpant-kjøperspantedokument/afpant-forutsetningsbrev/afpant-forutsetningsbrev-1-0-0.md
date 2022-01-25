@@ -20,5 +20,5 @@ TODO: endre de 2 linkene under når det er besluttet ny cdn/domain for hosting a
 - [XSLT (uten semver revision)](https://last-opp.pantedokumentet.no/AFPANT/afpant-folgebrev-1.0.xslt)
 
 ## Eksempel
-TODO: bytt til hosted versjon 
+TODO: bytt til hosted versjon (og direkte til xml med egen link til xslt istedenfor transformed html)
 [Eksempel på visning av forutsetningsbrev](./afpant-forutsetningsbrev-eksempel.html)
