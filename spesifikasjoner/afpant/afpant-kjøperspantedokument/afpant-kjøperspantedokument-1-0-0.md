@@ -6,7 +6,7 @@ Bruker i avsender-bank må innhente hvilket organisasjonsnummer forsendelsen ska
 Deretter produseres det et **ZIP**-arkiv som inneholder følgende filer:
 * Kjøpers pantedokument SDO (kun 1 pantedokument pr forsendelse)
 * Eventuelt forutsetningsbrev (XML) (med forutsetninger for oversendelse av pantedokument, evt innbetalingsinformasjon)
-* XML data i forutsetningsbrevet må validere i henhold til <a href="./afpant-forutsetningsbrev-1-0-0.md">afpant-forutsetningsbrev spesifikasjon</a>.
+* XML data i forutsetningsbrevet må validere i henhold til <a href="./afpant-forutsetningsbrev/afpant-forutsetningsbrev-1-0-0.md">afpant-forutsetningsbrev spesifikasjon</a>.
 
 **NB**: Dersom mer enn ett pantedokument fra samme lånesak skal tinglyses på samme matrikkelenhet må dette sendes som to separate forsendelser. For eksempel i tilfeller hvor det er to debitorer (låntakere) som ikke er ektefeller/samboere/registrerte partnere som skal ha likestilt prioritet, men separate pantedokumenter.
 

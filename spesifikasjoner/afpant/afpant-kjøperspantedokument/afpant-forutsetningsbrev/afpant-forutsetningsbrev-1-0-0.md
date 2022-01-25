@@ -21,4 +21,4 @@ TODO: endre de 2 linkene under når det er besluttet ny cdn/domain for hosting a
 
 ## Eksempel
 TODO: bytt til hosted versjon 
-[Eksempel XML](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-eksempel.html)
+[Eksempel på visning av forutsetningsbrev](./afpant-forutsetningsbrev/afpant-forutsetningsbrev-eksempel.html)
