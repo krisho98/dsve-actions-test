@@ -37,7 +37,7 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Oppdragsnummer:**                                                                                 |      |
 |**Oppgjørsinformasjon:** Kontonummer / KID nummer / betalingsmelding                                | :white_check_mark: |
 |**Eiendomsinformasjon:** Kommunenummer / Gårdsnummer / Bruksnummer / Festenummer / Seksjonsnummer / Adresse / Postnummer (det må være mulig med flere gårds- og bruksnummer) Ved andel/aksje: Organisasjonsnummer / Andelsnummer /Aksjenummer(Informasjon om personlige sameier og hvorvidt de skal pantsettes må inkluderes) | :white_check_mark: |
-|**Kjøpesum:**                                                                                       | :white_check_mark: |
+|**Kjøpesum:** Budakseptert beløp                                                                    | :white_check_mark: |
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
 |**Oppgjørsbeløp:** Kjøpesum + kjøpsomkostninger (det skal angis om beløpet er tentativt eller satt) | :white_check_mark: |
 |**Overtagelsesdato:** Denne skal ikke fylles ut dersom nybygg                                       | :white_check_mark: |

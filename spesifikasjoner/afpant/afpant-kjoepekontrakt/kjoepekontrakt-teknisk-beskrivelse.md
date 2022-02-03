@@ -64,11 +64,11 @@ OG eksistere i ZIP-arkivet.
 
 ## Validering og ruting (meglersystem)
 Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank):
-- Systemleverandør/meglersystem søker blant alle sine kunders oppdrag/oppgjør etter kjøpekontrakt.
-- OG utvalget av kjøpekontrakter avgrenses til:
+- Systemleverandør/meglersystem søker blant alle sine kunders oppdrag/oppgjør etter kjøpekontrakt og/eller strukturerte data.
+- OG utvalget avgrenses til:
   - meglersaker hvor organisasjonsnummeret til meglerforetaket på meglersaken er lik organisasjonsnummeret megler(`kjoepekontraktforespoerselfrabank.megler`)
   - OG meglersaker hvor **minst 1 kjøper i forespørselen er registrert som kjøper på meglersaken**
-  - OG meglersaker som ikke er slettet/arkivert eller eldre enn ?
+  - OG meglersaker som ikke er slettet/arkivert eller eldre enn 1 år. Grensen på 1 år vil potensielt justeres hvis vi ser behov for dette etter å ha tatt i bruk systemet i produksjon.
 
 [Se XML-eksempel](./examples/kjoepekontraktsvarFraMegler-example.xml)
 
@@ -127,6 +127,8 @@ Meglers systemleverandør er ansvarlig for å sende oppdateringer til bank med K
 
 Dersom kjøpekontrakten er signert skal vedlegget med korrekt filnavn være definert som en ressurs/vedlegg i meldingens metadata OG eksistere i ZIP-arkivet.
 For endringer i signert kjøpekontrakt er det et krav at KjoepekontraktFraMegler-meldingen sendes med et nytt unikt vedleggsnavn ift hva som er sendt tidligere for den aktuelle kjøpekontrakten - nytt filnavn skal inneholde tidsstempel. 
+
+Meglers systemleverandør slutter å sende oppdateringer via kjoepekontraktEndringFraMegler for saker når de er slettet/arkivert eller eldre enn 1 år. Grensen på 1 år vil potensielt justeres hvis vi ser behov for dette etter å ha tatt i bruk systemet i produksjon.
 
 
 _Denne meldingen skal ikke besvares._ 
