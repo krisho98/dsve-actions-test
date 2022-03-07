@@ -511,8 +511,8 @@
   </xs:complexType>
 
   <xs:complexType name="Broek">
-    <xs:attribute name="teller" type="xs:long" use="required"/>
-    <xs:attribute name="nevner" type="xs:long" use="required"/>
+    <xs:attribute name="teller" type="xs:long"/>
+    <xs:attribute name="nevner" type="xs:long"/>
   </xs:complexType>
 
   <xs:complexType name="Registerenheter">
