@@ -8,7 +8,7 @@ XSD og XSLT vil bli hostet på https://prod.cdn.dsop.no/dsve/
 ### Prod URI til XSD/XSLT
 TODO: endre de 2 linkene under når det er besluttet ny cdn/domain for hosting av filer
 - [XSD](https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/afpant-forutsetningsbrev.xsd)
-- [XSLT](https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/afpant-forutsetningsbrev.xslt)
+- [XSLT](https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/afpant-forutsetningsbrev.xslt)
 
 ## Eksempel
 [Eksempel på visning av forutsetningsbrev](./afpant-forutsetningsbrev-eksempel.html)
