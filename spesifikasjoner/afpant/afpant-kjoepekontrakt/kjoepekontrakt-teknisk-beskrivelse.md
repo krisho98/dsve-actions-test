@@ -64,7 +64,7 @@ OG eksistere i ZIP-arkivet.
 
 ## Validering og ruting (meglersystem)
 Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank):
-- Systemleverandør/meglersystem søker blant alle sine kunders oppdrag/oppgjør etter kjøpekontrakt og/eller strukturerte data.
+- Systemleverandør/meglersystem søker blant alle sine kunders oppdrag/oppgjør etter strukturerte kjøpekontraktsdata, eventuelt med tilhørende signert kjøpekontrakt.
 - OG utvalget avgrenses til:
   - meglersaker hvor organisasjonsnummeret til meglerforetaket på meglersaken er lik organisasjonsnummeret megler(`kjoepekontraktforespoerselfrabank.megler`)
   - OG meglersaker hvor **minst 1 kjøper i forespørselen er registrert som kjøper på meglersaken**
