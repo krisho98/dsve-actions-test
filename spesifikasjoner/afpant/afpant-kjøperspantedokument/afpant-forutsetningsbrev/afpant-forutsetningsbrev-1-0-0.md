@@ -11,5 +11,6 @@ TODO: endre de 2 linkene under når det er besluttet ny cdn/domain for hosting a
 - [XSLT](https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/afpant-forutsetningsbrev.xslt)
 
 ## Eksempel
-[Eksempel på visning av forutsetningsbrev](https://bitsnorge.github.io/e-tinglysing-afpant/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-forutsetningsbrev/afpant-forutsetningsbrev-eksempel.html)
-[Eksempel på xml format forutsetningsbrev](./afpant-forutsetningsbrev-eksempel.xml)
+- [Eksempel på visning av forutsetningsbrev](https://bitsnorge.github.io/e-tinglysing-afpant/spesifikasjoner/afpant/afpant-kj%C3%B8perspantedokument/afpant-forutsetningsbrev/afpant-forutsetningsbrev-eksempel.html)
+- [Eksempel på xml format forutsetningsbrev](./afpant-forutsetningsbrev-eksempel.xml)
+
