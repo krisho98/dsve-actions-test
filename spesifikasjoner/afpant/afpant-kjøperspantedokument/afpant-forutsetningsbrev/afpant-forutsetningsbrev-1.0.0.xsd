@@ -1,38 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Folgebrev" nillable="false" type="Folgebrev"/>
-  <xs:complexType name="Folgebrev">
+  <xs:element name="Forutsetningsbrev" nillable="false" type="Forutsetningsbrev"/>
+  <xs:complexType name="Forutsetningsbrev">
     <xs:annotation>
-        <xs:documentation>Denne klassen skal benyttes for å produsere et strukturert overførselsbrev/følgebrev fra kreditor (bank) til eiendomsmegler / oppgjørsforetak. 
-Følgebrevet skal alltid sendes sammen med ett pantedokument, og det må inneholde informasjon om pantedokumentet som overføres, forventet prioritet, forutsetninger for overførselen, samt beløp som overføres.
+        <xs:documentation>Denne klassen skal benyttes for å produsere et strukturert forutsetningsbrev fra kreditor (bank) til eiendomsmegler. 
+Forutsetningsbrevet sendes sammen med ett pantedokument, og det må inneholde informasjon om pantedokumentet som overføres, forventet prioritet, forutsetninger for overførselen, samt beløp som overføres.
 Informasjon om innbetalingen (beløp, totalbeløp, mottakerkontonummer og kid) benyttes av mottaker til blant annet etterlevelse av hvitvaskingsreglement.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="Kreditor" type="RettighetsHaver">
           <xs:annotation>
-              <xs:documentation>Documentation goes here</xs:documentation>
+              <xs:documentation>Rettighetshaver/kreditor</xs:documentation>
           </xs:annotation>
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="Debitorer" type="ArrayOfRettighetsHaver" />
       <xs:element minOccurs="1" maxOccurs="1" name="Registerenheter" type="ArrayOfRegisterenhet" />
       <xs:element minOccurs="1" maxOccurs="1" name="PantedokumentDetaljer" type="Pantedokument" />
       <xs:element minOccurs="1" maxOccurs="1" name="OverfoerselDetaljer" type="Overfoersel" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Forutsetninger" type="ArrayOfString">
-          <xs:annotation>
-              <xs:documentation>Forutsetningene pantedokumentet og/eller innbetalingen overføres under.</xs:documentation>
-          </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="AnnenFritekst" type="xs:string">
-          <xs:annotation>
-              <xs:documentation>Kan brukes for å angi instruks om forventet tid før retur, evt melding om avvikende behandlingstid.</xs:documentation>
-          </xs:annotation>
-      </xs:element>
-      <xs:element minOccurs="1" maxOccurs="1" name="ReturneresTil" type="Adresse">
-          <xs:annotation>
-              <xs:documentation>Bekreftet grunnboksutskrift returneres etter at selgers kreditor har slettet sitt pant.
-Den sendes på papir i påvente av ytterligere standardiseringsarbeid / felles kommunikasjonsplattform megler -> bank</xs:documentation>
-          </xs:annotation>
-      </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="Avsender" type="Person">
           <xs:annotation>
               <xs:documentation>Saksbehandler i bank/depot. Kontaktinformasjon er viktig for mottaker (oppgjørsmedarbeider) i tilfelle prioritetskollisjon eller andre mangler i oversendt pantedokument må avklares.</xs:documentation>
@@ -153,9 +137,9 @@ Den sendes på papir i påvente av ytterligere standardiseringsarbeid / felles k
               <xs:documentation>Beløpet som overføres sammen med pantedokumentet (kan være mindre enn totalbeløpet)</xs:documentation>
           </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="1" maxOccurs="1" name="BeloepOverfortDato" type="xs:date">
+      <xs:element minOccurs="1" maxOccurs="1" name="BeloepOverforesDato" type="xs:date">
           <xs:annotation>
-              <xs:documentation>En dato som indikerer når beløpet angitt i Beloep ble overført til mottakers kontonummer</xs:documentation>
+              <xs:documentation>En dato som indikerer når beløpet angitt i Beloep blir overført til mottakers kontonummer</xs:documentation>
           </xs:annotation>
       </xs:element>           
       <xs:element minOccurs="1" maxOccurs="1" name="TotalBeloep" type="xs:double">
@@ -175,14 +159,9 @@ Den sendes på papir i påvente av ytterligere standardiseringsarbeid / felles k
               <xs:documentation>Kan angi meglers oppdragsnummer dersom dette er tilgjengelig</xs:documentation>
           </xs:annotation>
       </xs:element>
-      <xs:element minOccurs="0" maxOccurs="1" name="BeloepGjelder" type="xs:string">
-          <xs:annotation>
-              <xs:documentation>En tekstlig beskrivelse av hva det overførte beløpet skal dekke</xs:documentation>
-          </xs:annotation>
-      </xs:element> 
       <xs:element minOccurs="1" maxOccurs="1" name="ProdusertDato" type="xs:dateTime">
           <xs:annotation>
-              <xs:documentation>En timestamp som indikerer når følgebrevet ble produsert/overført</xs:documentation>
+              <xs:documentation>En timestamp som indikerer når forutsetningsbrevet ble produsert/overført</xs:documentation>
           </xs:annotation>
       </xs:element>
     </xs:sequence>

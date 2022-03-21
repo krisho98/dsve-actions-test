@@ -2,11 +2,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
-  <xsl:template match="/Folgebrev">
+  <xsl:template match="/Forutsetningsbrev">
     <html>
       <head>
         <title>
-          Overførsel fra <xsl:value-of select="Kreditor/Navn"/> (Følgebrev - AFPANT)
+          Overførsel fra <xsl:value-of select="Kreditor/Navn"/> (Forutsetningsbrev)
         </title>
         <style type="text/css">
           body {
@@ -162,7 +162,7 @@
                 </td>
               </tr>
               <tr>
-                <td>Overført beløp</td>
+                <td>Beløp</td>
                 <td>
                   <xsl:call-template name="formatNumber">
                     <xsl:with-param name="prefix" select="'Kr. '"/>
@@ -177,9 +177,9 @@
                 </td>
               </tr>
               <tr>
-                <td>Overført dato</td>
+                <td>Overføres dato</td>
                 <td>
-                  <xsl:value-of select="OverfoerselDetaljer/BeloepOverfortDato"/>
+                  <xsl:value-of select="OverfoerselDetaljer/BeloepOverforesDato"/>
                 </td>
               </tr>
               <tr>
@@ -215,7 +215,7 @@
               <tr>
                 <td>Beløpet som er overført gjelder</td>
                 <td>
-                  <xsl:value-of select="OverfoerselDetaljer/BeloepGjelder"/>
+                  Dekning av kjøpesum og omkostninger for ovennevnte eiendom
                 </td>
               </tr>
             </tbody>
@@ -224,35 +224,23 @@
 
         <section>
           <h4>Forutsetninger</h4>
-          <xsl:for-each select="Forutsetninger/string">
-            <p>
-              <xsl:call-template name="string-replace">
-                <xsl:with-param name="string" select="."/>
-                <xsl:with-param name="from" select="'&#xA;'"/>
-                <xsl:with-param name="to">
-                  <br/>
-                </xsl:with-param>
-              </xsl:call-template>
-            </p>
-          </xsl:for-each>
-        </section>
-        <xsl:if test="string-length(AnnenFritekst) &gt; 0">
-          <section>
-            <p>
-              <xsl:value-of select="AnnenFritekst"/>
-            </p>
-          </section>
-        </xsl:if>
-        <section>
-          <h4>Returadresse</h4>
           <p>
-            <xsl:value-of select="ReturneresTil/Navn"/>
-            <br/>
-            <xsl:value-of select="ReturneresTil/Postadresse"/>
-            <br/>
-            <xsl:value-of select="ReturneresTil/Postnummer"/>
-            <xsl:text> </xsl:text>
-            <xsl:value-of select="ReturneresTil/Poststed"/>
+            I det påfølgende henviser uthevet tekst til ovenstående tabell.
+          </p>
+          <p> 
+            Det forutsettes at beløpet ikke stilles til selgers disposisjon før hjemmel til eiendommen blir
+            overskjøtet til <strong>rettighetshavere</strong> eller annen tilfredsstillende sikkerhet (f.eks sikringsdokument) er
+            tinglyst, og at elektronisk <strong>pantedokument</strong> er tinglyst i ovennevnte <strong>registerenhet</strong> med angitt
+            <strong>prioritet</strong>, foran avtalepant, utleggspant og andre heftelser som begrenser omsetning av
+            eiendommen, herunder boretter og forkjøpsretter. Vi aksepterer likevel at andre typer heftelser som
+            kjøper har akseptert å overta, kan forbli tinglyst på eiendommen med prioritet foran bankens pant.
+          </p>
+          <p>
+            Det forutsettes videre at vi mottar bekreftelse så snart rett prioritet foreligger.
+          </p>
+          <p>
+            Dersom vi ikke har mottatt overnevnte bekreftelse innen 4 måneder, ber vi om at det meddeles når
+            vi kan forvente at rett prioritet vil foreligge.
           </p>
         </section>
         <section>
@@ -290,7 +278,7 @@
         </section>
         <footer>
           <small>
-            AFPANT-folgebrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 1.0.0 | Følgebrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
+            Forutsetningsbrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 1.0.0 | Forutsetningsbrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
           </small>
         </footer>
       </body>
