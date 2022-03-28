@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="../xslt/dsve-1.0.0.xslt" type="text/xsl" ?>
-<intensjonsendring xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+<intensjonsendring xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
 	<avsender id="920058817">
 		<foretaksnavn>Nordea Bank Abp, filial i Norge</foretaksnavn>
 		<referanse>CASPER001-01-01</referanse>

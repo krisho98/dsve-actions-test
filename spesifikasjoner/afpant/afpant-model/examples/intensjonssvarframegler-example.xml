@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="../xslt/dsve-1.0.0.xslt" type="text/xsl" ?>
-<intensjonssvarframegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve-1.0.0.xsd">
+<?xml-stylesheet href="https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/dsve.xslt" type="text/xsl" ?>
+<intensjonssvarframegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNameSpaceLocation="https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/dsve.xsd">
 	<avsender id="991111123">
 		<foretaksnavn>DSVE Megling AS</foretaksnavn>
 		<referanse>17-19-9999</referanse>

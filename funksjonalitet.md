@@ -1,3 +1,5 @@
+# Hvordan kommuniniserer hver aktør hvliken versjon som benytte?
+Hvis man er på versjon 2 eller høyere må man opplyse om det ved hjelp av key value i manifest. Dersom denne verdien er tom skal det anses som versjon 1.
 
 # Funksjonalitet
  
@@ -8,7 +10,7 @@ De funksjonalitetene som har link er enten ferdig levert eller under arbeid. Fun
 - [Løsning for elektroniske skjøtepakker](./spesifikasjoner/afpant/afpant-kjøperspantedokument/readme.md)
     - [Intensjonsmelding](./spesifikasjoner/afpant/afpant-intensjon/README.md)
     - [Statusoppdatering fra megler til bank](./spesifikasjoner/afpant/afpant-gjennomfoertetinglysing/README.md)
-    - [Forutsetningsbrev](./spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-folgebrev/README.md)
+    - [Forutsetningsbrev](./spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-forutsetningsbrev/README.md)
 - [Oversendelse av kjøpekontrakt](./spesifikasjoner/afpant/afpant-kjoepekontrakt/README.md)
 - Sjekk av finansiering
 - Mellomfinansiering

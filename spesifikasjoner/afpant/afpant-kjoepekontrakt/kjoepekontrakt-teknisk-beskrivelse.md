@@ -37,7 +37,7 @@ og minst en av kjøperene(`kjoepekontraktforespoerselfrabank.kjoepere`).
 [Se XML-eksempel:](./examples/kjoepekontraktforespoerselFraBank-example.xml)
 
 ## Payload
-ZIP-arkiv som skal inneholde en XML fil med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+ZIP-arkiv som skal inneholde en XML fil med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 
 **Krav til filnavn i ZIP-arkiv:** Filnavnet til meldingen KjoepekontraktFraMegler må følge konvensjonen: _kjoepekontraktforespoerselfrabank*.xml_ . (navnet til meldingen i lowercase)
 
@@ -75,7 +75,7 @@ Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kj
 ## Payload
 
 Dersom status i manifestet er _RutetSuksessfullt_ (se beskrivelse av manifest under) skal ZIP-arkivet inneholde en XML xml-fil 
-med `KjoepekontraktSvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+med `KjoepekontraktSvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve.xsd)
 Dersom kjøpekontrakten er signert skal ZIP-arkiv også innholde den signert kjøpekontrakten være med som en egen fil.
 Den signert kjøpekontrakten er enten en PDF eller en SDO.
 
@@ -95,10 +95,10 @@ Den signert kjøpekontrakten er enten en PDF eller en SDO.
 |statusDescription|String|Nei|Inneholder en utfyllende, menneskelig-lesbar beskrivelse om hvorfor en forsendelse ble NACK-et.|
 
 ## Payload
-En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 
 ### Positiv resultat (ACK)
-- En xml-fil med **kjoepekontraktsvarFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+- En xml-fil med **kjoepekontraktsvarFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve.xsd).
 
 Merk at signert kjøpekontrakt skal finnes som en egen fil i ZIP-arkivet dersom metdata inneholder et vedlegg som matcher _signert_kjoepekontrakt*.(pdf|sdo)_.
 
@@ -146,7 +146,7 @@ I disse tilfellene må bank:
 Megler må sette `kjoepekontrakt.bank.referanse` dersom megler tidligere har mottatt [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) 
 
 ## Payload
-At ZIP-arkiv som inneholder en xml-fil med **KjoepekontraktFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+At ZIP-arkiv som inneholder en xml-fil med **KjoepekontraktFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve.xsd).
 Dersom kjøpekontrakten er signert skal ZIP-arkiv også innholde den signert kjøpekontrakten være med som en egen fil.
 Den signert kjøpekontrakten er enten en PDF eller en SDO.
 

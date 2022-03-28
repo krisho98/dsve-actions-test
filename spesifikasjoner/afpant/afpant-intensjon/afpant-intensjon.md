@@ -26,4 +26,4 @@ Signering av skjøtet og signering av pantedokumentet skjer på ulike tidspunkt 
 ![Flytdiagram](examples/intensjon-flytdiagram-eksempel1.PNG)
 
 ## Implementasjonsdetaljer
-Se [her for tekniske detaljer](intensjon-0-1-0.md)
+Se [her for tekniske detaljer](intensjon.md)

@@ -5,4 +5,4 @@ Bank overfører forutsetningsbrev (som PDF eller XML) sammen med det elektronisk
 ## Dokumentasjon
 - [Forutsetningsbrev - løsningsbeskrivelse](./forutsetningsbrev.md), evt. endringer gjøres her.
     - Se opprinnelig godkjent PDF-versjon [her](./Forutsetningsbrev-godkjent-211202.pdf)
-- [Forutsetningsbrev - teknisk beskrivelse](./afpant-forutsetningsbrev-1-0-0.md)
+- [Forutsetningsbrev - teknisk beskrivelse](./afpant-forutsetningsbrev.md)

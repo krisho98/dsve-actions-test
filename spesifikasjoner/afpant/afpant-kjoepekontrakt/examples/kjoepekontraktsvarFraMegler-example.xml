@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kjoepekontraktsvarFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../afpant/afpant-model/xsd/dsve-1.0.0.xsd">
+<?xml-stylesheet type="text/xsl" href="https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/dsve.xslt"?>
+<kjoepekontraktsvarFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNameSpaceLocation="https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/dsve.xsd">
   <kjoepekontrakter>
     <kjoepekontrakt>
       <bank id="945811714">
