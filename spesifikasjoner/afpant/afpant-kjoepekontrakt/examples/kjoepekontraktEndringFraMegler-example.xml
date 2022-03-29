@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="../../afpant-model/xslt/kjopekontrakt.xslt" type="text/xsl"?>
-<kjoepekontraktEndringFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../afpant/afpant-model/xsd/dsve-1.0.0.xsd">
+<?xml-stylesheet href="https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/kjopekontrakt.xslt" type="text/xsl"?>
+<kjoepekontraktEndringFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/dsve.xsd">
   <kjoepekontrakt>
     <bank id="945811714">
       <foretaksnavn>DNB Eiendom</foretaksnavn>
