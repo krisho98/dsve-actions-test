@@ -328,7 +328,6 @@
               </div>
               <div class="celle tall">
                 <xsl:call-template name="formatNumber">
-                  <xsl:with-param name="prefix" select=""/>
                   <xsl:with-param name="numericValue" select="oppgjoersinformasjon/kjoepesum"/>
                 </xsl:call-template>
               </div>
@@ -339,7 +338,6 @@
               </div>
               <div class="celle tall">
                 <xsl:call-template name="formatNumber">
-                  <xsl:with-param name="prefix" select=""/>
                   <xsl:with-param name="numericValue" select="oppgjoersinformasjon/omkostningerkjoeper"/>
                 </xsl:call-template>
               </div>
@@ -351,7 +349,6 @@
               </div>
               <div class="celle tall">
                 <xsl:call-template name="formatNumber">
-                  <xsl:with-param name="prefix" select=""/>
                   <xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelfellesgjeld"/>
                 </xsl:call-template>
               </div>
@@ -362,7 +359,6 @@
               </div>
               <div class="celle tall">
                 <xsl:call-template name="formatNumber">
-                  <xsl:with-param name="prefix" select=""/>
                   <xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelfellesformue"/>
                 </xsl:call-template>
               </div>
@@ -1001,11 +997,7 @@
   </xsl:template>
 
   <xsl:template name="formatNumber">
-    <xsl:param name="prefix"/>
     <xsl:param name="numericValue" select="."/>
-    <xsl:if test="string-length($prefix) &gt; 0">
-      <xsl:value-of select="$prefix"/>
-    </xsl:if>
     <xsl:value-of select="format-number( number($numericValue), '### ### ### ###', 'nb-no-space')"/>
   </xsl:template>
 
@@ -1172,14 +1164,14 @@
     <xsl:variable name="lower" select="'abcdefghijklmnopqrstuvwzyzæøå'"/>
     <xsl:variable name="forste" select="translate(substring($tekstSomSkalHaStorForbokstav,1,1),$lower,$upper)"/>
     <xsl:variable name="resten" select="translate(substring($tekstSomSkalHaStorForbokstav,2),$upper,$lower)"/>
-    <xsl:text><xsl:value-of select="concat($forste,$resten)"/></xsl:text>
+    <xsl:value-of select="concat($forste,$resten)"/>
   </xsl:template>
 
   <xsl:template name="lowercase">
     <xsl:param name="tekstTilSmaBokstaver"/>
     <xsl:variable name="upper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
     <xsl:variable name="lower" select="'abcdefghijklmnopqrstuvwzyzæøå'"/>
-    <xsl:text><xsl:value-of select="translate(substring($tekstTilSmaBokstaver,1),$upper,$lower)"/></xsl:text>
+    <xsl:value-of select="translate(substring($tekstTilSmaBokstaver,1),$upper,$lower)"/>
   </xsl:template>
 
 </xsl:stylesheet>
