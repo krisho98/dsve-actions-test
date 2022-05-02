@@ -38,7 +38,7 @@ Meldingstypen GjennomfoertEtinglysing sendes fra megler til bank for å informer
 
 ### Payload
 Et ZIP-arkiv med 2 filer:
-- En GjennomfoertEtinglysing XML med data ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+- En GjennomfoertEtinglysing XML med data ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 - Et vedlegg med forsendelsesstatus xml data fra Kartverket til megler for forsendelsen 
 som inkluderte det aktuelle kjøpers pantedokumentet.
 

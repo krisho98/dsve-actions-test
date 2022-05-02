@@ -5,7 +5,7 @@
     <kjoepekontrakt>
       <bank id="945811714">
         <foretaksnavn>DNB Eiendom</foretaksnavn>
-        <referanse>BANKREFERANSE321</referanse>
+        <referanse>OPGNR-123</referanse>
       </bank>
       <megler id="910968955">
         <foretaksnavn>DNB Eiendom</foretaksnavn>
@@ -15,13 +15,13 @@
           <telefondirekte>99223452</telefondirekte>
           <telefon>55300455</telefon>
         </ansvarligmegler>
-        <referanse>MEGLERREFERANSE123</referanse>
+        <referanse>OPGNR-123</referanse>
         <oppgjoersavdeling id="912345678">
           <foretaksnavn>Megleroppjør AS</foretaksnavn>
         </oppgjoersavdeling>
       </megler>
       <oppgjoersinformasjon>
-        <kjoepesum>20000000</kjoepesum>
+        <salgssum>20000000</salgssum>
         <omkostningerkjoeper>300000</omkostningerkjoeper>
         <akseptdato>2019-01-26</akseptdato>
         <overtagelsesdato>2019-04-15</overtagelsesdato>

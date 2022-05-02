@@ -22,8 +22,8 @@ må også støtte mottak av [KjoepekontraktFraMegler](#meldingstype-kjoepekontra
 |------|------|----|
 | [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) | Bank forespør kjøpekontrakt fra megler | XSD: KjoepekontraktforespoerselFraBank | 
 | [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)  | Meglers svar på Kjøpekontraktforespørsel fra bank | XSD: KjoepekontraktSvarFraMegler |
-| [kjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring) | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler |
-|[kjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)|Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.|XSD: KjoepekontraktFraMegler|
+| [KjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring) | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler |
+|[KjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)|Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.|XSD: KjoepekontraktFraMegler|
 
 # Meldingstype: KjoepekontraktforespoerselFraBank
 Bank forespør kjøpekontrakt fra megler
@@ -37,7 +37,7 @@ og minst en av kjøperene(`kjoepekontraktforespoerselfrabank.kjoepere`).
 [Se XML-eksempel:](./examples/kjoepekontraktforespoerselFraBank-example.xml)
 
 ## Payload
-ZIP-arkiv som skal inneholde en XML fil med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+ZIP-arkiv som skal inneholde en XML fil med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 
 **Krav til filnavn i ZIP-arkiv:** Filnavnet til meldingen KjoepekontraktFraMegler må følge konvensjonen: _kjoepekontraktforespoerselfrabank*.xml_ . (navnet til meldingen i lowercase)
 
@@ -75,7 +75,7 @@ Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kj
 ## Payload
 
 Dersom status i manifestet er _RutetSuksessfullt_ (se beskrivelse av manifest under) skal ZIP-arkivet inneholde en xml-fil 
-med `kjoepekontraktsvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+med `kjoepekontraktsvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve.xsd)
 Dersom kjøpekontrakten er signert skal ZIP-arkiv også innholde den signert kjøpekontrakten være med som en egen fil.
 Den signert kjøpekontrakten er enten en PDF eller en SDO.
 
@@ -94,6 +94,17 @@ Ved negativt resultat lasted et tomt zip-arkiv opp. Manifest key "status" og "st
 |messageType|String|Ja|KjoepekontraktsvarFraMegler|
 |status|String (enum)|Ja|Denne kan være en av følgende statuser: <ol><li>**RutetSuksessfullt**<br/>Status 'RutetSuksessfullt' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).</li><li>**UgyldigKjøper**<br/>Megler har ikke funnet oppgjør/oppdrag for angitt(e) kjøper(e)</li> <li>**Avvist** (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse).</li></ol>Kun status '**RutetSuksessfullt**' er å anse som ACK (positive acknowledgement) hvor . Øvrige statuser er å anse som NACK (negative acknowledgement).|
 |statusDescription|String|Nei|Inneholder en utfyllende, menneskelig-lesbar beskrivelse om hvorfor en forsendelse ble NACK-et.|
+
+## Payload
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
+
+### Positiv resultat (ACK)
+- En xml-fil med **kjoepekontraktsvarFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve.xsd).
+
+Merk at signert kjøpekontrakt skal finnes som en egen fil i ZIP-arkivet dersom metdata inneholder et vedlegg som matcher _signert_kjoepekontrakt*.(pdf|sdo)_.
+
+### Negativt resultat (NACK)
+- Tom payload returneres (ZIP arkiv med dummy innhold). Manifest key "status" og "statusDescription" må avleses for årsak.
 
 # Meldingstype: KjoepekontraktFraMegler
 Megler sender uoppfordret til bank eller ved ved signifikante endringer.
@@ -136,7 +147,7 @@ I disse tilfellene må bank:
 Megler må sette `kjoepekontrakt.bank.referanse` dersom megler tidligere har mottatt [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) 
 
 ## Payload
-At ZIP-arkiv som inneholder en xml-fil med **KjoepekontraktFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+At ZIP-arkiv som inneholder en xml-fil med **KjoepekontraktFraMegler** som root element og som er i henhold til [definert skjema](../afpant-model/xsd/dsve.xsd).
 Dersom kjøpekontrakten er signert skal ZIP-arkiv også innholde den signert kjøpekontrakten være med som en egen fil.
 Den signert kjøpekontrakten er enten en PDF eller en SDO.
 

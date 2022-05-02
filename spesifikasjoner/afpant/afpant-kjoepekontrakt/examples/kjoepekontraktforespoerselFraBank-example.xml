@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<kjoepekontraktforespoerselFraBank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../afpant-model/xsd/dsve-1.0.0.xsd">
+<kjoepekontraktforespoerselFraBank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../afpant-model/xsd/dsve.xsd">
 	<megler id="945811714">
 		<foretaksnavn>DNB Eiendom</foretaksnavn>
 		<referanse>OPGNR-123</referanse>

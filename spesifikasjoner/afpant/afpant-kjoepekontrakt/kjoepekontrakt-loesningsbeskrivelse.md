@@ -13,7 +13,7 @@ Løsningen kjøpekontrakt er delt i to deler:
 |Del|Beskrivelse|
 |----|------|
 |[1](#informasjonsflyt-del-1)|Bank forespør kjøpekontrakt, og megler sender informasjon om kjøpekontrakter tilbake. Megler pusher deretter endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten.  |
-|[2](#oversendelse-uten-forespørsel-fra-bank-del-2)|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe.
+|[2](#oversendelse-uten-forespørsel-fra-bank-del-2)|Megler pusher kjøpekontrakt uoppfordret til bank som ikke har forespurt noe. |
 
 # Informasjonsflyt (del 1)
 
@@ -26,7 +26,7 @@ Ved henvendelse fra bank til megler, med ønske om å få oversendt kjøpekontra
 Meldingstype: [KjoepekontraktforespoerselFraBank](./kjoepekontrakt-teknisk-beskrivelse.md#meldingstype-kjoepekontraktforespoerselfrabank)
 
 ## Svar fra megler
-Ved henvendelse fra bank om oversendelse av kjøpekontrakt, skal megler sende strukturert informasjon, i tillegg til signert kjøpekontrakt dersom denne er signert når henvendelsen kommer. 
+Ved henvendelse fra bank om oversendelse av kjøpekontrakt, skal megler sende strukturert informasjon, i tillegg til signert kjøpekontrakt dersom denne er signert når henvendelsen kommer. Referansen i en kjøpekontrakt må være unik for et oppdrag og ikke endre seg ila samhandlingen.
 Følgende informasjon skal oversendes som strukturerte data;
 
 |Datafelt|Sendes ved endring|
@@ -41,7 +41,7 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
 |**Oppgjørsbeløp:** Kjøpesum + kjøpsomkostninger (det skal angis om beløpet er tentativt eller satt) | :white_check_mark: |
 |**Overtagelsesdato:** Denne skal ikke fylles ut dersom nybygg                                       | :white_check_mark: |
-|**Andel fellesgjeld:**                                                                              |      |
+|**Andel fellesgjeld:**                                                                              | :white_check_mark: |
 |**Andel fellesformue:**                                                                             |      |
 |**Selger:** Navn og fødselsnummer på alle selgere, dersom selger ikke er hjemmelshaver               |      |
 |**Hjemmelshaver:** Navn og fødselsnummer på alle hjemmelshavere                                      |      |
@@ -115,7 +115,10 @@ Endringer i signert kjøpekontrakt indikeres ved at meldingen sendes med et nytt
 Merk: Bank har selv ansvar for å holde orden på hvilke endringer som er gjort siden siste kjøpekontrakt fra megler. Det gjelder også tilsendt PDF. Den opprinnelige kontrakten vil ikke automatisk trekkes tilbake. Dette må p.t. håndteres manuelt mellom bank og megler.
 
 
-Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
+Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring)
+
+## Bank spør på samme oppdrag flere ganger
+Bank kan spørre på samme oppdrag flere ganger. Så lenge man spør med samme referanse kan megler anta at det er samme og skal bare å kommunisere endringer en gang. Hvis bank spør flere ganger på samme oppdrag, men med forskjellig referanse må det anses som urelaterte forespørsler og endringer må sendes til begge.
 
 # Oversendelse uten forespørsel fra bank (del 2)
 I tilfeller hvor megler har informasjon om banken som har verifisert finansiering, vil det være mulig for megler å sende kjøpekontrakt 

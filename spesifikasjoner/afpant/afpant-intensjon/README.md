@@ -9,4 +9,4 @@ Det skal i tillegg sendes melding om intensjonsendring hvis en av partene har be
 ## Dokumentasjon
 - [Intensjonsmelding - løsningsbeskrivelse](./afpant-intensjon.md), evt. endringer gjøres her.
     - Se opprinnelig godkjent beskrivelse [her](./250619-Intensjonsmeldingen-spec-GODKJENT.pdf)
-- [Intensjonsmelding - teknisk beskrivelse](./intensjon-0-1-0.md)
+- [Intensjonsmelding - teknisk beskrivelse](./intensjon.md)

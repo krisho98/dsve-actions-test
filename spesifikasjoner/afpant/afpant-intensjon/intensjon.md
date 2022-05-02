@@ -43,10 +43,10 @@ Bank *må* alltid oppgi sitt saksnummer i _IntensjonFraBank.Avsender.Referanse_-
 |messageType|String|Ja|IntensjonFraBank|
 
 ### Payload
-En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 
 #### Om payload *(request)*
-- En xml-fil av modell **IntensjonFraBank** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+- En xml-fil av modell **IntensjonFraBank** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve.xsd)
 - [Se eksempel på presentasjon](examples/intensjonfrabank-example.PNG)
 
 ##### Modell
@@ -68,12 +68,12 @@ Avsenders referanse (_IntensjonFraBank.Avsender.Referanse_) skal inkluderes som 
 |statusDescription|String|Ja|Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et.|
 
 ### Payload
-En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 		
 #### Om payload *(response)*
 
 ##### Positiv resultat (ACK)
-- En xml-fil av modell **IntensjonssvarFraMegler** som er i henhold til [definert skjema](../afpant-model/xsd/dsve-1.0.0.xsd).
+- En xml-fil av modell **IntensjonssvarFraMegler** som er i henhold til [definert skjema](../afpant-model/xsd/dsve.xsd).
 - Se eksempel på presentasjon: [Eksempel](examples/intensjonssvarframegler-example.png)
 
 ##### Modell
@@ -96,10 +96,10 @@ Benyttes for å kringkaste en endring i tinglysingsmetode for et gitt oppdrag/op
 |messageType|String|Ja|Intensjonsendring|
 
 ### Payload
-En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
 
 #### Om payload *(request)*
-- En xml-fil av modell **Intensjonsendring** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
+- En xml-fil av modell **Intensjonsendring** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve.xsd)
 - [Se eksempel på presentasjon - megler er avsender](examples/intensjonsendring-fra-megler-example.PNG)
 - [Se eksempel på presentasjon - bank er avsender](examples/intensjonsendring-fra-bank-example.PNG)
  
