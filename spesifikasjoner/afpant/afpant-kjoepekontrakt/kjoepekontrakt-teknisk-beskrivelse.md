@@ -22,8 +22,8 @@ må også støtte mottak av [KjoepekontraktFraMegler](#meldingstype-kjoepekontra
 |------|------|----|
 | [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) | Bank forespør kjøpekontrakt fra megler | XSD: KjoepekontraktforespoerselFraBank | 
 | [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)  | Meglers svar på Kjøpekontraktforespørsel fra bank | XSD: KjoepekontraktSvarFraMegler |
-| [kjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring) | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler |
-|[kjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)|Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.|XSD: KjoepekontraktFraMegler|
+| [KjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring) | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler |
+|[KjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)|Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.|XSD: KjoepekontraktFraMegler|
 
 # Meldingstype: KjoepekontraktforespoerselFraBank
 Bank forespør kjøpekontrakt fra megler
