@@ -74,16 +74,17 @@ Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kj
 
 ## Payload
 
-Dersom status i manifestet er _RutetSuksessfullt_ (se beskrivelse av manifest under) skal ZIP-arkivet inneholde en XML xml-fil 
-med `KjoepekontraktSvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve.xsd)
+Dersom status i manifestet er _RutetSuksessfullt_ (se beskrivelse av manifest under) skal ZIP-arkivet inneholde en xml-fil 
+med `kjoepekontraktsvarFraMegler` som root element definert av [definert skjema.](../afpant-model/xsd/dsve.xsd)
 Dersom kjøpekontrakten er signert skal ZIP-arkiv også innholde den signert kjøpekontrakten være med som en egen fil.
 Den signert kjøpekontrakten er enten en PDF eller en SDO.
 
+Ved negativt resultat lasted et tomt zip-arkiv opp. Manifest key "status" og "statusDescription" må avleses for årsak.
+
 **Krav til filnavn i ZIP-arkiv:** 
 * Filnavnet til meldingen KjoepekontraktSvarFraMegler må følge konvensjonen: _kjoepekontraktsvarframegler*.xml_ . (navnet til meldingen i lowercase)
-* Filnavnet til en evt. signert kjøpekontrakt skal følge konvensjonen: _signert_kjoepekontrakt_<unik identifikator>.(pdf|sdo)_.
-* Filnavn kjøpekontrakt i zip må være unikt i forsendelsen og være likt `vedlegg.navn` for tilhørende kjøpekontraktsdata. (_<unik identifikator>_) 
-
+* Filnavnet til en evt. signert kjøpekontrakt skal følge konvensjonen: _signert_kjoepekontrakt*.(pdf|sdo)_.
+* Filnavn kjøpekontrakt i zip må være unikt i forsendelsen og være likt `vedlegg.navn` for tilhørende kjøpekontraktsdata. 
 
 ## Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
