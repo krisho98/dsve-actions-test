@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
@@ -41,7 +41,7 @@
           <table>
             <tbody>
               <tr>
-                <td>Overført til</td>
+                <td>Overføres til</td>
                 <td>
                   <xsl:value-of select="Mottaker/Navn"/>
                   <xsl:text>, org.nr </xsl:text>
@@ -213,7 +213,7 @@
                 </tr>
               </xsl:if>
               <tr>
-                <td>Beløpet som er overført gjelder</td>
+                <td>Beløpet som overføres gjelder</td>
                 <td>
                   Dekning av kjøpesum og omkostninger for ovennevnte eiendom
                 </td>
@@ -278,7 +278,7 @@
         </section>
         <footer>
           <small>
-            Forutsetningsbrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 1.0.0 | Forutsetningsbrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
+            Forutsetningsbrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 2.0.1 | Forutsetningsbrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
           </small>
         </footer>
       </body>

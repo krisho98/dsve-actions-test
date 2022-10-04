@@ -171,14 +171,6 @@ Informasjon om innbetalingen (beløp, totalbeløp, mottakerkontonummer og kid) b
       <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="Adresse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="Navn" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Postadresse" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Postnummer" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="1" name="Poststed" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="Person">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="1" name="Navn" type="xs:string" />
