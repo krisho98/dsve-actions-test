@@ -777,12 +777,8 @@
           <xsl:with-param name="rolle" select="$salgsobjekt/parter/kjoepere"/>
           <xsl:with-param name="rolleNavn" select="'Kjøpere'"/>
         </xsl:call-template>
-        <xsl:call-template name="listRollerMedAndel">
-          <xsl:with-param name="rolle" select="$salgsobjekt/parter/selgere"/>
-          <xsl:with-param name="rolleNavn" select="'Selgere'"/>
-        </xsl:call-template>
         <xsl:if test="$salgsobjekt/parter/hjemmelshavere">
-          <xsl:call-template name="listRollerMedAndel">
+          <xsl:call-template name="listRollerMedAndelUtenPID">
             <xsl:with-param name="rolle" select="$salgsobjekt/parter/hjemmelshavere"/>
             <xsl:with-param name="rolleNavn" select="'Hjemmelshavere'"/>
           </xsl:call-template>
@@ -810,7 +806,27 @@
       </xsl:call-template>
     </xsl:for-each>
   </xsl:template>
-
+  
+  <xsl:template name="listRollerMedAndelUtenPID">
+    <xsl:param name="rolle"/>
+    <xsl:param name="rolleNavn"/>
+    <xsl:call-template name="underseksjon">
+      <xsl:with-param name="tittel" select="$rolleNavn"/>
+    </xsl:call-template>
+    <xsl:if test="$rolle/rettssubjekt">
+      <div class="rad headerrad" style="">
+        <div class="celle">Navn</div>
+        <div class="celle">Id</div>
+        <div class="celle">Andel</div>
+      </div>
+    </xsl:if>
+    <xsl:for-each select="$rolle/rettssubjekt">
+      <xsl:call-template name="person_row_no_pid">
+        <xsl:with-param name="rettssubjekt" select="."/>
+      </xsl:call-template>
+    </xsl:for-each>
+  </xsl:template>
+  
   <xsl:template name="listRoller">
     <xsl:param name="rolle"/>
     <xsl:param name="rolleNavn"/>
@@ -869,6 +885,39 @@
           <xsl:call-template name="foedselsnr">
             <xsl:with-param name="id" select="$rettssubjekt/person/@id"/>
           </xsl:call-template>
+        </div>
+      </xsl:if>
+      <xsl:if test="$rettssubjekt/organisasjon">
+        <div class="celle kol1">
+          <xsl:value-of select="$rettssubjekt/organisasjon/foretaksnavn"/>
+        </div>
+        <div class="celle">
+          <xsl:call-template name="orgnr">
+            <xsl:with-param name="id" select="$rettssubjekt/organisasjon/@id"/>
+          </xsl:call-template>
+        </div>
+      </xsl:if>
+      <xsl:if test="$rettssubjekt/andel/@teller">
+        <div class="celle">
+          <xsl:value-of select="$rettssubjekt/andel/@teller"/>
+          <xsl:text>/</xsl:text>
+          <xsl:value-of select="$rettssubjekt/andel/@nevner"/>
+        </div>
+      </xsl:if>
+    </div>
+  </xsl:template>
+
+  <xsl:template name="person_row_no_pid">
+    <xsl:param name="rettssubjekt"/>
+    <div class="rad">
+      <xsl:if test="$rettssubjekt/person">
+        <div class="celle kol1">
+          <xsl:value-of select="$rettssubjekt/person/fornavn"/>
+          <xsl:text> </xsl:text>
+          <xsl:value-of select="$rettssubjekt/person/etternavn"/>
+        </div>
+        <div class="celle" style="min-width:120px;">
+          xxxxxx xxxxx
         </div>
       </xsl:if>
       <xsl:if test="$rettssubjekt/organisasjon">
