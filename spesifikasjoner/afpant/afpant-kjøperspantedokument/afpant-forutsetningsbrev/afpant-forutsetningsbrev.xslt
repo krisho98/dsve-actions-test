@@ -260,14 +260,18 @@
               </xsl:if>
               <xsl:if test="string-length(Avsender/TelefonDirekte) &gt; 0">
                 <a href="tel:{Avsender/TelefonDirekte}">
-                  <xsl:value-of select="Avsender/TelefonDirekte"/>
+                  <xsl:call-template name="formatPhoneNumber">
+                    <xsl:with-param name="phoneValue" select="Avsender/TelefonDirekte"/>
+                  </xsl:call-template>
                 </a>
                 <xsl:text> (direkte)</xsl:text>
                 <br/>
               </xsl:if>
               <xsl:if test="string-length(Avsender/Telefon) &gt; 0">
                 <a href="tel:{Avsender/Telefon}">
-                  <xsl:value-of select="Avsender/Telefon"/>
+                  <xsl:call-template name="formatPhoneNumber">
+                    <xsl:with-param name="phoneValue" select="Avsender/Telefon"/>
+                  </xsl:call-template>
                 </a>
                 <xsl:text> (telefon)</xsl:text>
 
@@ -278,7 +282,7 @@
         </section>
         <footer>
           <small>
-            Forutsetningsbrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 2.0.1 | Forutsetningsbrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
+            Forutsetningsbrev: <xsl:value-of select="@xsi:noNamespaceSchemaLocation"/> / xslt 2.0.2 | Forutsetningsbrevet ble produsert <xsl:value-of select="OverfoerselDetaljer/ProdusertDato"/>
           </small>
         </footer>
       </body>
@@ -354,6 +358,22 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
+  
+  <xsl:template name="formatPhoneNumber">
+    <xsl:param name="prefix"/>
+    <xsl:param name="phoneValue" select="."/>
+    <xsl:choose>
+        <xsl:when test="string-length($phoneValue) = 8">
+            <xsl:value-of select="concat(substring($phoneValue, 1, 2), ' ', substring($phoneValue, 3, 2), ' ', substring($phoneValue, 5, 2), ' ', substring($phoneValue, 7, 2))"/>
+        </xsl:when>
+        <xsl:when test="string-length($phoneValue) = 11 and substring($phoneValue, 1, 1) = '+'">
+            <xsl:value-of select="concat(substring($phoneValue, 1, 3), ' ', substring($phoneValue, 4, 2), ' ', substring($phoneValue, 6, 2), ' ', substring($phoneValue, 8, 2), ' ', substring($phoneValue, 10, 2))"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$phoneValue"/>
+        </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+    
   <!-- Formatting helper functions: end-->
 </xsl:stylesheet>
