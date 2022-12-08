@@ -43,11 +43,11 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Overtagelsesdato:** Denne skal ikke fylles ut dersom nybygg                                       | :white_check_mark: |
 |**Andel fellesgjeld:**                                                                              | :white_check_mark: |
 |**Andel fellesformue:**                                                                             |      |
-|**Selger:** Navn og fødselsnummer på alle selgere, dersom selger ikke er hjemmelshaver               |      |
-|**Hjemmelshaver:** Navn og fødselsnummer på alle hjemmelshavere                                      |      |
-|**Kjøper:** Navn og fødselsnummer på alle kjøpere                                                    | :white_check_mark: |
+|**Selger:** Navn og fødselsnummer på alle selgere, dersom selger ikke er hjemmelshaver              |      |
+|**Hjemmelshaver:** Navn og fødselsnummer på alle hjemmelshavere                                     |      |
+|**Kjøper:** Navn og fødselsnummer på alle kjøpere                                                   | :white_check_mark: |
 |**Kjøpers eierandel:** Oppgitt i brøk pr kjøper                                                     | :white_check_mark: |
-|**Objektstype:** Type eiendom/bygning                                                |      |
+|**Objektstype:** Type eiendom/bygning                                                               |:white_check_mark: |
 |**Link til salgsoppgave:** (Valgfritt felt)                                                         |      |
 |**Signert kjøpekontrakt:** (Valgfritt felt)                                                         | :white_check_mark: |
 
