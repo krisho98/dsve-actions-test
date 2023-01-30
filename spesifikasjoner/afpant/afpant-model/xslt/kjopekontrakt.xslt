@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
@@ -140,6 +140,10 @@
           }
 
           .tall {
+          text-align:right;
+          }
+          
+          .right {
           text-align:right;
           }
         </style>
@@ -367,7 +371,7 @@
               <div class="celle">
                 <xsl:text>Akseptdato:&#x20;</xsl:text>
               </div>
-              <div class="celle">
+              <div class="celle right">
                 <xsl:call-template name="dato">
                   <xsl:with-param name="dato" select="oppgjoersinformasjon/akseptdato"/>
                 </xsl:call-template>
@@ -377,10 +381,29 @@
               <div class="celle">
                 <xsl:text>Overtagelsesdato:&#x20;</xsl:text>
               </div>
-              <div class="celle">
+              <div class="celle right">
                 <xsl:call-template name="dato">
                   <xsl:with-param name="dato" select="oppgjoersinformasjon/overtagelsesdato"/>
                 </xsl:call-template>
+              </div>
+            </div>
+            <div class="rad">
+              <div class="celle">
+                <xsl:text>Kontonummer: </xsl:text>
+              </div>
+              <div class="celle right">
+                <xsl:call-template name="formatAccountNumber">
+                  <xsl:with-param name="numericValue" select="oppgjoersinformasjon/kontonummer"/>
+                </xsl:call-template>
+              </div>
+            </div>
+            <div class="rad">
+              <div class="celle">
+                <xsl:text>Kid: </xsl:text>
+              </div>
+              <div class="celle right">
+                <xsl:value-of select="oppgjoersinformasjon/kidnummer"/>
+                <xsl:text> </xsl:text>
               </div>
             </div>
           </div>
@@ -806,7 +829,7 @@
       </xsl:call-template>
     </xsl:for-each>
   </xsl:template>
-  
+
   <xsl:template name="listRollerMedAndelUtenPID">
     <xsl:param name="rolle"/>
     <xsl:param name="rolleNavn"/>
@@ -826,7 +849,7 @@
       </xsl:call-template>
     </xsl:for-each>
   </xsl:template>
-  
+
   <xsl:template name="listRoller">
     <xsl:param name="rolle"/>
     <xsl:param name="rolleNavn"/>
@@ -1043,6 +1066,12 @@
     <xsl:value-of select="substring($dato, 6, 2)"/>
     <xsl:text>.</xsl:text>
     <xsl:value-of select="substring($dato, 1, 4)"/>
+  </xsl:template>
+
+  <xsl:template name="formatAccountNumber">
+    <xsl:param name="numericValue" select="."/>
+
+    <xsl:value-of select="concat(substring($numericValue, 1, 4), '.', substring($numericValue, 5, 2), '.', substring($numericValue, 7, 5))"/>
   </xsl:template>
 
   <xsl:template name="formatNumber">
