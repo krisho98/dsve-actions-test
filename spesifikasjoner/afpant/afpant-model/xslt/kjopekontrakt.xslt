@@ -1084,7 +1084,7 @@
     <xsl:param name="meldingsnavn"/>
 
     <div style="padding-bottom:16px;">
-      <small style="float:right;">DSVE&#xA0;<xsl:value-of select="$meldingsnavn"/>,&#x20;opprettet
+      <small style="float:right;">DSVE&#xA0;<xsl:value-of select="$meldingsnavn"/> / xslt 2.0.3,&#x20;opprettet
         <xsl:call-template name="tiddato">
           <xsl:with-param name="dato" select="$home/metadata/opprettet"/>
         </xsl:call-template>
