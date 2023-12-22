@@ -7,7 +7,7 @@ Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomf�
 ## Beskrivelse av prosjektet
 Prosjektet er et samarbeid mellom Kartverket, Eiendom Norge, Finans Norge og Bits samt deres medlemmer, for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
 
-Prosjektleder: Tonje Falch Lund (tonje.falch.lund@bits.no).
+Prosjektleder: Bjørn Søland (bjorn.soland@bits.no).
 
 ### Overordnede mål
 Å etablere en heldigital samhandling mellom bank og meglerforetak. Dette inkluderer kommunikasjon og utveksling av informasjon,  oversendelse av ulike dokumenter, og elektronisk tinglysing av skjøtepakker.
