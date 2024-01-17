@@ -13,6 +13,7 @@
   <xs:element name="intensjonssvarframegler" type="IntensjonssvarFraMegler"/>
   <xs:element name="intensjonsendring" type="Intensjonsendring"/>
   <xs:element name="gjennomfoertetinglysing" type="GjennomfoertEtinglysing"/>
+  <xs:element name="oppnaaddprioritetok" type="OppnaaddPrioritetOk"/>
 
   <xs:complexType name="KjoepekontraktforespoerselFraBank">
     <xs:annotation>
@@ -206,6 +207,20 @@
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="dokumentreferanse" type="xs:string"/>
       <xs:element minOccurs="1" maxOccurs="1" name="altinnsendersreference" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OppnaaddPrioritetOk">
+    <xs:annotation>
+      <xs:documentation>
+        Melding fra megler til bank om at prioritet er oppnådd i henhold til avtale.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="gjennomfoertetinglysingdetaljer" type="GjennomfoertEtinglysingDetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
 
