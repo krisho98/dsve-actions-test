@@ -6,4 +6,4 @@ Det sendes ikke ved kopi av grunnboken, banken må evt selv verfisere selvom det
 
 
 ## Dokumentasjon
-- [Statusoppdatering fra megler til bank - teknisk beskrivelse](./oppnaadprioritet.md)
+- [Oppnådd prioritet, melding fra megler til bank - teknisk beskrivelse](./oppnaaddprioritet.md)
