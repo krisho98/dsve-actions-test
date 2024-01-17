@@ -12,6 +12,7 @@ De funksjonalitetene som har link er enten ferdig levert eller under arbeid. Fun
     - [Statusoppdatering fra megler til bank](./spesifikasjoner/afpant/afpant-gjennomfoertetinglysing/README.md)
     - [Forutsetningsbrev](./spesifikasjoner/afpant/afpant-kjøperspantedokument/afpant-forutsetningsbrev/README.md)
 - [Oversendelse av kjøpekontrakt](./spesifikasjoner/afpant/afpant-kjoepekontrakt/README.md)
+- [Oppnådd prioritet](./spesifikasjoner/afpant/afpant-oppnaaddprioritet/README.md)
 - Sjekk av finansiering
 - Mellomfinansiering
 - Restgjeldsoppgave (megler)
