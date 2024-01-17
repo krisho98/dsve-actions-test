@@ -2,6 +2,10 @@
 'OppnaaddPrioritetOk' er en meldingstype som sendes fra megler til bank for å informere om at avtalt prioritet er oppnådd. 
 Meldingen kommer etter meldingen 'GjennomfoertEtinglysing'(tinglyst hos Kartverket) som forventes mottatt først. 'GjennomfoertEtinglysing' skal sendes så fort tinglysning er gjennomført.
 
+## Meldingstype: OppnaaddPrioritetOk
+
+Meldingstypen 'OppnaaddPrioritetOk' sendes fra megler til bank for å informere om at korrekt prioritet er oppnådd.
+
 ## Implementasjonskrav
 Banker som ønsker å motta meldingen må være registrert som aktiv i Akeldo registeret med støtte for meldingstypen 'OppnaaddPrioritetOk' i mottaksliste.
 Meglere som støtter å sende 'OppnaaddPrioritetOk' skal være registrert i Akeldo med støtte for meldingstypen 'OppnaaddPrioritetOk' i sendeliste.
@@ -26,11 +30,7 @@ Merknad: flere pantedokumenter i samme e-tinglysing forsendelse fra samme bank, 
 
 ### Ruting (bank)
 Dersom banken er registrert med meldingstypen 'OppnaaddPrioritetOK' i mottakslisten i Akeldo skal de kunne både motta og prossessere meldinger av denne typen. Det er også lagt opp til enveis kommunikasjon fra megler til bank, slik at bank ikke trenger å sende tilbake bekreftelse på mottak.
-Banken bør også være oppmerksom på at hvert pantedokumentet kommer separat, de må selv se om de har fått bekreftelse på samtlige dokumenter i saken.
-
-## Meldingstype: OppnaaddPrioritetOk
-
-Meldingstypen 'OppnaaddPrioritetOk' sendes fra megler til bank for å informere om at korrekt prioritet er oppnådd.
+Banken må være oppmerksom på at 'OppnaaddPrioritetOk' sendes per pantedokumentet sendt i 'SignedMortgageDeed'. Banken må selv se om de har fått bekreftelse på samtlige dokumenter i saken.
 
 ### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
