@@ -17,7 +17,6 @@ Når bank sender kjøpers pantedokument elektronisk til megler i form av en Sign
 
 ### Krav til filnavn i ZIP-arkiv
 - Payload filen med 'OppnaaddPrioritetOk' melding må følge konvensjonen "oppnaaddprioritet_*.zip".
-- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen "forsendelsesstatus_*.xml".
 
 ### Ruting (meglersystem)
 Når megler har verifisert oppgjøret og har fastslått at avtalt prioritet er oppnådd indikerer megler dette i systemleverandørs system. Systemleverandøren sjekker om oppdraget inneholder ett eller flere pantedokument fra bank.
