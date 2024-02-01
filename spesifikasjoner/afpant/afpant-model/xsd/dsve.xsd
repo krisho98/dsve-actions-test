@@ -217,8 +217,8 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bank" type="Mottaker"/>
       <xs:element minOccurs="1" maxOccurs="1" name="oppnaaddprioritetdetaljer" type="OppnaaddPrioritetDetaljer"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
