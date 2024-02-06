@@ -13,6 +13,7 @@
   <xs:element name="intensjonssvarframegler" type="IntensjonssvarFraMegler"/>
   <xs:element name="intensjonsendring" type="Intensjonsendring"/>
   <xs:element name="gjennomfoertetinglysing" type="GjennomfoertEtinglysing"/>
+  <xs:element name="oppnaaddprioritetok" type="OppnaaddPrioritetOk"/>
 
   <xs:complexType name="KjoepekontraktforespoerselFraBank">
     <xs:annotation>
@@ -209,6 +210,33 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="OppnaaddPrioritetOk">
+    <xs:annotation>
+      <xs:documentation>
+        Melding fra megler til bank om at prioritet er oppnådd i henhold til avtale.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bank" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="oppnaaddprioritetdetaljer" type="OppnaaddPrioritetDetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="OppnaaddPrioritetDetaljer">
+    <xs:annotation>
+      <xs:documentation>
+        Referanser benyttet for å idenfifisere saken på mottaker(bank) sin side. 
+        Inneholder pantedokumentets dokumentreferanse og Altinn sendersreference fra SignedMortgageDeed meldingen som ble sendt fra bank til megler.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="dokumentreferanse" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="altinnsendersreference" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="Avsender">
     <xs:annotation>
       <xs:documentation>Avsender angir hvem som har sendt meldingen.
