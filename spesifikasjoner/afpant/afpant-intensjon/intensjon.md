@@ -21,7 +21,7 @@ Alle som implementerer støtte for mottak av "_IntensjonFraBank_" eller mottak a
 
 Mottakere av meldingstypen "_IntensjonFraBank_" må benytte avsenders saksnummer (_IntensjonFraBank.Avsender.Referanse_) i all videre kommunikasjon til avsenderbank.
 
-Intensjonssendringer stoppes dersom forutsetningene ikke lengre er tilstede. Dette uavhengig av om det er implementert støtte for [AvbruttSamhandling](#AvbruttSamhandling).
+Intensjonssendringer stoppes dersom forutsetningene ikke lengre er tilstede. Dette uavhengig av om det er implementert støtte for [AvbruttSamhandling](#meldingstype-avbruttsamhandling)
 
 ## Validering og ruting
 ### Ruting (meglersystem)
