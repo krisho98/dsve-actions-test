@@ -16,6 +16,8 @@ Hvilke endringer/felter som krever at megler sender på nytt er angitt med _hake
 Alle banker som implementerer støtte for mottak av [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler) 
 må også støtte mottak av [KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler).
 
+Kjøpekontraktsendringer stoppes dersom forutsetningene ikke lengre er tilstede. Dette uavhengig av om det er implementert støtte for [AvbruttSamhandling](#AvbruttSamhandling).
+
 # Meldingstyper
 ## Oversikt over meldingstyper for kjøpekontrakt
 | Navn                                                                                         | Beskrivelse                                                                                                                                                | Payload/vedlagt fil                    | 
