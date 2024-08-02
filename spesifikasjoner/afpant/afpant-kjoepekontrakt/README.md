@@ -1,7 +1,7 @@
 Kjøpekontrakt
 =============
 
-Kjøpekontrakt og/eller informasjon fra kjøpekontrakten skal kunne oversendes fra megler til bank.
+Kjøpekontrakt og/eller informasjon fra kjøpekontrakten skal kunne oversendes fra megler til bank. ACK eller NACK melding sendes automatisk fra mottakende system uten opphold. Kjente feilkoder benyttes i NACK der disse er identifisert.
 
 Når megler har oversendt kjøpekontrakt, og det gjøres endringer i kjøpekontrakten eller legges til informasjon i meglersystemet, skal megler sende melding til banken med  oppdatert informasjon. 
 
