@@ -4,12 +4,12 @@
 
 	<megler id="945811714">
 		<foretaksnavn>DNB Eiendom</foretaksnavn>
-		<anvarligMegler>
+		<ansvarligMegler>
 			<navn>Ole Olsen</navn>
 			<epost>ole@megler.no</epost>
 			<telefonDirekte>99223452</telefonDirekte>
 			<telefon>55300455</telefon>
-		</anvarligMegler>
+		</ansvarligMegler>
 		<referanse>OPGNR-123</referanse>
 		<oppgjoersavdeling id="912345678">
 			<foretaksnavn>Megleroppjør AS</foretaksnavn>

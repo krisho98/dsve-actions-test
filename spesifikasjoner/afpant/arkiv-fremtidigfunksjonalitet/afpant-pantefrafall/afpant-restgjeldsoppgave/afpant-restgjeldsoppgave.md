@@ -2,7 +2,7 @@
 
 **Mottaker**: Bank/finansieringselskap firmanavn og org.nummer
 
-**Avsender**: Meglerforetak, orgnummer, Anvarlig megler, mobilnummer og mailadresse.
+**Avsender**: Meglerforetak, orgnummer, Ansvarlig megler, mobilnummer og mailadresse.
 
 **Returneres til meglers oppgjørsavdeling**:
 
