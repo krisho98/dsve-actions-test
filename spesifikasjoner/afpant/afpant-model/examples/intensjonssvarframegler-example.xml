@@ -7,11 +7,11 @@
 	</avsender>
 	<megler id="991111123">
 		<foretaksnavn>DSVE Megling AS</foretaksnavn>
-		<anvarligMegler>
+		<ansvarligMegler>
 			<navn>Megler Ansvarlig</navn>
 			<epost>meglernavn@dsve-megling.no</epost>
 			<telefonDirekte>99999999</telefonDirekte>
-		</anvarligMegler>
+		</ansvarligMegler>
 		<referanse>17-19-9999</referanse>
 		<oppgjoersavdeling id="983570658">
 			<foretaksnavn>Weboppgjør AS</foretaksnavn>
