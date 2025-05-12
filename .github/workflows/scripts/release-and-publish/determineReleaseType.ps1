@@ -1,8 +1,8 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
-$OriginUrlRaw = git remote -v | Select-Object -First 1
-$TrimStart = $OriginUrlRaw.Substring($OriginUrlRaw.IndexOf("//") + 2)
-$RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
-$CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
+#$OriginUrlRaw = git remote -v | Select-Object -First 1
+#$TrimStart = $OriginUrlRaw.Substring($OriginUrlRaw.IndexOf("//") + 2)
+#$RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
+#$CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
 
 Write-Output "::debug::Context 'github.repository' says: $Env:github.repository"
 
