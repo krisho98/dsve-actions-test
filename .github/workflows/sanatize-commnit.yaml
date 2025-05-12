@@ -14,6 +14,6 @@ jobs:
             if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$') {
               exit 0
             } else {
-              echo "The last commit message did not fit the regex pattern, the check has failed"
+              Write-Output "::error title=Naming-Convention-Error::The commit message did not follow the agreed apon naming convention"
               exit 1
             }
