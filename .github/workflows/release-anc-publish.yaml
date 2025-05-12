@@ -42,6 +42,7 @@ jobs:
           ReleaseType: ${{ steps.release.outputs.releaseType }}
 
       #Does not run if the merge was a doc change
+      #Must have a tag before creating a release
       - name: Create new tag
         if: steps.release.outputs.releaseType != 'doc'
         run: |
