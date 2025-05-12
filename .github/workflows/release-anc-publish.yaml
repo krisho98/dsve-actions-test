@@ -85,21 +85,12 @@ jobs:
 
       - name: Upload release to CDN
         uses: azure/CLI@v2
-        env:
-          azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
-          azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
-          azure-blob-container-name: ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }}
-          newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
         with:
           inlineScript: |
-            az storage blob upload-batch -d $azure-blob-container-name --account-name $azure-storage-account-name --destination-path "dsve/v/$newVersionNumber/" --source "./actions-tmp/"
+            az storage blob upload-batch -d ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }} --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         uses: azure/cli@v2
-        env:
-          azure-cdn-profile-name: ${{secrets.AZURE_CDN_PROFILE_NAME}}
-          azure-cdn-endpoint-name: ${{secrets.AZURE_CDN_ENDPOINT_NAME}}
-          azure-cdn-resource-group: ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
         with:
           inlineScript: |
-            az cdn endpoint purge --content-paths "/dsve/*" --profile-name $azure-cdn-profile-name --resource-group $azure-cdn-resource-group
+            az cdn endpoint purge --content-paths "/dsve/*" --profile-name ${{secrets.AZURE_CDN_PROFILE_NAME}} --name ${{secrets.AZURE_CDN_ENDPOINT_NAME}} --resource-group ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
