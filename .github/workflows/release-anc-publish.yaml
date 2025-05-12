@@ -27,8 +27,9 @@ jobs:
           if ( $CommitMessage -match '^doc:.*$') {
             Add-Content -Value "docRelease=false" -Path $Env:GITHUB_ENV -Encoding utf8
           } else {
-            Add-Content -Value "docRelease=false" -Path $Env:GITHUB_ENV -Encoding utf8
+            Add-Content -Value "docRelease=true" -Path $Env:GITHUB_ENV -Encoding utf8
           }
+          echo $Env:GITHUB_ENV
         shell: pwsh
 
       - name: Create release
