@@ -25,9 +25,9 @@ jobs:
         run: |
           $CommitMessage = git log --format=%B -n 1 HEAD
           if ( $CommitMessage -match '^doc:.*$') {
-            Write-Output "docRelease=false" | Out-File -FilePath $Env:GITHUB_ENV utf8 -Append
+            Add-Content -Value "docRelease=false" -Path $Env:GITHUB_ENV -Encoding utf8
           } else {
-            Write-Output "docRelease=true" | Out-File -FilePath $Env:GITHUB_ENV utf8 -Append
+            Add-Content -Value "docRelease=false" -Path $Env:GITHUB_ENV -Encoding utf8
           }
         shell: pwsh
 
