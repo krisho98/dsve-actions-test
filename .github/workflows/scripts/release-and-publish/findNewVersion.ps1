@@ -8,9 +8,9 @@ $MajorVersionNumber = [int]$CurrentRelease.tagName.split(".")[0]
 $NormalVersionNumber = [int]$CurrentRelease.tagName.split(".")[1]
 $MinorVersionNumber = [int]$CurrentRelease.tagName.split(".")[2]
 
-$NewMinorVersionNumber = $MajorVersionNumber
+$NewMinorVersionNumber = $MinorVersionNumber
 $NewNormalVersionNumber = $NormalVersionNumber
-$NewMajorVersionNumber = $MinorVersionNumber
+$NewMajorVersionNumber = $MajorVersionNumber
 
 switch ($Env:ReleaseType) {
   fix {
