@@ -1,6 +1,7 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
 $releaseType = ""
 
+#Determine release type based on commit message.
 if ( $CommitMessage -match '^doc:.*$') {
   $releaseType = 'doc'
 } elseif ( $CommitMessage -match '^fix:(\s|\S)*$' ) {
