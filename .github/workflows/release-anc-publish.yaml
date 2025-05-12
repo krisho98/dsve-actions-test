@@ -26,7 +26,8 @@ jobs:
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
       - name: Check release type
         id: release
-        run: ./determineReleaseType.ps1
+        run:
+          ls
         shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
