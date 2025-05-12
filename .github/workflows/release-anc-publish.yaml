@@ -12,7 +12,7 @@ jobs:
     name: Release new version
     # Outputs the value of the check if doc release, the next job will not run if this fails
     outputs:
-      notDocRelease: ${{ steps.docRelease.outputs.docRelease}}
+      docRelease: ${{ steps.docRelease.outputs.docRelease}}
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,7 +32,7 @@ jobs:
         shell: pwsh
 
       - name: Create release
-        if: steps.notDocRelease.outputs.docRelease
+        if: steps.docRelease.outputs.docRelease
         run: gh release create --fail-no-commits --generate-notes --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
