@@ -15,6 +15,9 @@ jobs:
       releaseType: ${{ steps.release.outputs.releaseType}}
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./workflows/scripts
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
@@ -23,7 +26,7 @@ jobs:
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
       - name: Check release type
         id: release
-        run: ./workflows/scripts/release-and-publish/determineReleaseType.ps1
+        run: ./determineReleaseType.ps1
         shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
