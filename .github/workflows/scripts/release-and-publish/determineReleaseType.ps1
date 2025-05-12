@@ -4,6 +4,8 @@ $TrimStart = $OriginUrlRaw.Substring($OriginUrlRaw.IndexOf("//") + 2)
 $RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
 $CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
 
+Write-Output "::debug::Context 'github.repository' says: $Env:github.repository"
+
 Write-Output "::notice::Latest release in this repository was a release with name: $CurrentRelease"
 
 if ( $CommitMessage -match '^doc:.*$') {
