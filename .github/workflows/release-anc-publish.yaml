@@ -79,21 +79,23 @@ jobs:
         with:
           creds: '{ "clientSecret": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}", "subscriptionId": "${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}", "tenantId": "${{ secrets.AZURE_CDN_TENANT_ID }}", "clientId": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}"}'
 
-      - name: Prepare Azure CLI
-        run: |
-          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+     # - name: Prepare Azure CLI
+      #  run: |
+      #    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
       - name: Prepare files for upload
         run: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
         shell: pwsh
 
       - name: Upload release to CDN
+        uses: azure/CLI@v2
         env:
           azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
           azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
           newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
-        run: |
-          az storage blob upload-batch --auth-mode login --destination "$web" --account-name "dsopdsvecdn" --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name "dsopdsvecdn" --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         uses: azure/cli@v2
