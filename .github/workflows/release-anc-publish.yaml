@@ -85,11 +85,7 @@ jobs:
           azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
           azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
         with:
-          inlineScript: |
-            ls
-            az account set --subscription ${{ env.azure-subscription-id }}
-            az storage blob upload-batch --destination ${{ env.azure-storage-account-name }}
-
+          inlineScript: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
       - name: Purge CDN cache
         uses: azure/cli@v2
         env:
