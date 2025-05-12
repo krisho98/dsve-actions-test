@@ -31,11 +31,27 @@ jobs:
           RepositoryURI: ${{ github.repository }}
           RepositoryHost: ${{ github.server_url }}
 
+      #Does not run if the merge was a doc change
       - name: Create release
         if: steps.release.outputs.releaseType != 'doc'
-        run: gh release create --fail-no-commits --generate-notes --latest
+        run: .github/workflows/scripts/release-and-publish/createTag.ps1
+        shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RepositoryURI: ${{ github.repository }}
+          RepositoryHost: ${{ github.server_url }}
+          ReleaseType: ${{ steps.release.outputs.releaseType }}
+
+      #Does not run if the merge was a doc change
+      - name: Create release
+        if: steps.release.outputs.releaseType != 'doc'
+        run: .github/workflows/scripts/release-and-publish/createRelease.ps1
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RepositoryURI: ${{ github.repository }}
+          RepositoryHost: ${{ github.server_url }}
+          ReleaseType: ${{ steps.release.outputs.releaseType }}
   cdn-push:
     name: Push new release to Azure CDN
     # Does not run if the release is a doc release
