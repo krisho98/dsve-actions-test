@@ -16,21 +16,21 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
       - name: Check release type
         id: docRelease
         run: |
-          $CommitMessage = $github.event.workflow_run.head_commit.message
+          $CommitMessage = git log --format=%B -n 1 HEAD
+          Write-Output $CommitMessage
           if ( $CommitMessage -match '^doc:.*$') {
             Write-Output "docRelease=false" >> $env:GITHUB_ENV
           } else {
             Write-Output "docRelease=true" >> $env:GITHUB_ENV
           }
         shell: pwsh
-
-      - name: Checkout
-        if: steps.notDocRelease.outputs.notDocRelease
-        uses: actions/checkout@v4
 
       - name: Create release
         if: steps.notDocRelease.outputs.notDocRelease
