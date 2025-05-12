@@ -12,19 +12,19 @@ jobs:
     name: Release new version
     # Outputs the value of the check if doc release, the next job will not run if this fails
     outputs:
-      notDocRelease: ${{ steps.notDocRelease.outputs.notDocRelease}}
+      notDocRelease: ${{ steps.docRelease.outputs.docRelease}}
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
       - name: Check release type
-        id: notDocRelease
+        id: docRelease
         run: |
-          $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
-          if ( $CommitMessage -notmatch '^doc:.*$') {
-            "notDocRelease=true" >> $env:GITHUB_ENV
+          $CommitMessage = $github.event.workflow_run.head_commit.message
+          if ( $CommitMessage -match '^doc:.*$') {
+            Write-Output "docRelease=false" >> $env:GITHUB_ENV
           } else {
-            "notDocRelease=false" >> $env:GITHUB_ENV
+            Write-Output "docRelease=true" >> $env:GITHUB_ENV
           }
         shell: pwsh
 
