@@ -4,7 +4,7 @@ $CommitMessage = git log --format=%B -n 1 HEAD
 #$RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
 #$CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
 
-Write-Output "::debug::Context 'github.repository' says: $Env:github.repository"
+Write-Output "::notice::Context 'github.repository' says: $Env:github:repository"
 
 Write-Output "::notice::Latest release in this repository was a release with name: $CurrentRelease"
 
