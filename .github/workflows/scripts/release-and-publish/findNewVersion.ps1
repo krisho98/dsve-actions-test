@@ -22,5 +22,6 @@ switch ($Env:ReleaseType) {
 
 $NewTagVersion = "$MajorVersionNumber.$NormalVersionNumber.$MinorVersionNumber"
 
-Write-Output "::notice::New release will be created with version and tag name: $NewTagVersion"
+Write-Output "::notice::New version is: $NewTagVersion"
 
+Add-Content -Value "newVersionNumber=$NewTagVersion" -Path $Env:GITHUB_OUTPUT -Encoding utf8
