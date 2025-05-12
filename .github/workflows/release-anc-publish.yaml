@@ -79,19 +79,28 @@ jobs:
         with:
           creds: '{ "clientSecret": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}", "subscriptionId": "${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}", "tenantId": "${{ secrets.AZURE_CDN_TENANT_ID }}", "clientId": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}"}'
 
+      - name: Prepare Azure CLI
+        run: |
+          apt update
+          apt install apt-transport-https ca-certificates curl gnupg lsb-release
+          mkdir -p /etc/apt/keyrings
+          curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+          chmod go+r /etc/apt/keyrings/microsoft.gpg
+          AZ_DIST=$(lsb_release -cs) echo "Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg" | tee /etc/apt/sources.list.d/azure-cli.sources
+          apt update
+          apt install azure-cli
+
       - name: Prepare files for upload
         run: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
         shell: pwsh
 
       - name: Upload release to CDN
-        uses: azure/cli@v2
         env:
           azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
           azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
           newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
-        with:
-          inlineScript: |
-            az storage blob upload-batch --auth-mode login --destination "$web" --account-name "dsopdsvecdn" --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
+        run: |
+          az storage blob upload-batch --auth-mode login --destination "$web" --account-name "dsopdsvecdn" --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         uses: azure/cli@v2
