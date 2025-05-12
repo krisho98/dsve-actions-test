@@ -21,7 +21,7 @@ jobs:
         id: notDocRelease
         run: |
           $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
-          if ( $CommitMessage -notmatch '^doc:.*$')) {
+          if ( $CommitMessage -notmatch '^doc:.*$') {
             "notDocRelease=true" >> $env:GITHUB_ENV
           } else {
             "notDocRelease=false" >> $env:GITHUB_ENV

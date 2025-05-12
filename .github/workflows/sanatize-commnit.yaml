@@ -11,7 +11,7 @@ jobs:
         id: checkNaming
         run: |
           $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
-            if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$')) {
+            if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$') {
               exit 0
             } else {
               echo "The last commit message did not fit the regex pattern, the check has failed"
