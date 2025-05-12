@@ -6,4 +6,3 @@ Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xslt | ForEach
 Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xsd | ForEach-Object -Process { Copy-Item $_.VersionInfo.FileName ./actions-tmp/xsd }
 Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xml | ForEach-Object -Process { Copy-Item $_.VersionInfo.FileName ./actions-tmp/xml }
 Get-ChildItem -Path 'actions-tmp' -Recurse | ForEach-Object -Process { Write-Output "::notice::Uploading file: $_.Name" }
-Get-ChildItem -Path 'actions-tmp' -Recurse

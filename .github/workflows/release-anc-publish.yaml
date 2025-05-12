@@ -91,7 +91,7 @@ jobs:
           newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
         with:
           inlineScript: |
-            az storage blob upload-batch --destination "$web" --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
+            az storage blob upload-batch --auth-mode login --destination "$web" --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         uses: azure/cli@v2
