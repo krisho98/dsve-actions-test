@@ -1,12 +1,9 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
-#$OriginUrlRaw = git remote -v | Select-Object -First 1
-#$TrimStart = $OriginUrlRaw.Substring($OriginUrlRaw.IndexOf("//") + 2)
-#$RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
-#$CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
+$RepositoryHost = $Env:RepositoryHost.Substring($Env:RepositoryHost.indexOf("/") + 1)
+$RepositoryURI = "$Env:RepositoryHost/$Env:RepositoryURI"
+$CurrentReleaseName = gh release view --repo $RepositoryURI | Select-Object -First 1
 
-Write-Output "::notice::Context 'RepositoryURI' says: $Env:RepositoryURI, Context 'RepositoryHost' says: $Env:RepositoryHost"
-
-Write-Output "::notice::Latest release in this repository was a release with name: $CurrentRelease"
+Write-Output "::notice::Latest release in this repository was a release with name: $CurrentReleaseName"
 
 if ( $CommitMessage -match '^doc:.*$') {
   Add-Content -Value "releaseType=doc" -Path $Env:GITHUB_OUTPUT -Encoding utf8
