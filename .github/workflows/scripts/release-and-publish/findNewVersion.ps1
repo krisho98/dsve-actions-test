@@ -19,11 +19,17 @@ switch ($Env:ReleaseType) {
   }
   feat {
     $NewNormalVersionNumber = $NormalVersionNumber + 1
+    $NewMinorVersionNumber = 0
     Write-Output "::notice::Increasing middle version number from: $NormalVersionNumber to $NewNormalVersionNumber"
+    Write-Output "::notice::Resetting minor version number from: $MinorVersionNumber to $NewMinorVersionNumber"
   }
   breaking {
     $NewMajorVersionNumber = $MajorVersionNumber + 1
+    $NewNormalVersionNumber = 0
+    $NewMinorVersionNumber = 0
     Write-Output "::notice::Increasing major version number from: $MajorVersionNumber to $NewMajorVersionNumber"
+    Write-Output "::notice::Resetting middle version number from: $NormalVersionNumber to $NewNormalVersionNumber"
+    Write-Output "::notice::Resetting minor version number from: $MinorVersionNumber to $NewMinorVersionNumber"
   }
 }
 
