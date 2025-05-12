@@ -94,7 +94,7 @@ jobs:
           azureStorageAccountName: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
           newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
         run: |
-          az storage blob upload-batch -d $Env:azureStorageBlobContainerName --account-name $Env:azureStorageAccountName --destination-path "dsve/v/$Env:newVersionNumber/" --source "./actions-tmp/"
+          az storage blob upload-batch --auth-mode login -d $Env:azureStorageBlobContainerName --account-name $Env:azureStorageAccountName --destination-path "dsve/v/$Env:newVersionNumber/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         shell: pwsh
