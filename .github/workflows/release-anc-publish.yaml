@@ -24,7 +24,6 @@ jobs:
         id: docRelease
         run: |
           $CommitMessage = git log --format=%B -n 1 HEAD
-          Write-Output $CommitMessage
           if ( $CommitMessage -match '^doc:.*$') {
             Write-Output "docRelease=false" | Out-File -FilePath $Env:GITHUB_ENV utf8 -Append
           } else {
@@ -33,7 +32,7 @@ jobs:
         shell: pwsh
 
       - name: Create release
-        if: steps.notDocRelease.outputs.notDocRelease
+        if: steps.notDocRelease.outputs.docRelease
         run: gh release create --fail-no-commits --generate-notes --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,7 +40,7 @@ jobs:
     name: Push new release to Azure CDN
     # Does not run if the release is a doc release
     needs: [release]
-    if: needs.release.outputs.notDocRelease
+    if: needs.release.outputs.docRelease
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
