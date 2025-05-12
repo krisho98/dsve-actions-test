@@ -7,13 +7,16 @@ jobs:
     name: Check commit message
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Check for correct naming scheme
         id: checkNaming
         run: |
-          $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
-            if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$') {
-              exit 0
-            } else {
-              Write-Output "::error title=Naming-Convention-Error::The commit message did not follow the agreed apon naming convention"
-              exit 1
-            }
+          $CommitMessage = git log --format=%B -n 1 HEAD
+          if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$') {
+            exit 0
+          } else {
+            Write-Output "::error title=Naming-Convention-Error::The commit message did not follow the agreed apon naming convention"
+            exit 1
+          }
