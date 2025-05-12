@@ -6,7 +6,7 @@ Write-Output "::notice::Latest release in this repository was a release with nam
 
 $MajorVersionNumber = [int]$CurrentRelease.tagName.split(".")[0]
 $NormalVersionNumber = [int]$CurrentRelease.tagName.split(".")[1]
-$MinorVersionNumber = [int]$CurrentRelease.tagName.split(".")[3]
+$MinorVersionNumber = [int]$CurrentRelease.tagName.split(".")[2]
 
 $NewMinorVersionNumber = $MajorVersionNumber
 $NewNormalVersionNumber = $NormalVersionNumber
