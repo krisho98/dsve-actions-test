@@ -79,10 +79,6 @@ jobs:
         with:
           creds: '{ "clientSecret": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}", "subscriptionId": "${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}", "tenantId": "${{ secrets.AZURE_CDN_TENANT_ID }}", "clientId": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}"}'
 
-     # - name: Prepare Azure CLI
-      #  run: |
-      #    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
       - name: Prepare files for upload
         run: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
         shell: pwsh
@@ -96,10 +92,14 @@ jobs:
           newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
         with:
           inlineScript: |
-            az storage blob upload-batch -d "$Env:azure-storage-account-name" --account-name "$Env:azure-storage-account-name" --destination-path "dsve/v/$Env:newVersionNumber/" --source "./actions-tmp/"
+            az storage blob upload-batch -d "$Env:azure-storage-account-name" --account-name "$azure-storage-account-name" --destination-path "dsve/v/$newVersionNumber/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
         uses: azure/cli@v2
         env:
-          azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
-          azure-tenant-id: ${{ secrets.AZURE_CDN_TENANT_ID }}
+          azure-cdn-profile-name: ${{secrets.AZURE_CDN_PROFILE_NAME}}
+          azure-cdn-endpoint-name: ${{secrets.AZURE_CDN_ENDPOINT_NAME}}
+          azure-cdn-resource-group: ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
+        with:
+          inlineScript: |
+            az cdn endpoint purge --content-paths "/dsve/*" --profile-name $azure-cdn-profile-name --resource-group $azure-cdn-resource-group
