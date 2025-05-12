@@ -29,11 +29,10 @@ jobs:
           } else {
             Add-Content -Value "docRelease=true" -Path $Env:GITHUB_OUTPUT -Encoding utf8
           }
-          echo $Env:GITHUB_ENV
         shell: pwsh
 
       - name: Create release
-        if: steps.docRelease.outputs.docRelease
+        if: steps.docRelease.outputs.docRelease == 'true'
         run: gh release create --fail-no-commits --generate-notes --latest
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,7 +40,7 @@ jobs:
     name: Push new release to Azure CDN
     # Does not run if the release is a doc release
     needs: [release]
-    if: needs.release.outputs.docRelease
+    if: needs.release.outputs.docRelease == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
