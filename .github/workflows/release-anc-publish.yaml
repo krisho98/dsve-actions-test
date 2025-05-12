@@ -84,8 +84,19 @@ jobs:
         env:
           azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
           azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+          newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
         with:
-          inlineScript: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
+          inlineScript: |
+            New-Item -Path "./" -Name "actions-tmp" -ItemType "Directory"
+            New-Item -Path "./actions-tmp" -Name "xslt" -ItemType "Directory"
+            New-Item -Path "./actions-tmp" -Name "xsd" -ItemType "Directory"
+            New-Item -Path "./actions-tmp" -Name "xml" -ItemType "Directory"
+            Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xslt | ForEach-Object -Process { Copy-Item $_.VersionInfo.FileName ./actions-tmp/xslt/ }
+            Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xsd | ForEach-Object -Process { Copy-Item $_.VersionInfo.FileName ./actions-tmp/xsd }
+            Get-ChildItem -Path 'spesifikasjoner/afpant/' -Recurse -Include *.xml | ForEach-Object -Process { Copy-Item $_.VersionInfo.FileName ./actions-tmp/xml }
+            Get-ChildItem -Path 'actions-tmp' -Recurse | ForEachObject -Process { Write-Output "::notice::Uploading file: $_.Name" }
+            az storage blob upload-batch --destination ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }} --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
+
       - name: Purge CDN cache
         uses: azure/cli@v2
         env:
