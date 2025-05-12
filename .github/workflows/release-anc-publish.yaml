@@ -1,0 +1,70 @@
+name: release-and-publish
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push to master i.e when somone merges a pull request on master
+  push:
+    branches: [ "master" ]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow has two jobs, 1 creates a new release, the second pushes the release to the CDN
+  release:
+    name: Release new version
+    # Outputs the value of the check if doc release, the next job will not run if this fails
+    outputs:
+      notDocRelease: ${{ steps.notDocRelease.outputs.notDocRelease}}
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
+      - name: Check release type
+        id: notDocRelease
+        run: |
+          $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
+          if ( $CommitMessage -notmatch '^doc:.*$')) {
+            "notDocRelease=true" >> $env:GITHUB_ENV
+          } else {
+            "notDocRelease=false" >> $env:GITHUB_ENV
+          }
+        shell: pwsh
+
+      - name: Checkout
+        if: steps.notDocRelease.outputs.notDocRelease
+        uses: actions/checkout@v4
+
+      - name: Create release
+        if: steps.notDocRelease.outputs.notDocRelease
+        run: gh release create --fail-no-commits --generate-notes --latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  cdn-push:
+    name: Push new release to Azure CDN
+    # Does not run if the release is a doc release
+    needs: [release]
+    if: needs.release.outputs.notDocRelease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}
+          service-principal-clientId: ${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}
+
+      - name: Upload release to CDN
+        uses: azure/cli@v2
+        env:
+          azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
+          azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+        with:
+          inlineScript: |
+            az account set --subscription ${{ env.azure-subscription-id }}
+            az storage blob upload-batch --destination ${{ env.azure-storage-account-name }}
+
+      - name: Purge CDN cache
+        uses: azure/cli@v2
+        env:
+          azure-subscription-id: ${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}
+          azure-tenant-id: ${{ secrets.AZURE_CDN_TENANT_ID }}

@@ -1,0 +1,19 @@
+name: sanatize-commnit
+on:
+  pull_request:
+    types: [opened, reopened]
+jobs:
+  check-commit:
+    name: Check commit message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for correct naming scheme
+        id: checkNaming
+        run: |
+          $CommitMessage = ${{ github.event.workflow_run.head_commit.message }}
+            if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$')) {
+              exit 0
+            } else {
+              echo "The last commit message did not fit the regex pattern, the check has failed"
+              exit 1
+            }
