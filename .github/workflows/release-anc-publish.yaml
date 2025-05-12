@@ -1,11 +1,9 @@
 name: release-and-publish
 
-# Controls when the workflow will run
 on:
   # Triggers the workflow on push to master i.e when somone merges a pull request on master
   push:
     branches: [ "master" ]
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow has two jobs, 1 creates a new release, the second pushes the release to the CDN
   release:
@@ -16,12 +14,12 @@ jobs:
       newVersionNumber: ${{ steps.newVersionNumber.outputs.newVersionNumber}}
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
+      # We can assume that the commit message follows the naming conventions here because they have been sanitized during the PR
       - name: Check release type
         id: release
         run: .github/workflows/scripts/release-and-publish/determineReleaseType.ps1
