@@ -8,19 +8,26 @@ $MajorVersionNumber = [int]$CurrentRelease.tagName.split(".")[0]
 $NormalVersionNumber = [int]$CurrentRelease.tagName.split(".")[1]
 $MinorVersionNumber = [int]$CurrentRelease.tagName.split(".")[3]
 
+$NewMinorVersionNumber = $MajorVersionNumber
+$NewNormalVersionNumber = $NormalVersionNumber
+$NewMajorVersionNumber = $MinorVersionNumber
+
 switch ($Env:ReleaseType) {
   fix {
-    $MinorVersionNumber = $MinorVersionNumber + 1
+    $NewMinorVersionNumber = $MinorVersionNumber + 1
+    Write-Output "::notice::Increasing minor version number from: $MinorVersionNumber to $NewMinorVersionNumber"
   }
   feat {
-    $NormalVersionNumber = $NormalVersionNumber + 1
+    $NewNormalVersionNumber = $NormalVersionNumber + 1
+    Write-Output "::notice::Increasing middle version number from: $NormalVersionNumber to $NewNormalVersionNumber"
   }
   breaking {
-    $MajorVersionNumber = $MajorVersionNumber + 1
+    $NewMajorVersionNumber = $MajorVersionNumber + 1
+    Write-Output "::notice::Increasing major version number from: $MajorVersionNumber to $NewMajorVersionNumber"
   }
 }
 
-$NewTagVersion = "$MajorVersionNumber.$NormalVersionNumber.$MinorVersionNumber"
+$NewTagVersion = "$NewMajorVersionNumber.$NewNormalVersionNumber.$NewMinorVersionNumber"
 
 Write-Output "::notice::New version is: $NewTagVersion"
 
