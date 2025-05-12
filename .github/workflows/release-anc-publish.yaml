@@ -79,18 +79,28 @@ jobs:
         with:
           creds: '{ "clientSecret": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}", "subscriptionId": "${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}", "tenantId": "${{ secrets.AZURE_CDN_TENANT_ID }}", "clientId": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}"}'
 
+      - name: Set up Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
       - name: Prepare files for upload
         run: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
         shell: pwsh
 
       - name: Upload release to CDN
-        uses: azure/CLI@v2
-        with:
-          inlineScript: |
-            az storage blob upload-batch -d ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }} --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} --destination-path "dsve/v/${{ needs.release.outputs.newVersionNumber }}/" --source "./actions-tmp/"
+        shell: pwsh
+        env:
+          azureStorageBlobContainerName: ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }}
+          azureStorageAccountName: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+          newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
+        run: |
+          az storage blob upload-batch -d $Env:azureStorageBlobContainerName --account-name $Env:azureStorageAccountName --destination-path "dsve/v/$Env:newVersionNumber/" --source "./actions-tmp/"
 
       - name: Purge CDN cache
-        uses: azure/cli@v2
-        with:
-          inlineScript: |
-            az cdn endpoint purge --content-paths "/dsve/*" --profile-name ${{secrets.AZURE_CDN_PROFILE_NAME}} --name ${{secrets.AZURE_CDN_ENDPOINT_NAME}} --resource-group ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
+        shell: pwsh
+        env:
+          azureCDNProfileName: ${{secrets.AZURE_CDN_PROFILE_NAME}}
+          azureCDNEndpointName: ${{secrets.AZURE_CDN_ENDPOINT_NAME}}
+          azureCDNResourceGroup: ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
+        run: |
+          az cdn endpoint purge --content-paths "/dsve/*" --profile-name $Env:azureCDNProfileName --name $Env:azureCDNEndpointName --resource-group $Env:azureCDNResourceGroup
