@@ -86,6 +86,7 @@ jobs:
           azure-storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
         with:
           inlineScript: |
+            ls
             az account set --subscription ${{ env.azure-subscription-id }}
             az storage blob upload-batch --destination ${{ env.azure-storage-account-name }}
 
