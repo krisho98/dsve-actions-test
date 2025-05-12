@@ -1,5 +1,5 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
-$CurrentRelease = (gh release list --repo github.com/$Env:github.repository | Select-Object -First 1)
+$CurrentRelease = (gh release list --repo github.com/$Env:github.action_repository | Select-Object -First 1)
 
 Write-Output "::notice::Latest release in this repository was a release with name: $CurrentRelease"
 
