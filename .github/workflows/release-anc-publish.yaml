@@ -68,7 +68,7 @@ jobs:
   cdn-push:
     name: Push new release to Azure CDN
     # Does not run if the release is a doc release
-    needs: [release, newVersionNumber]
+    needs: [release]
     if: needs.release.outputs.releaseType != 'doc'
     runs-on: ubuntu-latest
     steps:
