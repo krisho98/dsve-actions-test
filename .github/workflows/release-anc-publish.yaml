@@ -62,8 +62,7 @@ jobs:
           --repo ${{ github.repositoryUrl }} \
           --title 'v${{ steps.newVersionNumber.outputs.newVersionNumber}}' \
           --generate-notes \
-          --notes "# New release version: ${{ steps.newVersionNumber.outputs.newVersionNumber}}
-            *This is an automated release triggered by the merge of a pull request in the repository: ${{ github.repositoryUrl }}. Please see the Pull request that caused this release for further details.*"
+          --notes "# New release version: ${{ steps.newVersionNumber.outputs.newVersionNumber}} *This is an automated release triggered by the merge of a pull request in the repository: ${{ github.repositoryUrl }}. Please see the Pull request that caused this release for further details.*" \
           /
 
   cdn-push:
