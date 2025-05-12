@@ -1,5 +1,8 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
-$CurrentRelease = (gh release list --repo github.com/$Env:github.action_repository | Select-Object -First 1)
+$OriginUrlRaw = git remote -v | Select-Object -First 1
+$TrimStart = $OriginUrlRaw.Substring($OriginUrlRaw.IndexOf("//") + 2)
+$RepositoryURI = $TrimStart.Substring(0, $TrimStart.IndexOf(".git"))
+$CurrentRelease = (gh release list --repo $RepositoryURI | Select-Object -First 1)
 
 Write-Output "::notice::Latest release in this repository was a release with name: $CurrentRelease"
 
