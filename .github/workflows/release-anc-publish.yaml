@@ -64,6 +64,7 @@ jobs:
           body: |
             # New release version: ${{ steps.newVersionNumber.outputs.newVersionNumber}}
             *This is an automated release triggered by the merge of a pull request in the repository: ${{ github.repositoryUrl }}. Please see the Pull request that caused this release for further details.*
+
   cdn-push:
     name: Push new release to Azure CDN
     # Does not run if the release is a doc release
