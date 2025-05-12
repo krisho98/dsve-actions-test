@@ -3,7 +3,7 @@ $RepositoryHost = $Env:RepositoryHost.Substring($Env:RepositoryHost.indexOf("/")
 $RepositoryURI = "$Env:RepositoryHost/$Env:RepositoryURI"
 $CurrentReleaseName = gh release view --repo $RepositoryURI
 
-Write-Output "::notice::Latest release in this repository was a release with name: $CurrentReleaseName"
+Write-Output "::notice::Latest release in this repository was a release with name: ${CurrentReleaseName | Select-Object -Property title}"
 
 if ( $CommitMessage -match '^doc:.*$') {
   Add-Content -Value "releaseType=doc" -Path $Env:GITHUB_OUTPUT -Encoding utf8
