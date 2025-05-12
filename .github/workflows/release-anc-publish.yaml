@@ -59,6 +59,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create \
+          --tag ${{ steps.newVersionNumber.outputs.newVersionNumber}} \
           --repo ${{ github.repositoryUrl }} \
           --title 'v${{ steps.newVersionNumber.outputs.newVersionNumber}}' \
           --generate-notes \
