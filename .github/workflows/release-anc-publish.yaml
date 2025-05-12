@@ -23,21 +23,10 @@ jobs:
       # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
       - name: Check release type
         id: release
-        run: |
-          $CommitMessage = git log --format=%B -n 1 HEAD
-          if ( $CommitMessage -match '^doc:.*$') {
-            Add-Content -Value "releaseType=doc" -Path $Env:GITHUB_OUTPUT -Encoding utf8
-          } elseif ( $CommitMessage -match '^fix:(\s|\S)*$' ) {
-            Add-Content -Value "releaseType=fix" -Path $Env:GITHUB_OUTPUT -Encoding utf8
-          } elseif ( $CommitMessage -match '^feat:(\s|\S)*$' ) {
-            Add-Content -Value "releaseType=feat" -Path $Env:GITHUB_OUTPUT -Encoding utf8
-          } elseif ( $CommitMessage -match '^feat!:(\s|\S)*$' ) {
-            Add-Content -Value "releaseType=breaking" -Path $Env:GITHUB_OUTPUT -Encoding utf8
-          } else {
-            Write-Output "::error title=Naming-Convention-Error::The commit message did not follow the agreed apon naming convention"
-            exit 1
-          }
+        run: ./workflows/scripts/release-and-publish/determineReleaseType.ps1
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create release
         if: steps.release.outputs.releaseType != 'doc'
