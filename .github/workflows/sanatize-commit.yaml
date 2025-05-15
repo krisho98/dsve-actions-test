@@ -33,4 +33,4 @@ jobs:
             exit 1
           }
         env:
-          Event: ${{ secrets.GITHUB_TOKEN }}
+          Event: ${{ github.event }}
