@@ -13,5 +13,5 @@ jobs:
         env:
           trigger: ${{ github.ref_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          prUrl: ${{ github.event.pull_request }}
+          prUrl: ${{ github.ref }}
         run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
