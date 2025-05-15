@@ -1,23 +1,17 @@
 name: sanatize-commnit
 on:
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, reopened, edited, synchronize]
 jobs:
   check-commit:
     name: Check commit message
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Check for correct naming scheme
         id: checkNaming
         shell: pwsh
-        run: |
-          $CommitMessage = git log --format=%B -n 1 HEAD
-          if ( $CommitMessage -match '^(fix|feat|feat!|doc):(\s|\S)*$') {
-            exit 0
-          } else {
-            Write-Output "::error title=Naming-Convention-Error::The commit message did not follow the agreed apon naming convention"
-            exit 1
-          }
+        env:
+          trigger: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          prUrl: ${{ github.ref }}
+        run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
