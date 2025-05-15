@@ -13,7 +13,7 @@ jobs:
       - name: Check for correct naming scheme
         id: checkNaming
         shell: pwsh
-        run: .github/workflows/scripts/release-and-publish/determineReleaseType.ps1
+        run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
         env:
           trigger: ${{ github.ref_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
