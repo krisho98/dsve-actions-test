@@ -2,8 +2,8 @@
 Write-Output "GitHub Host: $Env:gitHubHost"
 Write-Output "Repo Path: $Env:repoPath"
 Write-Output "PR Path: $Env:prPath"
-
-$PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($Env:prPath.substring($Env:prPath.indexOf("pull/")))"
+$mergeLessPRPath = $Env:prPath.Substring(0, $Env:prPath.indexOf("/merge"))
+$PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($mergeLessPRPath.Substring($mergeLessPRPath.indexOf("pull/")))"
 
 Write-Output "PR URL: $PullRequestUrl"
 
