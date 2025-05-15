@@ -1,7 +1,7 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
 $releaseType = ""
 
-Write-Output "::notify::$Env"
+Write-Output "::notify::$Env:commit"
 
 #Determine commit message
 #if ($Env:)
