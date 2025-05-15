@@ -7,6 +7,9 @@ jobs:
     name: Check commit message
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Check for correct naming scheme
         id: checkNaming
         shell: pwsh
