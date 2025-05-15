@@ -10,8 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
-      # We can assume that the commit message follows the naming conventions here because they have been sanitized during the PR
+      # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release.
+      # Uses the same script as the same step in the release-and-publish workflow. This script errors out if the naming convention is not followed.
       - name: Check release type
         id: releaseType
         run: .github/workflows/scripts/shared/determineReleaseType.ps1
