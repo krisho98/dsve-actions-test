@@ -22,12 +22,13 @@ jobs:
       # We can assume that the commit message follows the naming conventions here because they have been sanitized during the PR
       - name: Check release type
         id: release
-        run: .github/workflows/scripts/release-and-publish/determineReleaseType.ps1
+        run: .github/workflows/scripts/shared/determineReleaseType.ps1
         shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RepositoryURI: ${{ github.repository }}
-          RepositoryHost: ${{ github.server_url }}
+          repoPath: ${{ github.repository }}
+          gitHubHost: ${{ github.server_url }}
+          commit: ${{ github.event.commits }}
 
       #Does not run if the merge was a doc change
       - name: Determine new version number

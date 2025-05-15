@@ -1,6 +1,12 @@
 $CommitMessage = git log --format=%B -n 1 HEAD
 $releaseType = ""
 
+Write-Output "::notify::$Env"
+
+#Determine commit message
+#if ($Env:)
+#$CommitMessage = gh pr view $PullRequestUrl --json commits | ConvertFrom-Json | Select-Object -Expand commits | ForEach-Object { $_.messageHeadline } | Select-Object -Last 1
+
 #Determine release type based on commit message.
 if ( $CommitMessage -match '^doc:(\s|\S)*$') {
   $releaseType = 'doc'
