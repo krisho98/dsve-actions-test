@@ -28,7 +28,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           repoPath: ${{ github.repository }}
           gitHubHost: ${{ github.server_url }}
-          commit: ${{ github.event.head_commit.message }}
+          mergeCommitMessage: ${{ github.event.head_commit.message }}
 
       #Does not run if the merge was a doc change
       - name: Determine new version number

@@ -20,13 +20,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           repoPath: ${{ github.repository }}
           gitHubHost: ${{ github.server_url }}
-          commit: ${{ github.event.commits }}
+          prPath: ${{ github.ref }}
 
-      - name: Check for correct naming scheme
-        id: checkNaming
+
+      - name: Approve the Pull Request
+        id: approvePullRequest
         shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          releaseType: ${{ steps.releaseType.outputs.releaseType }}
+          repoPath: ${{ github.repository }}
+          gitHubHost: ${{ github.server_url }}
+          prPath: ${{ github.ref }}
+          commitMessage: ${{ steps.releaseType.outputs.commitMessage }}
 
-        run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
+        run: .github/workflows/scripts/sanitize-commit/approve-pull-request.ps1
