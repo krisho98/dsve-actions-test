@@ -1,13 +1,9 @@
 #Find pull-request URL:
-Write-Output "GitHub Host: $Env:gitHubHost"
-Write-Output "Repo Path: $Env:repoPath"
-Write-Output "PR Path: $Env:prPath"
-$mergeLessPRPath = $Env:prPath.Substring(0, $Env:prPath.indexOf("/merge"))
-$PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($mergeLessPRPath.Substring($mergeLessPRPath.indexOf("pull/")))"
+$mergeLessPRPath = $Env:prPath.Substring(0, $Env:prPath.indexOf("/merge")) #Trim off "/merge"
+$PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($mergeLessPRPath.Substring($mergeLessPRPath.indexOf("pull/")))" #Combine to URL, remove "/refs" i.e only include "pull/<nr>"
 
-Write-Output "PR URL: $PullRequestUrl"
-
-$CommitMessage = git log --format=%B -n 1 HEAD
+#Bruk Github CLI til å finne siste commit melding i PRen
+$CommitMessage = gh pr view $PullRequestUrl --json commits | ConvertFrom-Json | Select-Object -Expand commits | ForEach-Object { $_.messageHeadline } | Select-Object -Last 1
 if ( $CommitMessage -match '^doc:(\s|\S)*$') {
   Write-Output "::notice::The latest commit indicates a documentation change. Merging this pull-request will not alter the version number."
   exit 0
