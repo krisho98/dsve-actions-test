@@ -21,4 +21,3 @@ switch ($Env:releaseType) {
     exit 0
   }
 }
-gh pr review $PullRequestUrl --approve
