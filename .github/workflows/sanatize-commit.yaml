@@ -13,7 +13,10 @@ jobs:
       - name: Check for correct naming scheme
         id: checkNaming
         shell: pwsh
+        env:
+          event: ${{ github.event }}
         run: |
+          Write-Output $Env:event
           $CommitMessage = git log --format=%B -n 1 HEAD
           if ( $CommitMessage -match '^doc:(\s|\S)*$') {
             Write-Output "::notice::The latest commit indicates a documentation change. Merging this pull-request will not alter the version number."
