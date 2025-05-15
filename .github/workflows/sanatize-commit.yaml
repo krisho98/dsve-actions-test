@@ -31,6 +31,7 @@ jobs:
           repoPath: ${{ github.repository }}
           gitHubHost: ${{ github.server_url }}
           prPath: ${{ github.ref }}
+          releaseType: ${{ steps.releaseType.outputs.releaseType }}
           commitMessage: ${{ steps.releaseType.outputs.commitMessage }}
 
         run: .github/workflows/scripts/sanitize-commit/approve-pull-request.ps1

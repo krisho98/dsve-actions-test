@@ -2,7 +2,7 @@
 $mergeLessPRPath = $Env:prPath.Substring(0, $Env:prPath.indexOf("/merge")) #Trim off "/merge"
 $PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($mergeLessPRPath.Substring($mergeLessPRPath.indexOf("pull/")))" #Combine to URL, remove "/refs" i.e only include "pull/<nr>"
 
-switch ($Env:ReleaseType) {
+switch ($Env:releaseType) {
   doc {
     Write-Output "::notice::The latest commit indicates a documentation change. Merging this pull-request will not alter the version number."
     gh pr review $PullRequestUrl --approve --comment "The naming is confirmed. The latest commit indicates a documentation change. Merging this pull-request will not alter the version number."
