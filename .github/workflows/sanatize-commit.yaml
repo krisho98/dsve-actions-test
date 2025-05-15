@@ -10,8 +10,8 @@ jobs:
       - name: Check for correct naming scheme
         id: checkNaming
         shell: pwsh
+        run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
         env:
           trigger: ${{ github.ref_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           prUrl: ${{ github.ref }}
-        run: .github/workflows/scripts/sanitize-commit/sanitize-commit.ps1
