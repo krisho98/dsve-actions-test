@@ -3,6 +3,10 @@ Write-Output "GitHub Host: $Env:gitHubHost"
 Write-Output "Repo Path: $Env:repoPath"
 Write-Output "PR Path: $Env:prPath"
 
+$PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($Env:prPath.substring($Env:prPath.indexOf("pull/")))"
+
+Write-Output "PR URL: $PullRequestUrl"
+
 $CommitMessage = git log --format=%B -n 1 HEAD
 if ( $CommitMessage -match '^doc:(\s|\S)*$') {
   Write-Output "::notice::The latest commit indicates a documentation change. Merging this pull-request will not alter the version number."
